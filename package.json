@@ -1,0 +1,21 @@
+{
+  "name": "khanabdullah.com",
+  "version": "1.0.0",
+  "description": "This is my new and improved home on the internet.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullah-K/khanabdullah.com.git"
+  },
+  "author": "Abdullah F. Khan",
+  "bugs": {
+    "url": "https://github.com/abdullah-K/khanabdullah.com/issues"
+  },
+  "homepage": "http://khanabdullah.com",
+  "dependencies": {
+    "express": "^4.16.1",
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0"
+  }
+}
