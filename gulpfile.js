@@ -1,4 +1,5 @@
-var gulp = require('gulp'), sass = require('gulp-sass'), pug = require('gulp-pug');
+var gulp = require('gulp'),
+    sass = require('gulp-sass');
 
 // task to compile sass files on save
 gulp.task('sass', function() {
@@ -7,24 +8,13 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('public/css/'));
 });
 
-// task to compile main pug file on save
-gulp.task('pug', function() {
- return gulp.src('public/*.pug')
- .pipe(pug({
-    doctype: 'html',
-    pretty: true
- }))
- .pipe(gulp.dest('public/'));
-});
-
+// gulp watch task to watch for file changes
 gulp.task('watch', function() {
   gulp.watch('public/css/*.sass', ['sass']);
-  gulp.watch('public/*.pug', ['pug']);
 });
 
 // default gulp task - is executed automatically on `gulp` command
 gulp.task('default', function() {
-    gulp.watch('public/*.sass', ['styles']);
-    // run the main tasks - including watching for file changes
-    gulp.start('sass', 'pug', 'watch');
+    // run the main tasks - including the watch task
+    gulp.start('sass', 'watch');
 });
