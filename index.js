@@ -11,8 +11,18 @@ for (var x in routes){
 }
 
 // ignore favicon.ico GET request
-app.get('/favicon.ico', function(req, res) {
+app.get('/favicon.ico', function (req, res) {
     res.status(204);
+});
+
+// handles error 404 responses
+app.use(function(req, res, next) {
+    res.status(404).render('404');
+});
+
+// handles error 500 responses
+app.use(function(req, res, next) {
+    res.status(500).render('500');
 });
 
 // development
