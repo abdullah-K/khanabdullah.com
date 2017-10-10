@@ -1,2 +1,6 @@
 body {
-  background: #191919; }
+  background: #191919;
+  color: gainsboro; }
+
+::selection {
+  background: #e0e0e0; }

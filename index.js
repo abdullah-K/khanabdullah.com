@@ -17,12 +17,12 @@ app.get('/favicon.ico', function (req, res) {
 
 // handles error 404 responses
 app.use(function(req, res, next) {
-    res.status(404).render('404');
+    res.status(404).render('errors/404');
 });
 
 // handles error 500 responses
 app.use(function(req, res, next) {
-    res.status(500).render('500');
+    res.status(500).render('errors/500');
 });
 
 // development
