@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 body {
   background: #191919;
-  color: gainsboro; }
+  color: gainsboro;
+  font-family: "Ubuntu Mono"; }
 
 ::selection {
   background: #e0e0e0; }
