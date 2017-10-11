@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const routes = require('./routes/main');
 
-app.use(express.static(__dirname + '/public'))
-app.set('view engine', 'pug')
+app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'pug');
 
 // create all routes
 for (var x in routes){
@@ -17,12 +17,12 @@ app.get('/favicon.ico', function (req, res) {
 
 // handles error 404 responses
 app.use(function(req, res, next) {
-    res.status(404).render('errors/404');
+    res.status(404).render('errors/404', {title: 'Error 4-oh-4!'});
 });
 
 // handles error 500 responses
 app.use(function(req, res, next) {
-    res.status(500).render('errors/500');
+    res.status(500).render('errors/500', {title: 'Server Error!'});
 });
 
 // development
