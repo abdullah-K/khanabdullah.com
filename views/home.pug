@@ -1,4 +1,36 @@
 extends layout
+block head
+  // animate.css CDN
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
+  // clientJS CDN
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js")
 block content
-  h1 hello!
-  
+  #intro
+    h2#main-heading.headline.size-limit-heading.hide Hello, stranger.
+    p#intro-text.size-limit-text.hide Well, you aren't really
+      br
+      |  a stranger to me, 
+      span.client-info#ip-address
+      | .  
+      br
+      | You're viewing this page using 
+      span.client-info#browser
+      br.line-break-intro
+      |  on 
+      span.client-info#operating-system
+      |  from  
+      span.client-info#place
+      | . Of course, I  
+      br.line-break-intro
+      | have no proof of this information if
+      br.line-break-intro
+      | you are behind a proxy or a VPN.
+      br
+      br.line-break-intro
+      | Alright, enough about you; 
+      br.line-break-intro
+      | you're probably wondering
+      br
+      | who I am.
+    h2#about-me.size-limit-heading.hide I am Abdullah Khan.
+  script(src="/js/home.js")
