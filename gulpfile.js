@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 // task to compile sass files on save
 gulp.task('sass', function() {
     return gulp.src('public/css/styles.sass')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest('public/css/'));
 });
 
