@@ -7,6 +7,7 @@ const headline = document.getElementById("main-heading");
 setTimeout(function(){
   headline.classList.remove("hide");
   headline.classList.add("fadeInDown", "animated");
+  headline.classList.add("glitch");
   updateScroll();
 }, 1600);
 
