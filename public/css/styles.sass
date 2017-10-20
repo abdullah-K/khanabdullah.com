@@ -37,6 +37,45 @@ body
   transition: 0.3s
 .hide
   display: none
+
+@keyframes noise-anim
+  $steps: 12
+
+  @for $i from 0 through $steps
+    #{percentage($i * 1 / $steps)}
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0)
+
+.glitch:after
+  content: attr(data-text)
+  position: absolute
+  left: 3.1vw
+  // green
+  text-shadow: -4px 0 #227131
+  color: white
+  background: black
+  overflow: hidden
+  clip: rect(0, 900px, 0, 0)
+  animation: noise-anim 2s infinite linear alternate-reverse
+
+@keyframes noise-anim-2
+  $steps: 12
+
+  @for $i from 0 through $steps
+    #{percentage($i * 1 / $steps)}
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0)
+
+.glitch:before
+  content: attr(data-text)
+  position: absolute
+  left: 2.4vw
+  // blue-ish
+  text-shadow: 4px 0 #294ad8
+  color: white
+  background: black
+  overflow: hidden
+  clip: rect(0, 900px, 0, 0)
+  animation: noise-anim-2 3s infinite linear alternate-reverse
+
 #intro>p
   margin-left: 5vw
   font-weight: 700
