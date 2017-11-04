@@ -1,3 +1,5 @@
+let timeoutBase = 500;
+
 function updateScroll(){
   const intro = document.getElementById("intro");
   intro.scrollTop = intro.scrollHeight;
@@ -9,9 +11,13 @@ setTimeout(() => {
   headline.classList.add("fadeInDown", "animated");
   headline.classList.add("glitch");
   updateScroll();
-}, 1600);
+}, timeoutBase + 1100);
 
-var getJSON = (url, callback) => {
+/*
+TODO: use promises (maybe?)
+https://developers.google.com/web/fundamentals/primers/promises#promise-terminology
+*/
+const getJSON = (url, callback) => {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
   xhr.responseType = "json";
@@ -46,7 +52,7 @@ getJSON("https://ipinfo.io/json", (err, ipInfo) => {
         clientInfoBrowser.innerHTML = clientJS.getBrowser();
       clientInfoSystem.innerHTML = clientJS.getOS();
       clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
-    }, 4200);
+    }, timeoutBase + 4000);
   }
   else {
     alert("oops! it seems like there's an issue.");
@@ -54,7 +60,7 @@ getJSON("https://ipinfo.io/json", (err, ipInfo) => {
 });
 
 function parallaxScroll(){
-  var parallax = document.querySelectorAll(".parallax"), speed = 0.5;
+  let parallax = document.querySelectorAll(".parallax"), speed = 0.5;
   window.onscroll = () => {
     [].slice.call(parallax).forEach((el,i) => {
       var windowYOffset = window.pageYOffset,
@@ -65,10 +71,9 @@ function parallaxScroll(){
 }
 
 setTimeout(() => {
-  //console.log(introText.classList.contains("hide"));
   const aboutMe = document.getElementById("about-me");
-setTimeout(() => {
-  aboutMe.classList.remove("hide");
-  aboutMe.classList.add("fadeIn", "animated");
-}, (introText.classList.contains("hide") == false) ? 14000 : 500);
-}, 5000);
+  setTimeout(() => {
+    aboutMe.classList.remove("hide");
+    aboutMe.classList.add("fadeIn", "animated");
+  }, (introText.classList.contains("hide") == false) ? timeoutBase * 20 : timeoutBase);
+}, timeoutBase * 12);
