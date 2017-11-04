@@ -12,5 +12,22 @@ html(lang="en")
     // main CSS file
     link(rel="stylesheet", href="/css/styles.min.css")
     block head
+
   body.parallax(onload="parallaxScroll()")
-  block content
+    noscript
+      h1.size-limit-heading.animated.fadeIn.margin-mid hmm, if you came here to look at a blank page...
+      h2.size-limit-text.animated.fadeIn.margin-mid you're in the right place!
+      h4.size-limit-text.animated.fadeIn.margin-max if not, you might wanna enable JavaScript on here.
+        br
+        | (I promise, no sneaky trackers or any of that stuff...)
+    block content
+    block scripts
+
+    block footer
+      // TODO: add footer content (logo and text)
+      footer#footer.hide
+        a#footer-link(href='http://khanabdullah.com')
+          #footer-content
+            img(src='', alt='Logo - Abdullah Khan')
+            .footer-text
+              p.footer-headline Abdullah Khan
