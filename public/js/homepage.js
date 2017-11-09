@@ -14,8 +14,9 @@ setTimeout(() => {
 }, timeoutBase + 1100);
 
 /*
-TODO: use promises (maybe?)
+TODO: use promises!
 https://developers.google.com/web/fundamentals/primers/promises#promise-terminology
+https://codepen.io/abdullah-k/pen/EbNPxO
 */
 const getJSON = (url, callback) => {
   let xhr = new XMLHttpRequest();
@@ -72,8 +73,11 @@ function parallaxScroll(){
 
 setTimeout(() => {
   const aboutMe = document.getElementById("about-me");
+  const footer = document.getElementById("footer");
   setTimeout(() => {
     aboutMe.classList.remove("hide");
     aboutMe.classList.add("fadeIn", "animated");
-  }, (introText.classList.contains("hide") == false) ? timeoutBase * 20 : timeoutBase);
+    footer.classList.remove("hide");
+    footer.classList.add("fadeIn", "animated");
+  }, (introText.classList.contains("hide") == false) ? timeoutBase * 17 : timeoutBase);
 }, timeoutBase * 12);

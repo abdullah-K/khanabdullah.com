@@ -9,6 +9,8 @@ html(lang="en")
     meta(name="description" content=description)
     // normalize.css CDN for a consistent cross-browser CSS reset
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+    // website favicon
+    link(rel="icon" href="https://avatars2.githubusercontent.com/u/21252681?s=460")
     // main CSS file
     link(rel="stylesheet", href="/css/styles.min.css")
     block head
@@ -24,10 +26,7 @@ html(lang="en")
     block scripts
 
     block footer
-      // TODO: add footer content (logo and text)
-      footer#footer.hide
-        a#footer-link(href='http://khanabdullah.com')
-          #footer-content
-            img(src='', alt='Logo - Abdullah Khan')
-            .footer-text
-              p.footer-headline Abdullah Khan
+    footer#footer.hide
+      a#footer-link(href='https://khanabdullah.com' target="_blank")
+        #footer-content
+          img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
