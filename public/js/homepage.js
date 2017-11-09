@@ -8,30 +8,25 @@ function updateScroll(){
 const headline = document.getElementById("main-heading");
 setTimeout(() => {
   headline.classList.remove("hide");
-  headline.classList.add("fadeInDown", "animated");
-  headline.classList.add("glitch");
+  headline.classList.add("fadeInDown", "animated", "glitch");
   updateScroll();
 }, timeoutBase + 1100);
 
-/*
-TODO: use promises!
-https://developers.google.com/web/fundamentals/primers/promises#promise-terminology
-https://codepen.io/abdullah-k/pen/EbNPxO
-*/
-const getJSON = (url, callback) => {
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-  xhr.responseType = "json";
-  xhr.onload = () => {
-    let status = xhr.status;
-    if (status === 200) {
-      callback(null, xhr.response);
-    } else {
-      callback(status, xhr.response);
-    }
-  };
-  xhr.send();
+const getJSON = (url) => {
+  return new Promise((resolve, reject) => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = () => {
+      let status = xhr.status;
+      status == 200 ? resolve(xhr.response) : reject(xhr.status);
+    };
+    xhr.send();
+  });
 };
+
+// alternative: https://ipapi.co/json
+const getIpData = getJSON("https://ipinfo.io/json");
 
 const introText = document.getElementById("intro-text");
 const clientInfoIP = document.getElementById("ip-address");
@@ -39,25 +34,26 @@ const clientInfoBrowser = document.getElementById("browser");
 const clientInfoSystem = document.getElementById("operating-system");
 const clientInfoPlace = document.getElementById("place");
 
-getJSON("https://ipinfo.io/json", (err, ipInfo) => {
-  if (ipInfo && ipInfo != "" && ipInfo.ip != undefined && ipInfo.ip != "undefined") {
-    setTimeout(() => {
-      introText.classList.remove("hide");
-      introText.classList.add("fadeIn", "animated");
-      clientInfoIP.innerHTML = ipInfo.ip;
-      const clientJS = new ClientJS();
-      if (/Edge\/12./i.test(navigator.userAgent))
-        // apparently Edge likes to think it's Chrome; according to the user agent...
-        clientInfoBrowser.innerHTML = "Edge";
-      else
-        clientInfoBrowser.innerHTML = clientJS.getBrowser();
-      clientInfoSystem.innerHTML = clientJS.getOS();
-      clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
-    }, timeoutBase + 4000);
-  }
-  else {
-    alert("oops! it seems like there's an issue.");
-  }
+function showIntro(ipInfo) {
+  setTimeout(() => {
+    introText.classList.remove("hide");
+    introText.classList.add("fadeIn", "animated");
+    clientInfoIP.innerHTML = ipInfo.ip;
+    const clientJS = new ClientJS();
+    if (/Edge\/12./i.test(navigator.userAgent))
+      // apparently Edge likes to think it's Chrome; according to the user agent...
+      clientInfoBrowser.innerHTML = "Edge";
+    else
+      clientInfoBrowser.innerHTML = clientJS.getBrowser();
+    clientInfoSystem.innerHTML = clientJS.getOS();
+    clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
+  }, timeoutBase + 4000);
+}
+
+getIpData.then(ipInfo => {
+  (ipInfo && ipInfo != "" && ipInfo.ip != undefined && ipInfo.ip != "undefined") ? showIntro(ipInfo) : () => {throw new error("Promise resolved with rejected status.");};
+}).catch(error => {
+  console.log('Hmmm, it seems like there\'s an issue :( \n ' + error);
 });
 
 function parallaxScroll(){
