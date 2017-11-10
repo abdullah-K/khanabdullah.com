@@ -19,7 +19,16 @@ const getJSON = (url) => {
     xhr.responseType = 'json';
     xhr.onload = () => {
       let status = xhr.status;
-      status == 200 ? resolve(xhr.response) : reject(xhr.status);
+      status == 200 ? resolve(xhr.response) : reject({
+        status: this.status,
+        statusText: xhr.statusText,
+      });
+    };
+    xhr.onerror = () => {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText,
+      });
     };
     xhr.send();
   });
@@ -28,11 +37,11 @@ const getJSON = (url) => {
 // alternative: https://ipapi.co/json
 const getIpData = getJSON("https://ipinfo.io/json");
 
-const introText = document.getElementById("intro-text");
-const clientInfoIP = document.getElementById("ip-address");
-const clientInfoBrowser = document.getElementById("browser");
-const clientInfoSystem = document.getElementById("operating-system");
-const clientInfoPlace = document.getElementById("place");
+const introText = document.getElementById("intro-text"),
+      clientInfoIP = document.getElementById("ip-address"),
+      clientInfoBrowser = document.getElementById("browser"),
+      clientInfoSystem = document.getElementById("operating-system"),
+      clientInfoPlace = document.getElementById("place");
 
 function showIntro(ipInfo) {
   setTimeout(() => {
@@ -51,10 +60,15 @@ function showIntro(ipInfo) {
 }
 
 getIpData.then(ipInfo => {
-  (ipInfo && ipInfo != "" && ipInfo.ip != undefined && ipInfo.ip != "undefined") ? showIntro(ipInfo) : () => {throw new error("Promise resolved with rejected status.");};
+  if(ipInfo && ipInfo != "" && ipInfo.ip != undefined && ipInfo.ip != "undefined")
+    showIntro(ipInfo);
 }).catch(error => {
-  console.log('Hmmm, it seems like there\'s an issue :( \n ' + error);
+  console.log('Hmmm, it seems like there\'s an issue... \n' +
+              ' - running error handler to hide intro text (and continue to display other content)');
 });
+
+// TODO: disable parallax on mobile devices (it looks buggy and weird)
+// var isMobile = client.isMobile();
 
 function parallaxScroll(){
   let parallax = document.querySelectorAll(".parallax"), speed = 0.5;
@@ -68,8 +82,8 @@ function parallaxScroll(){
 }
 
 setTimeout(() => {
-  const aboutMe = document.getElementById("about-me");
-  const footer = document.getElementById("footer");
+  const aboutMe = document.getElementById("about-me"),
+        footer = document.getElementById("footer");
   setTimeout(() => {
     aboutMe.classList.remove("hide");
     aboutMe.classList.add("fadeIn", "animated");
