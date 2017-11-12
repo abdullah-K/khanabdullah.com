@@ -50,6 +50,9 @@ body
 .size-limit-text
   +responsive-font(2vw, 14px, 15.5px)
 
+.size-limit-nav
+  +responsive-font(2vw, 15px, 21px)
+
 \::-webkit-scrollbar
   width: 12px
   height: 12px
@@ -148,6 +151,25 @@ body
 
 #footer-content
   width: 100%
+
+#links
+  transition: 0.3s
+  display: inline-flex
+  position: absolute
+  bottom: 2%
+  margin-left: 3vw
+  vertical-align: middle
+  line-height: 35px
+  font-weight: 700
+  letter-spacing: 3px
+  padding-right: 4vw
+  @media (max-width: $break-small)
+    display: block
+    .dash
+      display: none
+
+.dash
+  padding: 0 8px 0 8px
 
 #footer-logo
   width: 80px
