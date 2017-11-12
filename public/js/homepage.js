@@ -67,11 +67,10 @@ getIpData.then(ipInfo => {
               ' - running error handler to hide intro text (and continue to display other content)');
 });
 
-// TODO: disable parallax on mobile devices (it looks buggy and weird)
-// var isMobile = client.isMobile();
-
 function parallaxScroll(){
-  let parallax = document.querySelectorAll(".parallax"), speed = 0.5;
+  let parallax = document.querySelectorAll(".parallax"), 
+      speed = (document.documentElement.clientWidth < 420) ? 0 : 0.5;
+      
   window.onscroll = () => {
     [].slice.call(parallax).forEach((el,i) => {
       var windowYOffset = window.pageYOffset,
