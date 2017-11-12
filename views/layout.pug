@@ -23,10 +23,23 @@ html(lang="en")
         br
         | (I promise, no sneaky trackers or any of that stuff...)
     block content
-    block scripts
 
     block footer
-    footer#footer.hide
+    footer#footer
       a#footer-link(href='https://khanabdullah.com' target="_blank")
         #footer-content
           img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
+    
+    block scripts
+    script
+      | function parallaxScroll(){
+      |  let parallax = document.querySelectorAll(".parallax"),
+      |      speed = (document.documentElement.clientWidth < 420) ? 0 : 0.5;
+      |  window.onscroll = () => {
+      |    [].slice.call(parallax).forEach((el,i) => {
+      |      var windowYOffset = window.pageYOffset,
+      |          bgPos = "50% " + (windowYOffset * speed) + "px";
+      |      el.style.backgroundPosition = bgPos;
+      |    });
+      |  };
+      |}
