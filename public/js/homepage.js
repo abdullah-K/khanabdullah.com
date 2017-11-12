@@ -5,6 +5,8 @@ function updateScroll(){
   intro.scrollTop = intro.scrollHeight;
 }
 
+document.getElementById("footer").classList.add("hide");
+
 const headline = document.getElementById("main-heading");
 setTimeout(() => {
   headline.classList.remove("hide");
@@ -34,6 +36,11 @@ const getJSON = (url) => {
   });
 };
 
+const fadeIn = element => {
+  element.classList.remove("hide");
+  element.classList.add("fadeIn", "animated")
+}
+
 // alternative: https://ipapi.co/json
 const getIpData = getJSON("https://ipinfo.io/json");
 
@@ -45,8 +52,7 @@ const introText = document.getElementById("intro-text"),
 
 function showIntro(ipInfo) {
   setTimeout(() => {
-    introText.classList.remove("hide");
-    introText.classList.add("fadeIn", "animated");
+    fadeIn(introText)
     clientInfoIP.innerHTML = ipInfo.ip;
     const clientJS = new ClientJS();
     if (/Edge\/12./i.test(navigator.userAgent))
@@ -67,26 +73,13 @@ getIpData.then(ipInfo => {
               ' - running error handler to hide intro text (and continue to display other content)');
 });
 
-function parallaxScroll(){
-  let parallax = document.querySelectorAll(".parallax"),
-      speed = (document.documentElement.clientWidth < 420) ? 0 : 0.5;
-
-  window.onscroll = () => {
-    [].slice.call(parallax).forEach((el,i) => {
-      var windowYOffset = window.pageYOffset,
-          bgPos = "50% " + (windowYOffset * speed) + "px";
-      el.style.backgroundPosition = bgPos;
-    });
-  };
-}
-
 setTimeout(() => {
   const aboutMe = document.getElementById("about-me"),
-        footer = document.getElementById("footer");
+        footer = document.getElementById("footer"),
+        links = document.getElementById("links");
   setTimeout(() => {
-    aboutMe.classList.remove("hide");
-    aboutMe.classList.add("fadeIn", "animated");
-    footer.classList.remove("hide");
-    footer.classList.add("fadeIn", "animated");
+    fadeIn(aboutMe);
+    fadeIn(footer);
+    fadeIn(links);
   }, (introText.classList.contains("hide") == false) ? timeoutBase * 17 : timeoutBase);
 }, timeoutBase * 12);
