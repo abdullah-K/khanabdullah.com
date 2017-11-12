@@ -68,9 +68,9 @@ getIpData.then(ipInfo => {
 });
 
 function parallaxScroll(){
-  let parallax = document.querySelectorAll(".parallax"), 
+  let parallax = document.querySelectorAll(".parallax"),
       speed = (document.documentElement.clientWidth < 420) ? 0 : 0.5;
-      
+
   window.onscroll = () => {
     [].slice.call(parallax).forEach((el,i) => {
       var windowYOffset = window.pageYOffset,
