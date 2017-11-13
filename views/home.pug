@@ -6,7 +6,7 @@ block scripts
   // main JS file for the homepage
   script(src="/js/homepage.js")
 
-block content
+append content
   #intro
     h2#main-heading.headline.size-limit-heading.hide(data-text="Hello, stranger.") Hello, stranger.
     p#intro-text.size-limit-text.hide Well, you aren't really
@@ -35,13 +35,3 @@ block content
       br
       | who I am.
     h2#about-me.size-limit-heading.hide.glitch(data-text="I am Abdullah Khan.") I am Abdullah Khan.
-
-  #links.hide
-    p.size-limit-nav
-      a(target="_blank" href="https://github.com/abdullah-K") GitHub
-      span.dash |
-    p.size-limit-nav
-      a(target="_blank" href="https://codepen.io/abdullah-K") Codepen
-      span.dash |
-    p.size-limit-nav
-      a(target="_blank" href="/projects") Portfolio

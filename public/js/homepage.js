@@ -6,6 +6,7 @@ function updateScroll(){
 }
 
 document.getElementById("footer").classList.add("hide");
+document.getElementById("links").classList.add("hide");
 
 const headline = document.getElementById("main-heading");
 setTimeout(() => {
