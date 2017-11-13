@@ -5,5 +5,5 @@ let projects = require('./projects');
 
 module.exports = {
     "/": home,
-    "/projects" : projects
+    "/portfolio" : projects
 };
