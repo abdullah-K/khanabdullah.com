@@ -1,5 +1,11 @@
 extends layout
 
+block scripts
+  // clientJS CDN
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js")
+  // main JS file for the homepage
+  script(src="/js/homepage.js")
+
 block content
   #intro
     h2#main-heading.headline.size-limit-heading.hide(data-text="Hello, stranger.") Hello, stranger.
@@ -39,10 +45,3 @@ block content
       span.dash |
     p.size-limit-nav
       a(target="_blank" href="/projects") Portfolio
-
-  block scripts
-  // clientJS CDN
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js")
-  // main JS file for the homepage
-  script(src="/js/homepage.js")
-  append footer

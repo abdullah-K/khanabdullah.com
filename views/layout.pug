@@ -25,12 +25,11 @@ html(lang="en")
     block content
 
     block footer
-    footer#footer
-      a#footer-link(href='https://khanabdullah.com' target="_blank")
-        #footer-content
-          img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
+      footer#footer
+        a#footer-link(href='https://khanabdullah.com' target="_blank")
+          #footer-content
+            img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
     
-    block scripts
     script
       | function parallaxScroll(){
       |  let parallax = document.querySelectorAll(".parallax"),
@@ -43,3 +42,4 @@ html(lang="en")
       |    });
       |  };
       |}
+    block scripts
