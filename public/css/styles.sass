@@ -152,17 +152,19 @@ body
 #links
   transition: 0.3s
   display: inline-flex
-  position: absolute
   bottom: 2%
   margin-left: 3vw
   vertical-align: middle
   line-height: 35px
   font-weight: 700
+  position: fixed
   text-transform: uppercase
   letter-spacing: 3px
   padding-right: 4vw
   @media (max-width: $break-small)
     display: block
+    line-height: 10px
+    bottom: 1%
     .dash
       display: none
 
@@ -181,7 +183,7 @@ body
   background-color: rgba(16, 16, 16, 0.60)
   transition: 0.3s
   @media (max-width: $break-small)
-    width: 40px
+    width: 50px
   @media (max-width: $break-tiny)
     width: 30px
   &:hover
