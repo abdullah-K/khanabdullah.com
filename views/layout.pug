@@ -37,9 +37,7 @@ html(lang="en")
           a(target="_blank" href="/portfolio") Portfolio
           span.dash |
         p.size-limit-nav
-          a(href="#") Email
-
-    //- TODO (priority): add JS code to handle email "copy-to-clipboard" functionality
+          a(href="#" id="email-link" title="click to see") Email
         
     block footer
       footer#footer
@@ -59,4 +57,5 @@ html(lang="en")
       |    });
       |  };
       |}
+      | document.getElementById('email-link').addEventListener("click", () => prompt("you can copy my email, below: ", "abdullahkhan0503@gmail.com"))
     block scripts

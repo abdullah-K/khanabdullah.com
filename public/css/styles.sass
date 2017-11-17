@@ -21,7 +21,7 @@
 // breakpoints //
 $break-tiny: 300px
 $break-small: 420px
-$break-mid: 500px
+$break-mid: 530px
 $break-large: 1000px
 
 // colours //
@@ -85,7 +85,7 @@ body
   background: $main-background
   overflow: hidden
   clip: rect(0, 900px, 0, 0)
-  animation: noise-anim 2s infinite linear alternate-reverse
+  animation: noise-anim 5s infinite linear alternate-reverse
   @media (max-width: $break-tiny)
     animation: none
 
@@ -106,7 +106,7 @@ body
   background: $main-background
   overflow: hidden
   clip: rect(0, 900px, 0, 0)
-  animation: noise-anim-2 3s infinite linear alternate-reverse
+  animation: noise-anim-2 5s infinite linear alternate-reverse
   @media (max-width: $break-tiny)
     animation: none
 
@@ -177,6 +177,7 @@ body
     color: gainsboro
 
 .dash
+  pointer-events: none
   padding: 0 10px 0 10px
 
 #footer-logo
