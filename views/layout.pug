@@ -15,6 +15,9 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.min.css")
     block head
 
+  //- TODO: add a full height/width div with bottom positioning and a black gradient fade effect 
+    to give the footer (links and logo) some kind of a background
+
   body.parallax(onload="parallaxScroll()")
     noscript
       h1.size-limit-heading.animated.fadeIn.margin-mid hmm, if you came here to look at a blank page...
@@ -32,7 +35,11 @@ html(lang="en")
           span.dash |
         p.size-limit-nav
           a(target="_blank" href="/portfolio") Portfolio
-        // TODO: add contact link here, but use JS to prevent spammy crawlers and stuff (no mailto link!)
+          span.dash |
+        p.size-limit-nav
+          a(href="#") Email
+
+    //- TODO (priority): add JS code to handle email "copy-to-clipboard" functionality
         
     block footer
       footer#footer
