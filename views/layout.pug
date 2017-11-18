@@ -15,9 +15,6 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.min.css")
     block head
 
-  //- TODO: add a full height/width div with bottom positioning and a black gradient fade effect 
-    to give the footer (links and logo) some kind of a background
-
   body.parallax(onload="parallaxScroll()")
     noscript
       h1.size-limit-heading.animated.fadeIn.margin-mid hmm, if you came here to look at a blank page...
@@ -44,7 +41,7 @@ html(lang="en")
         a#footer-link(href='https://khanabdullah.com' target="_blank")
           #footer-content
             img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
-    
+    #bottom-background
     script
       | function parallaxScroll(){
       |  let parallax = document.querySelectorAll(".parallax"),

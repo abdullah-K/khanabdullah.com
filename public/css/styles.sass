@@ -142,10 +142,21 @@ body
 .margin-max
   margin: 2vw 0 1vw 5vw
 
+#bottom-background
+  position: absolute
+  z-index: 0
+  //background: rgba(50, 50, 50, 0.5)
+  background-image: linear-gradient(bottom, $main-background 0%, transparentize($main-background, 0.7) 100%)
+  bottom: 0
+  left: 0
+  width: 100vw
+  height: 10vw
+
 #footer
   position: fixed
   right: 2%
   bottom: 2%
+  z-index: 4
 
 #footer-content
   width: 100%
@@ -154,6 +165,7 @@ body
   transition: 0.3s
   display: inline-flex
   bottom: 2%
+  z-index: 3
   margin-left: 3vw
   vertical-align: middle
   line-height: 35px
