@@ -23,14 +23,12 @@ const getJSON = (url) => {
     xhr.onload = () => {
       let status = xhr.status;
       status == 200 ? resolve(xhr.response) : reject({
-        status: this.status,
-        statusText: xhr.statusText,
+        status: xhr.statusText
       });
     };
     xhr.onerror = () => {
       reject({
-        status: this.status,
-        statusText: xhr.statusText,
+        status: xhr.statusText
       });
     };
     xhr.send();
@@ -67,7 +65,7 @@ function showIntro(ipInfo) {
 }
 
 getIpData.then(ipInfo => {
-  if(ipInfo && ipInfo != "" && ipInfo.ip != undefined && ipInfo.ip != "undefined")
+  if(ipInfo.ip != undefined)
     showIntro(ipInfo);
 }).catch(error => {
   console.log('Hmmm, it seems like there\'s an issue... \n' +
