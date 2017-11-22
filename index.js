@@ -1,10 +1,17 @@
-// TODO: add gzip compression to express
+const express = require('express'),
+      compression = require('compression'),
+      app = express(),
+      routes = require('./routes/main'),
+      port = 8080;
 
-const express = require('express');
-const app = express();
-const routes = require('./routes/main');
+// one month cache period for static files
+let cacheTime = 30 * 24 * 60 * 60 * 1000;
 
-app.use(express.static(__dirname + '/public'));
+// compress all app responses
+app.use(compression());
+// use the 'public' directory to serve static files (and set cache time)
+app.use(express.static(__dirname + '/public', {maxAge: cacheTime}));
+// set express view engine to render Pug
 app.set('view engine', 'pug');
 
 // create all routes
@@ -12,7 +19,7 @@ for (var x in routes){
   app.use(x, routes[x]);
 }
 
-// ignore favicon.ico GET request
+// ignore favicon.ico GET request (it's handled by the view engine)
 app.get('/favicon.ico', function (req, res) {
     res.status(204);
 });
@@ -28,5 +35,5 @@ app.use(function(req, res, next) {
 });
 
 // development
-app.listen(8080);
-console.log("server is live!");
+app.listen(port);
+console.log("server is live on port " + port + "!");
