@@ -1,3 +1,5 @@
+// TODO: add gzip compression to express
+
 const express = require('express');
 const app = express();
 const routes = require('./routes/main');
