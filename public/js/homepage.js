@@ -18,12 +18,12 @@ setTimeout(() => {
   updateScroll();
 }, timeoutBase + 1100);
 
-// XHR Prmoise function to GET json data 
+// XHR Prmoise function to GET json data
 const getJSON = (url) => {
   return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
+    xhr.open("GET", url, true);
+    xhr.responseType = "json";
     xhr.onload = () => {
       let status = xhr.status;
       status == 200 ? resolve(xhr.response) : reject({
@@ -39,7 +39,7 @@ const getJSON = (url) => {
   });
 };
 
-// generic function to apply fade in animation to any element on the page 
+// generic function to apply fade in animation to any element on the page
 const fadeIn = element => {
   element.classList.remove("hide");
   element.classList.add("fadeIn", "animated");
@@ -56,8 +56,8 @@ const introText = document.getElementById("intro-text"),
       clientInfoSystem = document.getElementById("operating-system"),
       clientInfoPlace = document.getElementById("place");
 
-// function to set the text of the elements defined above using 
-// the data from client.js and the JSON ip data 
+// function to set the text of the elements defined above using
+// the data from client.js and the JSON ip data
 function showIntro(ipInfo) {
   setTimeout(() => {
     fadeIn(introText);
@@ -79,12 +79,12 @@ getIpData.then(ipInfo => {
   if(ipInfo.ip != undefined)
     showIntro(ipInfo);
 }).catch(error => {
-  console.log('Hmmm, it seems like there\'s an issue... \n' +
-              ' - running error handler to hide intro text (and continue to display other content)');
+  console.log("Hmmm, it seems like there\'s an issue... \n" +
+              " - running error handler to hide intro text (and continue to display other content)");
 });
 
 // setTimeout to display the footer and the links div, which is why we hid it in the first place.
-// the timeout time is based on the intro paragraph being hidden or not. 
+// the timeout time is based on the intro paragraph being hidden or not.
 setTimeout(() => {
   const aboutMe = document.getElementById("about-me"),
         footer = document.getElementById("footer"),
