@@ -18,6 +18,12 @@ setTimeout(() => {
   updateScroll();
 }, timeoutBase + 1100);
 
+/* TODO: add a feature which rejects the JSON promise if it takes longer than X milliseconds to load
+  resources:
+  https://caniuse.com/#feat=resource-timing
+  https://stackoverflow.com/questions/313893/how-to-measure-time-taken-by-a-function-to-execute#1975103
+*/
+
 // XHR Prmoise function to GET json data
 const getJSON = (url) => {
   return new Promise((resolve, reject) => {
