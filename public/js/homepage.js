@@ -6,10 +6,6 @@ function updateScroll(){
   intro.scrollTop = intro.scrollHeight;
 }
 
-// hide the footer and the links div in the beginning (for homepage only)
-document.getElementById("footer").classList.add("hide");
-document.getElementById("links").classList.add("hide");
-
 // apply animations to the homepage headline
 const headline = document.getElementById("main-heading");
 setTimeout(() => {
@@ -17,12 +13,6 @@ setTimeout(() => {
   headline.classList.add("fadeInDown", "animated", "glitch");
   updateScroll();
 }, timeoutBase + 1100);
-
-/* TODO: add a feature which rejects the JSON promise if it takes longer than X milliseconds to load
-  resources:
-  https://caniuse.com/#feat=resource-timing
-  https://stackoverflow.com/questions/313893/how-to-measure-time-taken-by-a-function-to-execute#1975103
-*/
 
 // XHR Prmoise function to GET json data
 const getJSON = (url) => {
@@ -64,11 +54,10 @@ const introText = document.getElementById("intro-text"),
 
 // function to set the text of the elements defined above using
 // the data from client.js and the JSON ip data
+const clientJS = new ClientJS();
 function showIntro(ipInfo) {
   setTimeout(() => {
-    fadeIn(introText);
     clientInfoIP.innerHTML = ipInfo.ip;
-    const clientJS = new ClientJS();
     if (/Edge\/12./i.test(navigator.userAgent))
       // apparently Edge likes to think it's Chrome; according to the user agent...
       clientInfoBrowser.innerHTML = "Edge";
@@ -76,16 +65,17 @@ function showIntro(ipInfo) {
       clientInfoBrowser.innerHTML = clientJS.getBrowser();
     clientInfoSystem.innerHTML = clientJS.getOS();
     clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
+    fadeIn(introText);
   }, timeoutBase + 4000);
 }
 
 // if getting the JSON was successful, show the intro paragraph
 // (if there was an error, keep the paragraph hidden and display a friendly console message)
 getIpData.then(ipInfo => {
-  if(ipInfo.ip != undefined)
+  if(ipInfo.ip != undefined && clientJS.getBrowser() !== "")
     showIntro(ipInfo);
 }).catch(error => {
-  console.log("Hmmm, it seems like there\'s an issue... \n" +
+  console.error("Hmmm, it seems like there\'s an issue... \n" +
               " - running error handler to hide intro text (and continue to display other content)");
 });
 
@@ -99,5 +89,5 @@ setTimeout(() => {
     fadeIn(aboutMe);
     fadeIn(footer);
     fadeIn(links);
-  }, (introText.classList.contains("hide") == false) ? timeoutBase * 17 : timeoutBase);
+  }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 17 : timeoutBase);
 }, timeoutBase * 12);
