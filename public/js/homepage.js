@@ -54,7 +54,7 @@ const introText = document.getElementById("intro-text"),
 
 // function to set the text of the elements defined above using
 // the data from client.js and the JSON ip data
-const clientJS = new ClientJS();
+let clientJS = new ClientJS();
 function showIntro(ipInfo) {
   setTimeout(() => {
     clientInfoIP.innerHTML = ipInfo.ip;
@@ -64,7 +64,7 @@ function showIntro(ipInfo) {
     else
       clientInfoBrowser.innerHTML = clientJS.getBrowser();
     clientInfoSystem.innerHTML = clientJS.getOS();
-    clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
+    clientInfoPlace.innerHTML = `${ipInfo.city},${"\xa0"}${ipInfo.country}`;
     fadeIn(introText);
   }, timeoutBase + 4000);
 }
