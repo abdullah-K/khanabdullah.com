@@ -15,7 +15,7 @@ html(lang="en")
     link(rel="stylesheet", href="/css/styles.min.css")
     block head
 
-  body.parallax(onload="parallaxScroll()")
+  body
     noscript
       h1.size-limit-heading.animated.fadeIn.margin-mid hmm, if you came here to look at a blank page...
       h2.size-limit-text.animated.fadeIn.margin-mid you're in the right place!
@@ -43,16 +43,5 @@ html(lang="en")
             img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
     #bottom-background
     script
-      | function parallaxScroll(){
-      |  let parallax = document.querySelectorAll(".parallax"),
-      |      speed = (document.documentElement.clientWidth < 420) ? 0 : 0.5;
-      |  window.onscroll = () => {
-      |    [].slice.call(parallax).forEach((el,i) => {
-      |      var windowYOffset = window.pageYOffset,
-      |          bgPos = "50% " + (windowYOffset * speed) + "px";
-      |      el.style.backgroundPosition = bgPos;
-      |    });
-      |  };
-      |}
       | document.getElementById('email-link').addEventListener("click", () => prompt("you can copy my email, below: ", "abdullahkhan0503@gmail.com"))
     block scripts
