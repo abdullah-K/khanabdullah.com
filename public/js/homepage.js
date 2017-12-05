@@ -52,6 +52,9 @@ const introText = document.getElementById("intro-text"),
       clientInfoSystem = document.getElementById("operating-system"),
       clientInfoPlace = document.getElementById("place");
 
+// DOM variables for the about paragraph
+const aboutText = document.getElementById('about-text');
+
 // function to set the text of the elements defined above using
 // the data from client.js and the JSON ip data
 let clientJS = new ClientJS();
@@ -87,6 +90,7 @@ setTimeout(() => {
         links = document.getElementById("links");
   setTimeout(() => {
     fadeIn(aboutMe);
+    fadeIn(aboutText);
     fadeIn(footer);
     fadeIn(links);
   }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 17 : timeoutBase);
