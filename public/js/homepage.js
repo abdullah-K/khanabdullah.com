@@ -6,6 +6,9 @@ function updateScroll(){
   intro.scrollTop = intro.scrollHeight;
 }
 
+// TODO: implement a small cookie system to check whether the user has visited the site already
+// https://hackernoon.com/web-cookies-for-everyone-a047a055419e
+
 // apply animations to the homepage headline
 const headline = document.getElementById("main-heading");
 setTimeout(() => {
@@ -23,12 +26,12 @@ const getJSON = (url) => {
     xhr.onload = () => {
       let status = xhr.status;
       status == 200 ? resolve(xhr.response) : reject({
-        status: xhr.statusText
+        status: xhr.status
       });
     };
     xhr.onerror = () => {
       reject({
-        status: xhr.statusText
+        status: xhr.status
       });
     };
     xhr.send();
