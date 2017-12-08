@@ -1,20 +1,26 @@
 // the base time for all the setTimeout functions
 let timeoutBase = 500;
 
-function updateScroll(){
-  const intro = document.getElementById("intro");
-  intro.scrollTop = intro.scrollHeight;
+const headline = document.getElementById("main-heading");
+
+function notFirstVisit(boolean){
+  const span = document.getElementById("notFirstVisit");
+  if (boolean === true){
+    span.classList.remove("hide");
+    headline.setAttribute("data-text", "Hello again, stranger.");
+  }
+  else{
+    localStorage.noFirstVisit = true;
+  }
 }
 
-// TODO: implement a small cookie system to check whether the user has visited the site already
-// https://hackernoon.com/web-cookies-for-everyone-a047a055419e
-
 // apply animations to the homepage headline
-const headline = document.getElementById("main-heading");
 setTimeout(() => {
+  // check if it is user's first visit (depending on that, display or hide the "again" span)
+  (!localStorage.noFirstVisit) ? notFirstVisit(false) : notFirstVisit(true);
+  // show the headline
   headline.classList.remove("hide");
   headline.classList.add("fadeInDown", "animated", "glitch");
-  updateScroll();
 }, timeoutBase + 1100);
 
 // XHR Prmoise function to GET json data
