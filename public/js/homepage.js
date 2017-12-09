@@ -23,7 +23,7 @@ setTimeout(() => {
   (!localStorage.noFirstVisit) ? notFirstVisit(false) : notFirstVisit(true);
   // show the headline
   headline.classList.remove("hide");
-  headline.classList.add("fadeInDown", "animated", "glitch");
+  headline.classList.add("fadeIn", "animated", "glitch");
 }, timeoutBase + 1100);
 
 // XHR Prmoise function to GET json data
