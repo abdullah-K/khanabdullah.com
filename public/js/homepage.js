@@ -3,12 +3,15 @@ let timeoutBase = 500;
 
 const headline = document.getElementById("main-heading");
 
+// apply function whether it's the user's first visit or not
 function notFirstVisit(boolean){
   const span = document.getElementById("notFirstVisit");
+  // if it isn't the user's first visit, display the "again" in the headline
   if (boolean === true){
     span.classList.remove("hide");
     headline.setAttribute("data-text", "Hello again, stranger.");
   }
+  // if it is the user's first time, then set the localStorage variable for next time
   else{
     localStorage.noFirstVisit = true;
   }
@@ -49,7 +52,6 @@ const fadeIn = element => {
   element.classList.remove("hide");
   element.classList.add("fadeIn", "animated");
 };
-
 
 // alternative: https://ipapi.co/json
 const getIpData = getJSON("https://ipinfo.io/json");
