@@ -14,9 +14,9 @@ app.use(express.static(__dirname + "/public", {maxAge: cacheTime}));
 // set express view engine to render Pug
 app.set("view engine", "pug");
 
-// create all routes
-for (var x in routes){
-  app.use(x, routes[x]);
+// create all routes using individual pages
+for (let pages in routes){
+  app.use(pages, routes[pages]);
 }
 
 // ignore favicon.ico GET request (it's handled by the view engine)
