@@ -7,7 +7,7 @@ const express = require("express"),
 // one month cache period for static files
 let cacheTime = 30 * 24 * 60 * 60 * 1000;
 
-// compress all app responses
+// compress all app responses (before sending to client)
 app.use(compression());
 // use the 'public' directory to serve static files (and set cache time)
 app.use(express.static(__dirname + "/public", {maxAge: cacheTime}));
@@ -18,6 +18,7 @@ app.set("view engine", "pug");
 for (let pages in routes){
   app.use(pages, routes[pages]);
 }
+
 
 // ignore favicon.ico GET request (it's handled by the view engine)
 app.get("/favicon.ico", function (req, res) {
@@ -34,6 +35,5 @@ app.use(function(req, res, next) {
     res.status(500).render("errors/500", {title: "Server Error!"});
 });
 
-// development
 app.listen(port);
 console.log("server is live on port " + port + "!");
