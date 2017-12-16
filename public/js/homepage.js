@@ -4,7 +4,7 @@ let timeoutBase = 500;
 const headline = document.getElementById("main-heading");
 
 // apply function whether it's the user's first visit or not
-function notFirstVisit(boolean){
+let notFirstVisit = (boolean) => {
   const span = document.getElementById("notFirstVisit");
   // if it isn't the user's first visit, display the "again" in the headline
   if (boolean === true){
@@ -15,7 +15,7 @@ function notFirstVisit(boolean){
   else{
     localStorage.noFirstVisit = true;
   }
-}
+};
 
 // apply animations to the homepage headline
 setTimeout(() => {
@@ -64,12 +64,12 @@ const introText = document.getElementById("intro-text"),
       clientInfoPlace = document.getElementById("place");
 
 // DOM variables for the about paragraph
-const aboutText = document.getElementById('about-text');
+const aboutText = document.getElementById("about-text");
 
 // function to set the text of the elements defined above using
 // the data from client.js and the JSON ip data
 let clientJS = new ClientJS();
-function showIntro(ipInfo) {
+let showIntro = (ipInfo) => {
   setTimeout(() => {
     clientInfoIP.innerHTML = ipInfo.ip;
     if (/Edge\/12./i.test(navigator.userAgent))
@@ -81,7 +81,7 @@ function showIntro(ipInfo) {
     clientInfoPlace.innerHTML = `${ipInfo.city},${"\xa0"}${ipInfo.country}`;
     fadeIn(introText);
   }, timeoutBase + 4000);
-}
+};
 
 // if getting the JSON was successful, show the intro paragraph
 // (if there was an error, keep the paragraph hidden and display a friendly console message)
@@ -89,7 +89,7 @@ getIpData.then(ipInfo => {
   if(ipInfo.ip != undefined && clientJS.getBrowser() !== "")
     showIntro(ipInfo);
 }).catch(error => {
-  console.error("Hmmm, it seems like there\'s an issue... \n" +
+  console.log("Hmmm, it seems like there\'s an issue... \n" +
               " - running error handler to hide intro text (and continue to display other content)");
 });
 
@@ -104,5 +104,6 @@ setTimeout(() => {
     fadeIn(aboutText);
     fadeIn(footer);
     fadeIn(links);
+    footer.ondragstart = () => false;
   }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 17 : timeoutBase);
 }, timeoutBase * 12);
