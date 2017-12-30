@@ -19,7 +19,6 @@ for (let pages in routes){
   app.use(pages, routes[pages]);
 }
 
-
 // ignore favicon.ico GET request (it's handled by the view engine)
 app.get("/favicon.ico", function (req, res) {
     res.status(204);
@@ -36,4 +35,4 @@ app.use(function(req, res, next) {
 });
 
 app.listen(port);
-console.log("server is live on port " + port + "!");
+console.log(`server is live on port ${port}!`);
