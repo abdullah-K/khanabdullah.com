@@ -25,7 +25,7 @@ html(lang="en")
     noscript
       h1.size-limit-heading.animated.fadeIn.margin-mid hmm, if you came here to look at a blank page...
       h2.size-limit-text.animated.fadeIn.margin-mid you're in the right place!
-      h4.size-limit-text.animated.fadeIn.margin-max if not, you might wanna enable JavaScript on here.
+      h4.size-limit-text.animated.fadeIn.margin-max if not, you might want to enable JavaScript on here.
         br
         | (I promise, no sneaky trackers or any of that stuff...)
     block content
@@ -37,7 +37,7 @@ html(lang="en")
           a(target="_blank" href="https://codepen.io/abdullah-K") Codepen
           span.dash |
         p.size-limit-nav
-          a(target="_blank" href="/portfolio") Portfolio
+          a(target="_blank" href="/blog") Blog
           span.dash |
         p.size-limit-nav
           a(href="#" id="email-link" title="click to see") Email
@@ -49,5 +49,5 @@ html(lang="en")
             img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
     #bottom-background
     script
-      | document.getElementById('email-link').addEventListener("click", () => prompt("you can copy my email, below: ", "abdullahkhan0503@gmail.com"))
+      | document.getElementById("email-link").addEventListener("click",function(){prompt("you can copy my email, below: ","abdullahkhan0503@gmail.com")});
     block scripts
