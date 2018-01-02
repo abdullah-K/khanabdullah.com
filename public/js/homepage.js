@@ -69,7 +69,7 @@ let showIntro = (ipInfo) => {
     else
       clientInfoBrowser.innerHTML = clientJS.getBrowser();
     clientInfoSystem.innerHTML = clientJS.getOS();
-    clientInfoPlace.innerHTML = `${ipInfo.city},${"\xa0"}${ipInfo.country}`;
+    clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
     fadeIn(introText);
   }, timeoutBase + 4000);
 };
