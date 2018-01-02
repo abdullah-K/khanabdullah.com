@@ -1,9 +1,9 @@
 /* routes handler file */
 
 let home = require("./home");
-let projects = require("./projects");
+let blog = require("./blog");
 
 module.exports = {
     "/": home,
-    "/portfolio" : projects
+    "/blog" : blog
 };
