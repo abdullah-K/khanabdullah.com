@@ -1,12 +1,10 @@
 extends layout
 
 block scripts
+  script(src="https://cdn.jsdelivr.net/npm/clientjs@0.1.11/dist/client.min.js")
   script
     | document.getElementById("footer").classList.add("hide"),document.getElementById("links").classList.add("hide");
-  // clientJS CDN
-  script(src="https://cdn.jsdelivr.net/npm/clientjs@0.1.11/dist/client.min.js")
-  // main JS file for the homepage
-  script(async src="/js/homepage.js")
+    | (!(navigator.userAgent.indexOf("MSIE")<0)) ? (document.write ("<script src=\"/js/homepage-oldie.js\"></scr"+"ipt>")) : (document.write ("<script async src=\"/js/homepage.js\"></scr"+"ipt>"));
 
 append content
   #intro
