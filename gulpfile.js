@@ -5,9 +5,9 @@ const gulp = require('gulp'),
 
 // task to compile sass files on save and output a minified CSS file
 gulp.task('sass', () => {
-    return gulp.src('public/css/styles.sass')
+    return gulp.src('public/css/*.sass')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(rename('styles.min.css'))
+        .pipe(rename((path) => {path.basename += ".min"}))
         .pipe(prefix())
         .pipe(gulp.dest('public/css/'));
 });
