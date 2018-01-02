@@ -20,18 +20,18 @@ for (let pages in routes){
 }
 
 // ignore favicon.ico GET request (it's handled by the view engine)
-app.get("/favicon.ico", function (req, res) {
-    res.status(204);
+app.get("/favicon.ico", function (request, response) {
+    response.status(204);
 });
 
 // handles error 404 responses
-app.use(function(req, res, next) {
-    res.status(404).render("errors/404", {title: "Error 4-oh-4!"});
+app.use(function(request, response, next) {
+    response.status(404).render("errors/404", {title: "Error 4-oh-4!"});
 });
 
 // handles error 500 responses
-app.use(function(req, res, next) {
-    res.status(500).render("errors/500", {title: "Server Error!"});
+app.use(function(request, response, next) {
+    response.status(500).render("errors/500", {title: "Server Error!"});
 });
 
 app.listen(port);
