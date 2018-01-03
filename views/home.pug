@@ -4,9 +4,22 @@ block scripts
   script(src="https://cdn.jsdelivr.net/npm/clientjs@0.1.11/dist/client.min.js")
   script
     | document.getElementById("footer").classList.add("hide"),document.getElementById("links").classList.add("hide");
+    | document.getElementById("email-link").addEventListener("click",function(){prompt("you can copy my email, below: ","abdullahkhan0503@gmail.com")});
     | (!(navigator.userAgent.indexOf("MSIE")<0)) ? (document.write("<script src=\"https://cdSn.jsdelivr.net/npm/bluebird@3.5.1/js/browser/bluebird.min.js\"></scr"+"ipt>"),document.write("<script src=\"/js/homepage-oldie.js\"></scr"+"ipt>")) : (document.write("<script async src=\"/js/homepage.js\"></scr"+"ipt>"));
 
 append content
+  #links
+    p.size-limit-nav
+      a(target="_blank" href="https://github.com/abdullah-K") GitHub
+      span.dash |
+    p.size-limit-nav
+      a(target="_blank" href="https://codepen.io/abdullah-K") Codepen
+      span.dash |
+    p.size-limit-nav
+      a(target="_blank" href="/blog") Blog
+      span.dash |
+    p.size-limit-nav
+      a(href="#" id="email-link" title="click to see") Email
   #intro
     h2#main-heading.headline.size-limit-heading.hide(data-text="Hello, stranger.") Hello#[span#notFirstVisit.hide  again], stranger.
     p#intro-text.size-limit-text.hide Well, you aren't really

@@ -29,18 +29,6 @@ html(lang="en")
         br
         | (I promise, no sneaky trackers or any of that stuff...)
     block content
-      #links
-        p.size-limit-nav
-          a(target="_blank" href="https://github.com/abdullah-K") GitHub
-          span.dash |
-        p.size-limit-nav
-          a(target="_blank" href="https://codepen.io/abdullah-K") Codepen
-          span.dash |
-        p.size-limit-nav
-          a(target="_blank" href="/blog") Blog
-          span.dash |
-        p.size-limit-nav
-          a(href="#" id="email-link" title="click to see") Email
         
     block footer
       footer#footer
@@ -48,6 +36,4 @@ html(lang="en")
           #footer-content
             img#footer-logo(src='/img/logo_bare.png', alt='Abdullah\'s logo')
     #bottom-background
-    script
-      | document.getElementById("email-link").addEventListener("click",function(){prompt("you can copy my email, below: ","abdullahkhan0503@gmail.com")});
     block scripts
