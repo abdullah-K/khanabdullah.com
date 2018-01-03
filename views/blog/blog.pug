@@ -1,7 +1,5 @@
 extends ../layout
 
-append content
-  #intro
-    h2#main-heading.size-limit-heading.fadeIn.animated I am currently working on finishing this page.
-  append footer
-  block scripts
+block head
+  // CSS file for the blog
+  link(rel="stylesheet" href="/css/blog-styles.min.css?v=1")
