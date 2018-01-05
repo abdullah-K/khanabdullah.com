@@ -5,9 +5,6 @@ block head
   link(rel="stylesheet" href="/css/blog-styles.min.css?v=1")
   
 block content
-  //- temporary:
-  h4 number of posts: !{numberOfPosts}
-
   #posts-container
     -
        let posts = {
@@ -25,8 +22,8 @@ block content
         - let postTitle = posts[`post${n}`].title
         - let postDate = posts[`post${n}`].date
         - let postPreview = posts[`post${n}`].preview
-        a(href=postLink)
-          li.post
-          h4.post-date=postDate
-          h2.post-heading=postTitle
-          p.post-preview=postPreview
+        li.post
+          a(href=postLink target="_blank").post-link
+            h4.post-date=postDate
+            h2.post-heading.size-limit-title=postTitle
+            p.post-preview.size-limit-preview=postPreview
