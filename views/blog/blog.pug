@@ -18,7 +18,7 @@ block content
 
     ul#posts-list
       - for(let n = 0; n < numberOfPosts; n++)
-        - let postLink = "blog/" + posts[`post${n}`].link
+        - let postLink = "/blog/" + posts[`post${n}`].link
         - let postTitle = posts[`post${n}`].title
         - let postDate = posts[`post${n}`].date
         - let postPreview = posts[`post${n}`].preview
