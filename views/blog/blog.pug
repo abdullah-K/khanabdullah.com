@@ -11,14 +11,14 @@ block content
          post0: {
            "link": "introduction",
            "title": "An Introduction",
-           "date": "January 4, 2018",
-           "preview": "this is the post preview, which will be no longer than one sentence."
+           "date": "January 5, 2018",
+           "preview": "Well, I figured I needed to introduce myself and my little corner of the internet to the world!"
          }
        }
 
     ul#posts-list
       - for(let n = 0; n < numberOfPosts; n++)
-        - let postLink = posts[`post${n}`].link
+        - let postLink = "blog/" + posts[`post${n}`].link
         - let postTitle = posts[`post${n}`].title
         - let postDate = posts[`post${n}`].date
         - let postPreview = posts[`post${n}`].preview
