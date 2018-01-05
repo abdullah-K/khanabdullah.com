@@ -20,40 +20,35 @@
 // breakpoints //
 $break-tiny: 300px
 $break-small: 420px
+$break-mid: 530px
 $break-large: 1000px
 
 // colors
 $text-color: gainsboro
 
+.size-limit-content
+  +responsive-font(3vw, 15px, 19px)
 
-.size-limit-title
-  +responsive-font(5vw, 26px, 32px)
-
-.size-limit-preview
-  +responsive-font(2vw, 15px, 18px)
-
-#posts-list
-  list-style: none
-  margin-left: calc(3vw - 1em)
-  margin-top: 5vw
-  margin-right: 1vw
-
-.post-heading
-  margin: 5px 0px 5px 0px
-  transition: 0.2s ease-in-out
+.size-limit-heading
+  +responsive-font(4vw, 30px, 35px)
 
 #post-date
   font-style: italic
-  margin-bottom: 10px
+  margin: 4vw 0 10px 4vw
   color: darken($text-color, 20%)
 
-.post-preview
-  margin-left: 10px
+#post-heading
+  // top-right-bottom-left
+  margin: 10px 0 15px 5vw
 
-.post-link
-  text-decoration: none
-  color: $text-color
-  transition: 0.3s ease-in-out
-  &:hover
-    .post-heading
-      transform: translateX(5px)
+#post-content
+  font-family: monospace
+  line-height: 30px
+  margin: 30px 0 5px 6vw
+  width: 70vw
+  @media (max-width: $break-large)
+    line-height: 28px
+    width: 85vw
+  @media (max-width: $break-small)
+    line-height: 25px
+    width: 75vw
