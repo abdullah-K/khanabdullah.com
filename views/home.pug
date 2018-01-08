@@ -5,7 +5,7 @@ block scripts
   script
     | document.getElementById("footer").classList.add("hide"),document.getElementById("links").classList.add("hide");
     | document.getElementById("email-link").addEventListener("click",function(){prompt("you can copy my email, below: ","abdullahkhan0503@gmail.com")});
-    | (!(navigator.userAgent.indexOf("MSIE")<0)) ? (document.write("<script src=\"https://cdSn.jsdelivr.net/npm/bluebird@3.5.1/js/browser/bluebird.min.js\"></scr"+"ipt>"),document.write("<script src=\"/js/homepage-oldie.js\"></scr"+"ipt>")) : (document.write("<script async src=\"/js/homepage.js\"></scr"+"ipt>"));
+    | if(window.document.documentMode !== undefined){document.write("<script src=\"/js/homepage-oldie.js\"></scr"+"ipt>"))} else{(document.write("<script async src=\"/js/homepage.js\"></scr"+"ipt>"))};
 
 append content
   #links

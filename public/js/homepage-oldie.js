@@ -22,64 +22,19 @@ setTimeout(function () {
   !localStorage.noFirstVisit ? notFirstVisit(false) : notFirstVisit(true);
   // show the headline
   headline.classList.remove("hide");
-  headline.classList.add("fadeIn", "animated", "glitch");
+  headline.classList.add("glitch");
 }, timeoutBase + 1100);
-// XHR Prmoise function to GET json data
-var getJSON = function getJSON(url) {
-  return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "json";
-    xhr.onload = function () {
-      var status = xhr.status;
-      status == 200 ? resolve(xhr.response) : reject({
-        status: xhr.status
-      });
-    };
-    xhr.onerror = function () {
-      reject({
-        status: xhr.status
-      });
-    };
-    xhr.send();
-  });
-};
-// generic function to apply fade in animation to any element on the page
-var fadeIn = function fadeIn(element) {
+
+// generic function to un-hide any element on the page
+var show = function show(element) {
   element.classList.remove("hide");
-  element.classList.add("fadeIn", "animated");
 };
-// alternative: https://ipapi.co/json
-var getIpData = getJSON("https://ipinfo.io/json");
+
 // DOM variables for the intro paragraph only
-var introText = document.getElementById("intro-text"),
-    clientInfoIP = document.getElementById("ip-address"),
-    clientInfoBrowser = document.getElementById("browser"),
-    clientInfoSystem = document.getElementById("operating-system"),
-    clientInfoPlace = document.getElementById("place");
+var introText = document.getElementById("intro-text");
 // DOM variables for the about paragraph
 var aboutText = document.getElementById("about-text");
-// function to set the text of the elements defined above using
-// the data from client.js and the JSON ip data
-var clientJS = new ClientJS();
-var showIntro = function showIntro(ipInfo) {
-  setTimeout(function () {
-    clientInfoIP.innerHTML = ipInfo.ip;
-    if (/Edge\/12./i.test(navigator.userAgent))
-      // apparently Edge likes to think it's Chrome; according to the user agent...
-      clientInfoBrowser.innerHTML = "Edge";else clientInfoBrowser.innerHTML = clientJS.getBrowser();
-    clientInfoSystem.innerHTML = clientJS.getOS();
-    clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
-    fadeIn(introText);
-  }, timeoutBase + 4000);
-};
-// if getting the JSON was successful, show the intro paragraph
-// (if there was an error, keep the paragraph hidden and display a friendly console message)
-getIpData.then(function (ipInfo) {
-  if (ipInfo.ip != undefined && clientJS.getBrowser() !== "") showIntro(ipInfo);
-}).catch(function (error) {
-  console.log("Hmmm, it seems like there\'s an issue... \n" + " - running error handler to hide intro text (and continue to display other content)");
-});
+
 // setTimeout to display the footer and the links div, which is why we hid it in the first place.
 // the timeout time is based on the intro paragraph being hidden or not.
 setTimeout(function () {
@@ -87,10 +42,10 @@ setTimeout(function () {
       footer = document.getElementById("footer"),
       links = document.getElementById("links");
   setTimeout(function () {
-    fadeIn(aboutMe);
-    fadeIn(aboutText);
-    fadeIn(footer);
-    fadeIn(links);
+    show(aboutMe);
+    show(aboutText);
+    show(footer);
+    show(links);
     footer.ondragstart = function () {
       return false;
     };
