@@ -1,7 +1,7 @@
-# khanabdullah.com
-🌎 This is my personal website's repo.  Feel free to check it out! (and Star it, perhaps?)
+# [khanabdullah.com](https://khanabdullah.com)
+🌎 This is everything that makes my personal website and blog tick.  Feel free to check it out! (and Star it, perhaps?)
 
-_Note_: This version of the website is **not currently online**. Right now, the domain points to my old website which will soon be removed (once I've finished working on this one).
+_Note_: This version of the website is **not currently online**. Right now, the domain points to a temporary page which will soon be removed (once I've finished working on this site).
 
 ## Installation
 If you'd like to run this website locally:
