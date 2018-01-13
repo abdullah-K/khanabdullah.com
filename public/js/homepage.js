@@ -6,14 +6,11 @@ const headline = document.getElementById("main-heading");
 let notFirstVisit = (boolean) => {
   const span = document.getElementById("notFirstVisit");
   // if it isn't the user's first visit, display the "again" in the headline
-  if (boolean === true){
-    span.classList.remove("hide");
-    headline.setAttribute("data-text", "Hello again, stranger.");
-  }
-  // if it is the user's first time, then set the localStorage variable for next time
-  else{
+  boolean ? (
+    span.classList.remove("hide"),
+    headline.setAttribute("data-text", "Hello again, stranger.")) :
+    // if it is the user's first time, then set the localStorage variable for next time
     localStorage.noFirstVisit = true;
-  }
 };
 
 // apply animations to the homepage headline
@@ -85,8 +82,7 @@ let showIntro = (ipInfo) => {
 // if getting the JSON was successful, show the intro paragraph
 // (if there was an error, keep the paragraph hidden and display a friendly console message)
 getIpData.then(ipInfo => {
-  if(ipInfo.ip != undefined && clientJS.getBrowser() !== "")
-    showIntro(ipInfo);
+  (ipInfo.ip != undefined && clientJS.getBrowser() !== "") && showIntro(ipInfo);
 }).catch(error => {
   console.log("Hmmm, it seems like there\'s an issue... \n" +
               " - running error handler to hide intro text (and continue to display other content)");
