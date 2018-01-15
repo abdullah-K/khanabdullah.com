@@ -22,14 +22,8 @@ html(lang="en")
     block head
 
   body
-    // TODO: show some content even when JavaScript is disabled on the client-side
-      - don't show the "ipInfo paragraph" on the homepage but, display everything else.
     noscript
-      h1.size-limit-heading.animated.fadeIn.margin-mid hmm, if you came here to look at a blank page...
-      h2.size-limit-text.animated.fadeIn.margin-mid you're in the right place!
-      h4.size-limit-text.animated.fadeIn.margin-max if not, you might want to enable JavaScript on here.
-        br
-        | (I promise, no sneaky trackers or any of that stuff...)
+      <h2 class="headline size-limit-heading glitch" id="main-heading" data-text="Hello, stranger.">Hello, stranger.</h2><h2 class="size-limit-heading glitch" id="about-me" data-text="I am Abdullah Khan.">I am Abdullah Khan.</h2><div id="intro"><p class="size-limit-text" id="about-text">I design and develop. <br/>I could waste your time by building a thorough website which would<br class="line-break"/> convince you that I am good at doing <em>X</em> and possess <em>Y</em> skills but <br class="line-break"/> time is of the essence. <br/><br/> To see what I'm working on these days, take a look at my GitHub page.<br class="line-break"/> Find my musings over at <em>my blog</em> which can be found by following the link below.<br/><br/>Wanna talk? Click on the email link below.</p></div>
     block content
         
     block footer
