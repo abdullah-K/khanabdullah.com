@@ -44,8 +44,6 @@ setTimeout(function () {
   setTimeout(function () {
     show(aboutMe);
     show(aboutText);
-    show(footer);
-    show(links);
     footer.ondragstart = function () {
       return false;
     };

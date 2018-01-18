@@ -97,8 +97,6 @@ setTimeout(() => {
   setTimeout(() => {
     fadeIn(aboutMe);
     fadeIn(aboutText);
-    fadeIn(footer);
-    fadeIn(links);
     footer.ondragstart = () => false;
   }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 17 : timeoutBase);
 }, timeoutBase * 12);

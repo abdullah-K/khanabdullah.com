@@ -3,9 +3,8 @@ extends layout
 block scripts
   script(src="https://cdn.jsdelivr.net/npm/clientjs@0.1.11/dist/client.min.js")
   script
-    | document.getElementById("footer").classList.add("hide"),document.getElementById("links").classList.add("hide");
     | document.getElementById("email-link").addEventListener("click",function(){prompt("you can copy my email, below: ","abdullahkhan0503@gmail.com")});
-    | if(window.document.documentMode !== undefined){document.write("<script src=\"/js/homepage-oldie.js\"></scr"+"ipt>")} else{(document.write("<script async src=\"/js/homepage.js\"></scr"+"ipt>"))};
+    | if(window.document.documentMode !== undefined){document.write("<script src=\"/js/homepage-oldie.js?v=1\"></scr"+"ipt>")} else{(document.write("<script async src=\"/js/homepage.js?v=1\"></scr"+"ipt>"))};
 
 append content
   #links
