@@ -1,9 +1,6 @@
 # node dependency directory
 node_modules/
 
-# npm 5.x package.json lock file
-package-lock.json
-
 # javascript linter config
 .jshintrc
 
