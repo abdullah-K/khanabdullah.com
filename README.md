@@ -1,9 +1,14 @@
+<p align="center">
+  <a target="\_blank" href="https://khanabdullah.com">
+    <img align="center" width="125"src="https://avatars2.githubusercontent.com/u/21252681?s=100&v=4"></img>
+  </a>
+</p>
+
 # [khanabdullah.com](https://khanabdullah.com)
 🌎 This is everything that makes my personal website and blog tick.  Feel free to check it out! (and Star it, perhaps?)
 
-_Note_: This version of the website is **not currently online**. Right now, the domain points to a temporary page which will soon be removed (once I've finished working on this site).
 
-## Installation
+## Run
 If you'd like to run this website locally:
 - `git clone https://github.com/abdullah-K/khanabdullah.com` to somewhere on your local machine.
 - run `npm install` and let it do its thing.
@@ -13,4 +18,4 @@ If you'd like to run this website locally:
 
 ## Contribute
 I will happily accept contributions to this site from you through Pull Requests :grin:.
-If you see any bugs/weird things, please open an Issue on this repository!
+If you see any bugs, weird things, or errors, please open an Issue on this repository!
