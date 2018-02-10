@@ -10,7 +10,7 @@ router.get("/", (request, response) => {
   response.render("home", {title: "Abdullah F. Khan",
                       author: "Abdullah F. Khan",
                       description: "Hello, I\'m Abdullah. Welcome to my home, on the internet."});
-  fs.writeFile("./analytics/homepage.txt", `${homeCounter} homepage visits so far`, function(err) {
+  fs.writeFile("./analytics/homepage.txt", `${homeCounter} homepage visits so far`, (err) => {
       (err) && console.log(err);
   });
 });

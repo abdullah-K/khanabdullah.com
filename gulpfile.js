@@ -18,7 +18,7 @@ gulp.task('watch', () => {
 });
 
 // default gulp task - is executed automatically on `gulp` command
-gulp.task('default', function() {
+gulp.task('default', () => {
     // run the main tasks - including the watch task
     gulp.start('sass', 'watch');
 });
