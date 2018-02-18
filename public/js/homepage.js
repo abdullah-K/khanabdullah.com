@@ -82,7 +82,7 @@ let showIntro = (ipInfo) => {
 // if getting the JSON was successful, show the intro paragraph
 // (if there was an error, keep the paragraph hidden and display a friendly console message)
 getIpData.then(ipInfo => {
-  (ipInfo.ip != "" && clientJS.getBrowser() !== "" && ipInfo.city !== "") && showIntro(ipInfo);
+  (ipInfo.ip !== "" && clientJS.getBrowser() !== "" && ipInfo.city !== "") && showIntro(ipInfo);
 }).catch(error => {
   console.log("Hmmm, it seems like there\'s an issue... \n" +
               " - running error handler to hide intro text (and continue to display other content)");
