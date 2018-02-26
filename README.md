@@ -15,7 +15,3 @@ If you'd like to run this website locally:
 - run `gulp`.
 - run `NODE_ENV=production node index.js` and visit [localhost:8080](http://localhost:8080).
 - marvel at the sight you behold.
-
-## Contribute
-I will happily accept contributions to this site from you through Pull Requests :grin:.
-If you see any bugs, weird things, or errors, please open an Issue on this repository!
