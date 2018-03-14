@@ -1,7 +1,7 @@
 "use strict";
 
 // the base time for all the setTimeout functions
-var timeoutBase = 500;
+var timeoutBase = 450;
 var headline = document.getElementById("main-heading");
 // apply function whether it's the user's first visit or not
 var notFirstVisit = function notFirstVisit(boolean) {
@@ -48,4 +48,4 @@ setTimeout(function () {
       return false;
     };
   }, introText.classList.contains("hide") == false && clientInfoBrowser.innerHTML !== "" ? timeoutBase * 17 : timeoutBase);
-}, timeoutBase * 12);
+}, timeoutBase + 4000);

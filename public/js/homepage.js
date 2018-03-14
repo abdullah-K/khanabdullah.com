@@ -1,5 +1,5 @@
 // the base time for all the setTimeout functions
-let timeoutBase = 500;
+let timeoutBase = 450;
 
 const headline = document.getElementById("main-heading");
 // apply function whether it's the user's first visit or not
@@ -99,4 +99,4 @@ setTimeout(() => {
     fadeIn(aboutText);
     footer.ondragstart = () => false;
   }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 17 : timeoutBase);
-}, timeoutBase * 12);
+}, timeoutBase + 4000);
