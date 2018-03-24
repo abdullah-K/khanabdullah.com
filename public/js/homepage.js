@@ -20,7 +20,7 @@ setTimeout(() => {
   // show the headline
   headline.classList.remove("hide");
   headline.classList.add("fadeIn", "animated", "glitch");
-}, timeoutBase + 1100);
+}, timeoutBase);
 
 // XHR Prmoise function to GET json data
 const getJSON = (url) => {
@@ -76,7 +76,7 @@ let showIntro = (ipInfo) => {
     clientInfoSystem.innerHTML = clientJS.getOS();
     clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
     fadeIn(introText);
-  }, timeoutBase + 4000);
+  }, timeoutBase + 1000);
 };
 
 // if getting the JSON was successful, show the intro paragraph
@@ -88,7 +88,7 @@ getIpData.then(ipInfo => {
               " - running error handler to hide intro text (and continue to display other content)");
 });
 
-// setTimeout to display the footer and the links div, which is why we hid it in the first place.
+// setTimeout to display the rest of the content
 // the timeout time is based on the intro paragraph being hidden or not.
 setTimeout(() => {
   const aboutMe = document.getElementById("about-me"),
@@ -98,5 +98,5 @@ setTimeout(() => {
     fadeIn(aboutMe);
     fadeIn(aboutText);
     footer.ondragstart = () => false;
-  }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 17 : timeoutBase);
-}, timeoutBase + 4000);
+  }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 14 : timeoutBase);
+}, timeoutBase + 1000);
