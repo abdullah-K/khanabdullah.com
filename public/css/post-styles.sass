@@ -55,12 +55,14 @@ noscript
 
 #post-content
   line-height: 30px
+  text-align: justify
   margin: 30px 0 150px 6vw
   width: 70vw
   @media (max-width: $break-large)
     line-height: 28px
     width: 85vw
   @media (max-width: $break-small)
+    text-align: left
     line-height: 25px
     width: 75vw
 
@@ -68,12 +70,13 @@ noscript
   background: #0e0e0e
   color: white
   padding: 4px 8px 4px 8px
+  white-space: nowrap
   border-radius: 10px
 
 .code-img
   border-radius: 30px
   width: 100%
-  @media (max-width: $break-small)
-    width: 120%
+  @media (max-width: $break-mid)
+    width: 400px
   @media (min-width: $break-large)
     width: 700px
