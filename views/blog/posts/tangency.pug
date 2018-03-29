@@ -1,0 +1,50 @@
+extends ../post-layout
+
+block content
+  h3#post-date March 25, 2018
+  h1#post-heading.size-limit-heading Tangency - An Experiment
+  div#post-content.size-limit-content
+    p.
+      How does #[a.link(href="https://khanabdullah.com/experiments/tangency" target="_blank" rel="noopener") Tangency] work? I aim to address that question in this post. 
+      #[br]
+      #[br]
+      Tangency was built using #[a.link(href="https://p5js.org/" target="_blank" rel="noopener") p5.js], with the end goal of creating a graphical plotting system and making it interactive using some differential calculus principles. There's a link to the demo at the bottom of this post.
+      #[br]
+      #[h2 Plotting]
+      The first step was to create a function plotting solution. The simplest way I could think of was to have a for loop go over the x-values ranging from 0 to the canvas width, and feed them into the mathematical function provided to get the y-values. Then, displaying the points using the individual coordinates as a series of connected vertices (effectively, a #[a.link(href="https://p5js.org/reference/#/p5/vertex" target="_blank" rel="noopener") vertex]). Here is the plotting function in all its glory:
+    img.code-img(src="/img/blog/tangency_plotting.png")
+    p.
+      Let me break it down.
+      #[br]
+      #[span.code plot] is part of an object called "graph" (it contains other methods such as trace and tangent, which we'll get to later). The plot property of "graph" consists of an anonymous function which takes #[span.code func] as a parameter. #[span.code func] is a global function which returns the mathematical equation to be graphed (it takes x as a parameter) but again, we'll get to that later.
+      #[br]
+      For consistency with the coordinate plane, we must translate the origin to the center from the left corner of the canvas. Next, we need to establish a scale for the y &#38; x axis based on the canvas dimensions. #[span.code scale] is a global integer variable which does what you think it does, act as a scale for the graph. For instance, the visible domain of the function will be #[span.code -scale &#8804; x &#8804; scale].
+      #[br]
+      Subsequently, we have #[span.code beginShape()] which begins to record vertices for a custom shape. When used in conjunction with #[span.code endShape()], it allows for the creation of more complex forms; forms such as the graphs of mathematical functions.
+      #[br]
+      There are two possible values for x and y: the #[em pixel value] and the #[em numerical value], the former is used for drawing the graph and the latter for graph-related calculations (such as the derivative at that value).
+      #[br]
+      This leads us to the for loop, the main part of this function. We initialize the x value from the leftmost of the canvas (this only renders the function #[em within] the limits of the canvas). Inside, we declare two variables. #[span.code xVal] holds the #[em numerical value] of x and is used to calculate the y-value, which is immediately transformed to its respective pixel value since we have no use for the numerical y.
+      #[br]
+      #[span.code xCoords] is a predefined global array which we use to hold the x-values so we don't have to loop over them again (explained later).
+      #[br]
+      The next three lines are used to #[a.link(href="https://p5js.org/reference/#group-Color" target="_blank" rel="noopener") define the styling of the curve]. Finally, we plot the curve to the canvas using the x-values from the for loop and the calculated y-values.
+      #[h2 Differentiating, visually]
+      Let's get right into it.
+    img.code-img(src="/img/blog/tangency_tangent.png")
+    p.
+      Getting the numerical x-value of the function outside our initial for loop seems tricky. Luckily, we pushed all our x-values into an array, #[span.code xCoords]. All we have to do is somehow link that array to the x coordinate of the cursor. To make things easy, we use #[span.code mouseX], a built-in p5 variable which contains the horizontal position of the mouse. Also, #[span.code xCoords] can be thought of as a range of the visible x-values. Using this information, we #[a.link(href="https://p5js.org/reference/#/p5/map" target="_blank" rel="noopener") map] the #[span.code mouseX] coordinates to the visible x-value range (mouseX is initially from 0 to the canvas width). Now, our mouse's horizontal position corresponds to the pixel value of x on the canvas. #[span.code yPos] and #[span.code xVal] perform similarly as they do in the plotting function (with some scaling modifications). As an aside, very similar functionality is used in the trace function of Tangency; all we do is draw an ellipse at #[span.code xPos] and #[span.code yPos].
+      #[br]
+      Next comes the fun part.
+      #[br]
+      We have to calculate the slope of the tangent line at the given mouse position, #[span.code xPos]. Well, we know that that the slope value is the derivative of the function computed at that x-value. The derivative of a function #[em f(x)] at #[em x = a] is the limit of the slope of the secant line from #[em x = a] to #[em x = a + h] as #[em h] approaches 0 (#[a.link(href="https://wikipedia.org/wiki/Derivative#Rigorous_definition" target="_blank" rel="noopener") comprehensive definition here]). This produces the equation in the following code (which defines the #[span.code slope()] function used above):
+    img.code-img(src="/img/blog/tangency_slope.png")
+    p.
+      Instead of calculating the limit as #[em h] approaches 0, we can set #[em h] to a small number close to 0 (such as #[span.code 1e-9] or #[span.code 0.000000001]). Essentially, this gives us a good approximation of the slope value which we store in #[span.code m]. We use the slope-intercept equation form to graph the tangent line: #[span.code y = mx + b]. All we're missing is the y-intercept and to find it, we just rearrange the equation to solve for #[span.code b].
+      #[br]
+      Finally, we get to the tangent line. Instead of plotting the entire line each frame, we can calculate two points which are the same distance apart from #[span.code xPos] on either side of it. #[span.code diff] holds that distance, 70 pixels in this case. We name these two points y1 &#38; y2. To solve for these y points, we have to plug in the slope, #[span.code xPos &#177; diff], and the y-intercept. And then, all that's left is to draw this line to the canvas and apply some styling to it.
+      #[h2 Closing]
+      Obviously, this is not the entire code for Tangency. It's merely the important parts which I felt needed explanation. The full source code can be found #[a.link(href="https://github.com/abdullah-K/experiments/tree/master/tangency" target="_blank" rel="noopener") at this link]. If anything is unclear or you require further explanation, email me and I'll be happy to help. 
+      #[br]
+      #[br]
+      A fully-working demo can be found #[a.link(href="/experiments/tangency" target="_blank" rel="noopener") here].
