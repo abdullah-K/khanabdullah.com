@@ -1,9 +1,3 @@
-<p align="center">
-  <a target="\_blank" href="https://khanabdullah.com">
-    <img align="center" width="125"src="https://avatars2.githubusercontent.com/u/21252681?s=100&v=4"></img>
-  </a>
-</p>
-
 # [khanabdullah.com](https://khanabdullah.com)
 🌎 This is everything that makes my personal website and blog tick.  Feel free to check it out! (and Star it, perhaps?)
 
