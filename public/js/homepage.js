@@ -3,23 +3,29 @@ let timeoutBase = 450;
 
 const headline = document.getElementById("main-heading");
 // apply function whether it's the user's first visit or not
-let notFirstVisit = (boolean) => {
+let isFirstVisit = (bool) => {
   const span = document.getElementById("notFirstVisit");
   // if it isn't the user's first visit, display the "again" in the headline
-  boolean ? (
-    span.classList.remove("hide"),
-    headline.setAttribute("data-text", "Hello again, stranger.")) :
+  bool ? (
     // if it is the user's first time, then set the localStorage variable for next time
-    localStorage.noFirstVisit = true;
+    localStorage.noFirstVisit = true) :
+    (span.classList.remove("hide"),
+    headline.setAttribute("data-text", "Hello again, stranger."));
+};
+
+// generic function to apply fade in animation to any element on the page
+const fadeIn = element => {
+  element.classList.remove("hide");
+  element.classList.add("fadeIn");
 };
 
 // apply animations to the homepage headline
 setTimeout(() => {
   // check if it is user's first visit (depending on that, display or hide the "again" span)
-  (!localStorage.noFirstVisit) ? notFirstVisit(false) : notFirstVisit(true);
+  (!localStorage.noFirstVisit) ? isFirstVisit(true) : isFirstVisit(false);
   // show the headline
-  headline.classList.remove("hide");
-  headline.classList.add("fadeIn", "animated", "glitch");
+  fadeIn(headline);
+  headline.classList.add("glitch");
 }, timeoutBase);
 
 // XHR Prmoise function to GET json data
@@ -43,11 +49,6 @@ const getJSON = (url) => {
   });
 };
 
-// generic function to apply fade in animation to any element on the page
-const fadeIn = element => {
-  element.classList.remove("hide");
-  element.classList.add("fadeIn", "animated");
-};
 
 // alternative: https://ipapi.co/json
 const getIpData = getJSON("https://ipinfo.io/json");
