@@ -28,7 +28,8 @@ setTimeout(() => {
   headline.classList.add("glitch");
 }, timeoutBase);
 
-// XHR Prmoise function to GET json data
+// TODO: rewrite JSON logic using the fetch API
+// XHR Promise function to GET json data
 const getJSON = (url) => {
   return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
