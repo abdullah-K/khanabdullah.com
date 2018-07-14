@@ -213,12 +213,14 @@ body
   background-color: transparentize($main-background, 0.6)
   transition: 0.3s
   user-select: none
+  opacity: 0.8
   @media (max-width: $break-small)
     width: 50px
   @media (max-width: $break-tiny)
     width: 30px
   &:hover
     transform: scale(1.1)
+    opacity: 1
 
 @keyframes fadeIn
   from
