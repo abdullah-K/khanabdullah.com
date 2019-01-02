@@ -50,9 +50,23 @@ const getJSON = (url) => {
   });
 };
 
+const promiseTimeout = (ms, promise) => {
+  let timeout = new Promise((resolve, reject) => {
+    let id = setTimeout(() => {
+      clearTimeout(id);
+      reject('fetching IP info taking too long')
+    }, ms)
+  })
+
+  // Returns a race between our timeout and the passed in promise
+  return Promise.race([
+    promise,
+    timeout
+  ])
+}
 
 // alternative: https://ipapi.co/json
-const getIpData = getJSON("https://ipinfo.io/json");
+const getIpData = promiseTimeout(timeoutBase, getJSON("https://ipinfo.io/json"));
 
 // DOM variables for the intro paragraph only
 const introText = document.getElementById("intro-text"),
@@ -82,12 +96,13 @@ let showIntro = (ipInfo) => {
 };
 
 // if getting the JSON was successful, show the intro paragraph
-// (if there was an error, keep the paragraph hidden and display a friendly console message)
+// (if there was an error (or if it's taking too long), keep the paragraph hidden and display a friendly console message)
 getIpData.then(ipInfo => {
   (ipInfo.ip !== "" && clientJS.getBrowser() !== "" && ipInfo.city !== "") && showIntro(ipInfo);
 }).catch(error => {
+  console.log(error);
   console.log("Hmmm, it seems like there\'s an issue... \n" +
-              " - running error handler to hide intro text (and continue to display other content)");
+              " - hiding intro text (continuing to display other content)");
 });
 
 // setTimeout to display the rest of the content
