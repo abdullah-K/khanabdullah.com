@@ -26,7 +26,7 @@ router.get("/:postName", (request, response) => {
   let getPost = request.params.postName;
   postList.indexOf(getPost.toLowerCase()) > -1 ?
                     response.render(`blog/posts/${getPost.toLowerCase()}`, {
-                      title: (getPost.toLowerCase().replace(/^(.)|\s(.)/g, ($1) => $1.toUpperCase())) + " | Abdullah Khan's Blog",
+                      title: (getPost.split('-').map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(' ')) + " | Abdullah Khan's Blog",
                       author: "Abdullah F. Khan",
                       description: "This is a post, which is part of Abdullah Khan's blog."}) :
                     response.status(404).render("errors/404");

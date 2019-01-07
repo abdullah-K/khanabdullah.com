@@ -9,22 +9,28 @@ block content
     -
        let posts = {
          post0: {
-           "link": "introduction",
+           "slug": "introduction",
            "title": "An Introduction",
            "date": "January 5, 2018",
            "preview": "Well, I figured I needed to introduce myself and my little corner of the internet to the world!"
          },
          post1: {
-           "link": "tangency",
+           "slug": "tangency",
            "title": "Tangency - An Experiment",
            "date": "March 25, 2018",
            "preview": "An explanation of how one of my experiments, Tangency, works."
+         },
+         post2: {
+           "slug": "react-native-stopwatch",
+           "title": "Stopwatch",
+           "date": "December 20, 2018",
+           "preview": "How I built my first React Native mobile application — a stopwatch."
          }
        }
 
     ul#posts-list
       - for(let n = 0; n < numberOfPosts; n++)
-        - let postLink = "/blog/" + posts[`post${n}`].link
+        - let postLink = "/blog/" + posts[`post${n}`].slug
         - let postTitle = posts[`post${n}`].title
         - let postDate = posts[`post${n}`].date
         - let postPreview = posts[`post${n}`].preview
