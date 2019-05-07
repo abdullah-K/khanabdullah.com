@@ -4,21 +4,20 @@ const gulp = require('gulp'),
     prefix = require('gulp-autoprefixer');
 
 // task to compile sass files on save and output a minified CSS file
-gulp.task('sass', () => {
+let styles = () => {
     return gulp.src('public/css/*.sass')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename((path) => {path.basename += ".min"}))
         .pipe(prefix())
         .pipe(gulp.dest('public/css/'));
-});
+};
 
 // gulp watch task to watch for file changes
-gulp.task('watch', () => {
-  gulp.watch('public/css/*.sass', ['sass']);
-});
+let watch = () => {
+  gulp.watch('public/css/*.sass', gulp.series(styles));
+};
 
-// default gulp task - is executed automatically on `gulp` command
-gulp.task('default', () => {
-    // run the main tasks - including the watch task
-    gulp.start('sass', 'watch');
-});
+// default gulp task - styles task runs first to generate CSS. Then, the watch task is run
+gulp.task('default', gulp.series(styles, gulp.parallel(watch), (done) => {
+    done();
+}));
