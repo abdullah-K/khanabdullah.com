@@ -1,0 +1,81 @@
+@keyframes fadeInDelayed
+	0%
+		opacity: 0
+	66%
+		opacity: 0
+	100%
+		opacity: 1
+
+@keyframes fadeOut
+	0%
+		opacity: 1
+	66%
+		opacity: 1
+	100%
+		opacity: 0
+
+noscript
+	display: none
+
+body
+	overflow: hidden
+
+.fadeInDelayed
+	animation-name: fadeInDelayed
+	animation-duration: 3s
+	animation-fill-mode: both
+
+.fadeOut
+	animation-name: fadeOut
+	animation-duration: 1.5s
+	animation-fill-mode: both
+
+#welcome-overlay
+	height: 100vh
+	width: 100vw
+	background: rgb(25, 25, 25)
+	display: flex
+	justify-content: center
+	align-items: center
+	> h1
+		margin: 0
+		font-weight: bold
+		font-size: 7vw
+		@media (max-width: 530px)
+			font-size: 52px
+			margin-top: -60px
+
+.card
+	background: #5368ae
+	color: #fff
+	margin: 20px
+	padding: 20px
+	border-radius: 15px
+	height: 100px
+	min-width: 230px
+	transition: 0.2s
+	@media (max-width: 530px)
+		// width: 200px
+	&:hover
+		transform: scale(1.03)
+
+#container
+	display: flex
+	align-items: center
+	> a
+		text-decoration: none
+
+#cards
+	display: flex
+	justify-content: center
+	flex-wrap: wrap
+	flex-direction: row
+	justify-content: space-evenly
+
+.card-row
+	// display: flex
+	// flex-direction: row
+	width: 100%
+
+
+

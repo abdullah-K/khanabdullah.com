@@ -1,0 +1,79 @@
+extends ../layout
+
+block head
+  // CSS file for the lab
+  link(rel="stylesheet" href="/css/lab-styles.min.css?v=1")
+
+block scripts
+  script
+    | setTimeout(() => { document.getElementById("welcome-overlay").classList.add("hide");document.body.style.overflow="auto";}, 2000)
+
+append content
+    noscript
+      style
+        | #welcome-overlay {display: none;} .fadeInDelayed {animation-duration: 1s;} body {overflow: auto;}
+    -
+       let experimentsList = {
+         exp0: {
+           "url": "/lab/tangency",
+           "title": "Tangency",
+           "preview": "Visualize the tangent line on any continuous function based on your mouse position",
+           "tech": ["p5.js", "Pug", "SASS"]
+         },
+         exp1: {
+           "url": "/lab/collabCanvas",
+           "title": "CollabCanvas",
+           "preview": "",
+           "tech": ["Node", "Socket.io", "Express", "jQuery"]
+         },
+         exp2: {
+           "url": "/blog/react-native-stopwatch",
+           "title": "RN Stopwatch",
+           "preview": "A stopwatch/timer application for iOS & Android built with React Native",
+           "tech": ["React Native", "Expo SDK", "Figma"]
+         },
+         exp3: {
+           "url": "/lab/tangency",
+           "title": "Tangency",
+           "preview": "Visualize the tangent line on any continuous function based on your mouse position",
+           "tech": ["p5.js", "Pug", "SASS"]
+         },
+         exp4: {
+           "url": "/lab/collabCanvas",
+           "title": "CollabCanvas",
+           "preview": "",
+           "tech": ["Node", "Socket.io", "Express", "jQuery"]
+         },
+         exp5: {
+           "url": "/blog/react-native-stopwatch",
+           "title": "RN Stopwatch",
+           "preview": "A stopwatch/timer application for iOS & Android built with React Native",
+           "tech": ["React Native", "Expo SDK", "Figma"]
+         },
+         exp6: {
+           "url": "/lab/tangency",
+           "title": "Tangency",
+           "preview": "Visualize the tangent line on any continuous function based on your mouse position",
+           "tech": ["p5.js", "Pug", "SASS"]
+         },
+         exp7: {
+           "url": "/lab/collabCanvas",
+           "title": "CollabCanvas",
+           "preview": "",
+           "tech": ["Node", "Socket.io", "Express", "jQuery"]
+         }, 
+       }
+    #welcome-overlay.fadeOut
+      h1 Welcome
+    .fadeInDelayed
+      h1.headline.size-limit-title Abdullah's Lab
+      #container
+        #cards
+          - for(let i = 0; i < Object.keys(experimentsList).length; i++)
+            - let experiment = experimentsList[[`exp${i}`]]
+            - if(i % 4 == 0)
+              .card-row
+            a(href=experiment.url)
+              .card
+                h2=experiment.title
+                p=experiment.tech
