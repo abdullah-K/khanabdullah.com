@@ -1,4 +1,4 @@
-/* route handler for the central "lab" page */
+/* route handler for the "lab" page */
 
 const express = require("express"),
       fs = require("fs"),
@@ -6,17 +6,17 @@ const express = require("express"),
 
 const experimentsList = [];
 
-// fs.readdir("./views/experiments/", (err, folder) => {
-//   folder.forEach((experiment) => {
-//     experimentsList.push(experiment);
-//   });
-// })
+fs.readdir("./views/experiments/", (err, folder) => {
+  folder.forEach((experiment) => {
+    experimentsList.push(experiment);
+  });
+})
 
 router.get("/", (request, response) => {
   response.render("experiments/lab", {
     title: "Lab | Abdullah F. Khan",
     author: "Abdullah F. Khan",
-    description: "Hello, I\'m Abdullah. This is my lab. You will find all my completed experiments here.",
+    description: "Hello, I\'m Abdullah. This is my lab, where you can find all my completed projects here.",
     // experimentsCount: experimentsList.length - 1
   })
 });

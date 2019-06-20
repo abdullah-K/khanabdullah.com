@@ -1,3 +1,23 @@
+//* BEGIN MIXIN *//
+/// Viewport sized typography with minimum and maximum values
+/// @author Eduardo Boucas (https://codepen.io/eduardoboucas/)
+=responsive-font($responsive, $min, $max: false, $fallback: false)
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1)
+  $dimension: if(unit($responsive) == "vh", "height", "width")
+  $min-breakpoint: $min / $responsive-unitless * 100 / 16px + 0em
+  @media (max-#{$dimension}: #{$min-breakpoint})
+    font-size: $min
+  @if $max
+    $max-breakpoint: $max / $responsive-unitless * 100 / 16px + 0em
+    @media (min-#{$dimension}: #{$max-breakpoint})
+      font-size: $max
+  @if $fallback
+    font-size: $fallback
+  font-size: $responsive
+//* END MIXIN *//
+
+$text-color: gainsboro
+
 @keyframes fadeInDelayed
 	0%
 		opacity: 0
@@ -45,37 +65,85 @@ body
 			font-size: 52px
 			margin-top: -60px
 
-.card
-	background: #5368ae
-	color: #fff
-	margin: 20px
-	padding: 20px
-	border-radius: 15px
-	height: 100px
-	min-width: 230px
-	transition: 0.2s
-	@media (max-width: 530px)
-		// width: 200px
-	&:hover
-		transform: scale(1.03)
+.size-limit-title
+  +responsive-font(5vw, 26px, 32px)
 
-#container
-	display: flex
-	align-items: center
-	> a
-		text-decoration: none
+.size-limit-preview
+  +responsive-font(2vw, 15px, 18px)
+
+noscript
+  display: none
 
 #cards
-	display: flex
-	justify-content: center
-	flex-wrap: wrap
-	flex-direction: row
-	justify-content: space-evenly
+  list-style: none
+  margin-left: calc(3vw - 1em)
+  padding-right: 9vw
+  columns: 2
+  @media (max-width: 530px)
+    columns: 1
 
-.card-row
-	// display: flex
-	// flex-direction: row
-	width: 100%
+.card
+	background: #1b1b1b
+	padding: 2px 10px 2px 15px
+	border-radius: 35px
+	margin-bottom: 20px
+	border-width: 5px
+	border-style: solid
+	overflow: hidden
 
+li
+  break-inside: avoid
+  page-break-inside: avoid
 
+.card-heading
+	margin: 5px 0px 5px 0px
+	transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
 
+.card-info
+  margin-bottom: 10px
+  color: darken($text-color, 5%)
+
+.card-tech
+	font-style: italic
+	text-align: right
+	color: darken($text-color, 20%)
+	margin: 0 15px 10px 0
+
+.card-language
+  font-style: italic
+  margin-bottom: 10px
+  color: darken($text-color, 20%)
+
+.card-link
+  text-decoration: none
+  color: $text-color
+  transition: 0.3s ease-in-out
+  &:hover
+    .card-heading
+      transform: translateX(5px)
+
+.javascript
+	border-color: #EAD726E3
+
+.python
+	border-color: #4562ceb8
+
+.java
+	border-color: #F8AA17C7
+
+.swift
+	border-color: #F35C41
+
+// .light-content
+// 	> a
+// 		> h4, > p
+// 			color: #ffffffc2
+// 		> h2
+// 			color: white
+
+// .dark-content
+// 	> a
+// 		> h4, > p
+// 			color: #4a4a4a
+// 		> h2
+// 			color: #373737
