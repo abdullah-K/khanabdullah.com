@@ -6,7 +6,8 @@ block head
 
 block scripts
   script
-    | setTimeout(() => { document.getElementById("welcome-overlay").classList.add("hide");document.body.style.overflow="auto";}, 2000)
+    | window.onload = function(){window.scrollTo(0,0);};
+    | setTimeout(function(){document.getElementById("welcome-overlay").classList.add("hide");document.body.style.overflow="auto";}, 2000);
 
 append content
     noscript
@@ -19,68 +20,18 @@ append content
            "title": "Tangency",
            "preview": "Visualize the tangent line on any continuous function based on your mouse position",
            "tech": ["p5.js", "Pug", "SASS"],
-           "language": "Java",
+           "language": "JavaScript",
          },
-        //-  exp1: {
-        //-    "url": "/lab/collabCanvas",
-        //-    "title": "CollabCanvas",
-        //-    "preview": "",
-        //-    "tech": ["Node", "Socket.io", "Express", "jQuery"],
-        //-    "language": "Python"
-        //-  },
-        //-  exp2: {
-        //-    "url": "/blog/react-native-stopwatch",
-        //-    "title": "RN Stopwatch",
-        //-    "preview": "A stopwatch/timer application for iOS & Android built with React Native",
-        //-    "tech": ["React Native", "Expo SDK", "Figma"],
-        //-    "language": "JavaScript"
-        //-  },
-        //-  exp3: {
-        //-    "url": "/lab/tangency",
-        //-    "title": "Tangency",
-        //-    "preview": "Visualize the tangent line on any continuous function based on your mouse position",
-        //-    "tech": ["p5.js", "Pug", "SASS"],
-        //-    "language": "Swift"
-        //-  },
-        //-  exp4: {
-        //-    "url": "/lab/collabCanvas",
-        //-    "title": "CollabCanvas",
-        //-    "preview": "",
-        //-    "tech": ["Node", "Socket.io", "Express", "jQuery"],
-        //-    "language": "JavaScript"
-        //-  },
-        //-  exp5: {
-        //-    "url": "/blog/react-native-stopwatch",
-        //-    "title": "RN Stopwatch",
-        //-    "preview": "A stopwatch/timer application for iOS & Android built with React Native",
-        //-    "tech": ["React Native", "Expo SDK", "Figma"],
-        //-    "language": "JavaScript"
-        //-  },
-        //-  exp6: {
-        //-    "url": "/lab/tangency",
-        //-    "title": "Tangency",
-        //-    "preview": "Visualize the tangent line on any continuous function based on your mouse position",
-        //-    "tech": ["p5.js", "Pug", "SASS"],
-        //-    "language": "Java"
-        //-  },
-        //-  exp7: {
-        //-    "url": "/lab/collabCanvas",
-        //-    "title": "CollabCanvas",
-        //-    "preview": "",
-        //-    "tech": ["Node", "Socket.io", "Express", "jQuery"],
-        //-    "language": "Python"
-        //-  }, 
        }
     #welcome-overlay.fadeOut
       h1 Welcome
     .fadeInDelayed
-      //- h1.size-limit-title Abdullah's Lab
       ul#cards
         - for(let i = 0; i < Object.keys(experimentsList).length; i++)
           - let experiment = experimentsList[[`exp${i}`]]
           li.card(class=`${experiment.language.toLowerCase()}`)
             a(href=experiment.url).card-link
-              h4.card-language=experiment.language
+              h4.card-language.size-limit-preview=experiment.language
               h2.card-heading.size-limit-title=experiment.title
               p.card-info.size-limit-preview=experiment.preview
               p.card-tech.size-limit-preview=experiment.tech.join(", ")
