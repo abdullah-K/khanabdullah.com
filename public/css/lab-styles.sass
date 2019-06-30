@@ -1,0 +1,156 @@
+//* BEGIN MIXIN *//
+/// Viewport sized typography with minimum and maximum values
+/// @author Eduardo Boucas (https://codepen.io/eduardoboucas/)
+=responsive-font($responsive, $min, $max: false, $fallback: false)
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1)
+  $dimension: if(unit($responsive) == "vh", "height", "width")
+  $min-breakpoint: $min / $responsive-unitless * 100 / 16px + 0em
+  @media (max-#{$dimension}: #{$min-breakpoint})
+    font-size: $min
+  @if $max
+    $max-breakpoint: $max / $responsive-unitless * 100 / 16px + 0em
+    @media (min-#{$dimension}: #{$max-breakpoint})
+      font-size: $max
+  @if $fallback
+    font-size: $fallback
+  font-size: $responsive
+//* END MIXIN *//
+
+$text-color: gainsboro
+
+@keyframes fadeInDelayed
+  0%
+    opacity: 0
+  66%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes fadeOut
+  0%
+    opacity: 1
+  66%
+    opacity: 1
+  100%
+    opacity: 0
+
+noscript
+  display: none
+
+body
+  overflow: hidden
+  padding-bottom: 120px
+
+.fadeInDelayed
+  animation-name: fadeInDelayed
+  animation-duration: 3s
+  animation-fill-mode: both
+
+.fadeOut
+  animation-name: fadeOut
+  animation-duration: 1.5s
+  animation-fill-mode: both
+
+#welcome-overlay
+  height: 100vh
+  width: 100vw
+  background: rgb(25, 25, 25)
+  display: flex
+  justify-content: center
+  align-items: center
+  > h1
+    margin: 0
+    font-weight: bold
+    font-size: 7vw
+    @media (max-width: 530px)
+      font-size: 52px
+      margin-top: -60px
+
+.size-limit-title
+  +responsive-font(5vw, 26px, 32px)
+
+.size-limit-preview
+  +responsive-font(2vw, 15px, 18px)
+
+noscript
+  display: none
+
+#cards
+  list-style: none
+  margin-left: calc(3vw - 1em)
+  padding-right: 9vw
+  columns: 2
+  padding-top: 20px
+  @media (max-width: 530px)
+    columns: 1
+
+.card
+  background: #1b1b1b
+  padding: 2px 10px 2px 15px
+  border-radius: 35px
+  margin-bottom: 20px
+  border-width: 5px
+  border-style: solid
+  overflow: hidden
+  transition: 0.1s
+  &:hover
+    background: lighten(#1b1b1b, 5%)
+
+li
+  break-inside: avoid
+  page-break-inside: avoid
+
+.card-heading
+  margin: 5px 0px 5px 0px
+  transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+.card-info
+  margin-bottom: 10px
+  color: darken($text-color, 5%)
+
+.card-tech
+  font-style: italic
+  text-align: right
+  color: darken($text-color, 20%)
+  margin: 0 15px 10px 0
+
+.card-language
+  font-style: italic
+  margin-bottom: 10px
+  color: darken($text-color, 20%)
+
+.card-link
+  text-decoration: none
+  color: $text-color
+  transition: 0.3s ease-in-out
+  // width: 100%
+  // height: 100%
+  &:hover
+    .card-heading
+      transform: translateX(5px)
+
+.javascript
+  border-color: #EAD726E3
+
+.python
+  border-color: #4562ceb8
+
+.java
+  border-color: #F8AA17C7
+
+.swift
+  border-color: #F35C41
+
+// .light-content
+// 	> a
+// 		> h4, > p
+// 			color: #ffffffc2
+// 		> h2
+// 			color: white
+
+// .dark-content
+// 	> a
+// 		> h4, > p
+// 			color: #4a4a4a
+// 		> h2
+// 			color: #373737

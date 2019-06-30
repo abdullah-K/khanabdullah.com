@@ -1,0 +1,37 @@
+extends ../layout
+
+block head
+  // CSS file for the lab
+  link(rel="stylesheet" href="/css/lab-styles.min.css?v=1")
+
+block scripts
+  script
+    | window.onload = function(){window.scrollTo(0,0);};
+    | setTimeout(function(){document.getElementById("welcome-overlay").classList.add("hide");document.body.style.overflow="auto";}, 2000);
+
+append content
+    noscript
+      style
+        | #welcome-overlay {display: none;} .fadeInDelayed {animation-duration: 1s;} body {overflow: auto;}
+    -
+       let experimentsList = {
+         exp0: {
+           "url": "/lab/tangency",
+           "title": "Tangency",
+           "preview": "Visualize the tangent line on any continuous function based on your mouse position",
+           "tech": ["p5.js", "Pug", "SASS"],
+           "language": "JavaScript",
+         },
+       }
+    #welcome-overlay.fadeOut
+      h1 Welcome
+    .fadeInDelayed
+      ul#cards
+        - for(let i = 0; i < Object.keys(experimentsList).length; i++)
+          - let experiment = experimentsList[[`exp${i}`]]
+          li.card(class=`${experiment.language.toLowerCase()}`)
+            a(href=experiment.url).card-link
+              h4.card-language.size-limit-preview=experiment.language
+              h2.card-heading.size-limit-title=experiment.title
+              p.card-info.size-limit-preview=experiment.preview
+              p.card-tech.size-limit-preview=experiment.tech.join(", ")

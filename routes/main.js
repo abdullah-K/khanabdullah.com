@@ -2,10 +2,10 @@
 
 let home = require("./home"),
     blog = require("./blog"),
-    experiments = require('./experiments');
+    lab = require('./lab');
 
 module.exports = {
     "/": home,
     "/blog" : blog,
-    "/experiments" : experiments
+    "/lab" : lab
 };
