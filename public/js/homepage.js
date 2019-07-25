@@ -1,5 +1,5 @@
 // the base time for all the setTimeout functions
-let timeoutBase = 450;
+let timeoutBase = 400;
 
 const headline = document.getElementById("main-heading");
 // apply function whether it's the user's first visit or not
@@ -92,7 +92,7 @@ let showIntro = (ipInfo) => {
     clientInfoSystem.innerHTML = clientJS.getOS();
     clientInfoPlace.innerHTML = ipInfo.city + "," + "\xa0" + ipInfo.country;
     fadeIn(introText);
-  }, timeoutBase + 1000);
+  }, timeoutBase + 400);
 };
 
 // if getting the JSON was successful, show the intro paragraph
@@ -116,4 +116,4 @@ setTimeout(() => {
     fadeIn(aboutText);
     footer.ondragstart = () => false;
   }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 14 : timeoutBase);
-}, timeoutBase + 1000);
+}, timeoutBase + 500);
