@@ -15,7 +15,7 @@ router.get("/", (request, response) => {
   blogCounter++;
   response.render("blog/blog", {title: "Blog | Abdullah F. Khan",
                       author: "Abdullah F. Khan",
-                      description: "Hello, I\'m Abdullah. This is my blog. You'll find my musings here when I decide to write any.",
+                      description: "Hello, I\'m Abdullah. This is my blog where you'll find my writing.",
                       numberOfPosts: (postList.length)});
   fs.writeFile("./analytics/blog.txt", `blog main page visitors: ${blogCounter}`, (err) => {
     (err) && console.log(err);
