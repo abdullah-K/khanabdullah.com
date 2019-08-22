@@ -1,5 +1,5 @@
 # [khanabdullah.com](https://khanabdullah.com)
-🌎 This is everything that makes my personal website and blog tick.  Feel free to check it out! (and Star it, perhaps?)
+🌎 This is everything that makes my personal website work. Feel free to check it out!
 
 
 ## Run
