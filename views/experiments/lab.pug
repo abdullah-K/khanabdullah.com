@@ -7,22 +7,30 @@ block head
 block scripts
   script
     | window.onload = function(){window.scrollTo(0,0);};
-    | setTimeout(function(){document.getElementById("welcome-overlay").classList.add("hide");document.body.style.overflow="auto";}, 2000);
+    | setTimeout(function(){document.getElementById("welcome-overlay").classList.add("hide");document.body.style.overflow="auto";}, 1000);
 
 append content
   noscript
     style
-      | #welcome-overlay {display: none;} .fadeInDelayed {animation-duration: 1s;} body {overflow: auto;}
+      | #welcome-overlay {display: none;} .fadeInDelayed {animation-duration: 0.5s;} body {overflow: auto;}
   -
     let experimentsList = {
-      //- exp0: {
-      //-   "url": "/lab/personal-site",
-      //-   "title": "khanabdullah.com",
-      //-   "preview": "How this website works, from server to client side",
-      //-   "tech": ["Node", "Express", "Nginx", "Pug", "SASS"],
-      //-   "language": "JavaScript",
-      //- },
       exp0: {
+        "url": "/lab/personal-site",
+        "title": "khanabdullah.com",
+        "preview": "How this website works, from server to client side",
+        "tech": ["Node", "Express", "Postfix", "Nginx", "Pug", "SASS"],
+        "language": "JavaScript",
+        "image": "../../img/favicon.png"
+      },
+      exp1: {
+        "url": "/lab/face-recog",
+        "title": "Face Recognition",
+        "preview": "Python script to train a model on your face and then using it to recognize you",
+        "tech": ["Python3", "OpenCV"],
+        "language": "Python",
+      },
+      exp2: {
         "url": "/lab/tangency",
         "title": "Tangency",
         "preview": "Visualize the tangent line on any continuous function based on your mouse position",
@@ -41,6 +49,7 @@ append content
             h4.card-language.size-limit-preview=experiment.language
             h2.card-heading.size-limit-title=experiment.title
             p.card-info.size-limit-preview=experiment.preview
-            - if(experiment.image)
-              img.card-img(src=experiment.image)
             p.card-tech.size-limit-preview=experiment.tech.join(", ")
+          - if(experiment.image)
+            a(href=experiment.url).img-link
+              img.card-img(src=experiment.image)
