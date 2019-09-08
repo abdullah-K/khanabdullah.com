@@ -17,7 +17,6 @@ router.get("/", (request, response) => {
     title: "Lab | Abdullah F. Khan",
     author: "Abdullah F. Khan",
     description: "Hello, I\'m Abdullah. This is my lab, where you can find all my completed projects here.",
-    // experimentsCount: experimentsList.length - 1
   })
 });
 
