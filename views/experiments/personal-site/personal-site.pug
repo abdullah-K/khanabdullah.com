@@ -1,8 +1,19 @@
 extends ../exp-layout
 
 append content
-  h1#project-title khanabdullah.com
-  #project-about
-    p#project-desc
-    ul#project-tech
-    
+  .container
+    .project-overview
+      .project-title
+        img(src="../../img/favicon.png")
+        h1 khanabdullah.com
+      .project-about
+        p.project-intro An overview of the inner workings of this website and the many purposes it serves.
+        ul.project-tech
+          - let techList = ["Node", "Express", "Nginx", "Postfix", "Pug", "SASS"]
+          each item in techList
+            li= item
+    img.project-img(src="/img/lab/website.png")
+    .project-desc
+      h2 Details
+      p.project-details khanabdullah.com is a Node.js application hosted on an Ubuntu 16.04 VPS. This server runs the Node application, managed by #[a.link(href="https://pm2.keymetrics.io/" target="_blank") PM2], through an Nginx reverse proxy. Nginx handles SSL using #[a.link(href="https://letsencrypt.org/" target="_blank") Let's Encrypt] and response compression using gzip.
+

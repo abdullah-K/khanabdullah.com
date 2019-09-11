@@ -1,27 +1,7 @@
-//* BEGIN MIXIN *//
-/// Viewport sized typography with minimum and maximum values
-/// @author Eduardo Boucas (https://codepen.io/eduardoboucas/)
-=responsive-font($responsive, $min, $max: false, $fallback: false)
-  $responsive-unitless: $responsive / ($responsive - $responsive + 1)
-  $dimension: if(unit($responsive) == "vh", "height", "width")
-  $min-breakpoint: $min / $responsive-unitless * 100 / 16px + 0em
-  @media (max-#{$dimension}: #{$min-breakpoint})
-    font-size: $min
-  @if $max
-    $max-breakpoint: $max / $responsive-unitless * 100 / 16px + 0em
-    @media (min-#{$dimension}: #{$max-breakpoint})
-      font-size: $max
-  @if $fallback
-    font-size: $fallback
-  font-size: $responsive
-  $break-mid: 530px
-//* END MIXIN *//
-
 // breakpoints //
-$break-tiny: 300px
-$break-small: 420px
-$break-mid: 530px
-$break-large: 1000px
+$break-small: 480px
+$break-mid: 560px
+$break-large: 960px
 
 // colors
 $text-color: gainsboro
@@ -30,7 +10,94 @@ body
   background-image: none
   display: flex
   align-items: center
-  justify-content: center
+  flex-direction: column
+  overflow-x: hidden
 
 noscript
   display: none
+
+.container
+  margin: 0 6% 0 6%
+  display: flex
+  flex-direction: column
+  align-items: center
+  @media(max-width: $break-mid)
+    margin: 0 20px 0 20px
+
+.project-overview
+  display: flex
+  flex-direction: row
+  width: 100%
+  @media(max-width: $break-mid)
+    flex-direction: column
+  
+.project-title
+  width: 40%
+  display: flex
+  flex-direction: row
+  align-items: center
+  padding: 10px
+  // justify-content: flex-end
+  img
+    max-width: 120px
+    border-radius: 15px
+  h1
+    margin: 0 0 0 10px
+  @media(max-width: $break-large)
+    // padding: 20px 10px 10px 20px
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    h1
+      margin: 10px 0 0 0
+
+.project-about
+  width: 60%
+  display: flex
+  align-items: flex-end
+  flex-direction: column
+  padding: 0 0 0 45px
+  p
+    text-align: right
+  @media(max-width: $break-mid)
+    padding: 0 0 0 20px
+    width: 80%
+    align-items: flex-start
+    p
+      text-align: left
+      margin: 0
+
+.project-tech
+  list-style: none
+  padding: 0
+  text-align: right
+  li
+    display: inline-block
+    margin: 5px 5px 0 0
+    background: rgba(255,255,255,0.2)
+    border-radius: 10px
+    padding: 5px 10px 5px 10px
+    font-weight: bold
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.55)
+  @media(max-width: $break-mid)
+    text-align: left
+
+.project-img
+  max-width: 80%
+  min-width: 550px
+  @media(max-width: $break-mid)
+    min-width: 400px
+
+.project-desc
+  display: flex
+  flex-direction: column
+  width: 100%
+  h2
+    padding: 10px
+    margin-bottom: 0   
+
+.project-details
+  text-align: left
+  margin: 0
+  padding: 10px
+
