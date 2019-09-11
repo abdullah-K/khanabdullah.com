@@ -115,5 +115,5 @@ setTimeout(() => {
     fadeIn(aboutMe);
     fadeIn(aboutText);
     footer.ondragstart = () => false;
-  }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 14 : timeoutBase);
+  }, (introText.classList.contains("hide") == false && (clientInfoBrowser.innerHTML !== "")) ? timeoutBase * 2 : timeoutBase);
 }, timeoutBase + 500);
