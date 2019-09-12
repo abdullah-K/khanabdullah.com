@@ -15,5 +15,9 @@ append content
     img.project-img(src="/img/lab/website.png")
     .project-desc
       h2 Details
-      p.project-details khanabdullah.com is a Node.js application hosted on an Ubuntu 16.04 VPS. This server runs the Node application, managed by #[a.link(href="https://pm2.keymetrics.io/" target="_blank") PM2], through an Nginx reverse proxy. Nginx handles SSL using #[a.link(href="https://letsencrypt.org/" target="_blank") Let's Encrypt] and response compression using gzip.
+      p.project-details 
+        | khanabdullah.com is a Node.js application hosted on an Ubuntu 16.04 VPS. This server runs the Node application, managed by #[a.link(href="https://pm2.keymetrics.io/" target="_blank") PM2], through an Nginx reverse proxy. Nginx handles SSL using #[a.link(href="https://letsencrypt.org/" target="_blank") Let's Encrypt] and response compression using #[a.link(href="https://en.wikipedia.org/wiki/Gzip" target="_blank") gzip].
+        br
+        br
+        | The Ubuntu server is also configured to run #[a.link(href="https://en.wikipedia.org/wiki/Postfix_(software)" target="_blank") Postfix] which I use as an email-forwarding tool with #[span(style="user-select: all;text-decoration:underline") contact@khanabdullah.com]
 

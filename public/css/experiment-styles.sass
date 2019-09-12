@@ -18,11 +18,12 @@ noscript
 
 .container
   margin: 0 6% 0 6%
+  // padding: 0 20px 0 20px
   display: flex
   flex-direction: column
   align-items: center
   @media(max-width: $break-mid)
-    margin: 0 20px 0 20px
+    margin: 0 10px 0 20px
 
 .project-overview
   display: flex
@@ -30,6 +31,7 @@ noscript
   width: 100%
   @media(max-width: $break-mid)
     flex-direction: column
+    padding: 0 0 0 20px
   
 .project-title
   width: 40%
@@ -59,6 +61,7 @@ noscript
   padding: 0 0 0 45px
   p
     text-align: right
+    font-size: 18px
   @media(max-width: $break-mid)
     padding: 0 0 0 20px
     width: 80%
@@ -91,7 +94,7 @@ noscript
 .project-desc
   display: flex
   flex-direction: column
-  width: 100%
+  width: 80%
   h2
     padding: 10px
     margin-bottom: 0   
@@ -99,5 +102,8 @@ noscript
 .project-details
   text-align: left
   margin: 0
+  font-size: 20px
   padding: 10px
+  @media(max-width: $break-mid)
+    padding: 5px
 
