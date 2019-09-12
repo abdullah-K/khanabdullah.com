@@ -18,10 +18,10 @@ noscript
 
 .container
   margin: 0 6% 0 6%
-  // padding: 0 20px 0 20px
   display: flex
   flex-direction: column
   align-items: center
+  padding-bottom: 150px
   @media(max-width: $break-mid)
     margin: 0 10px 0 20px
 
@@ -39,14 +39,12 @@ noscript
   flex-direction: row
   align-items: center
   padding: 10px
-  // justify-content: flex-end
   img
     max-width: 120px
     border-radius: 15px
   h1
     margin: 0 0 0 10px
   @media(max-width: $break-large)
-    // padding: 20px 10px 10px 20px
     flex-direction: column
     align-items: flex-start
     justify-content: center
@@ -107,3 +105,18 @@ noscript
   @media(max-width: $break-mid)
     padding: 5px
 
+.project-links
+  margin: 50px 30px 30px 30px
+
+.project-link
+  display: inline-block
+  text-align: center
+  padding: 20px 10px 20px 10px
+  text-decoration: none
+  font-size: 20px
+  width: 120px
+  background: #667EEA
+  color: $text-color
+  border-radius: 10px
+  margin: 10px
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.55)
