@@ -26,6 +26,9 @@ $break-large: 1000px
 $main-background: rgb(25, 25, 25)
 $main-color: gainsboro
 
+$system-blue: #007aff
+$system-green: #34c759
+
 // user selection //
 $select-background: #c1c1c1
 $select-color: #1d1d1d
@@ -90,7 +93,7 @@ body
   position: absolute
   left: 3.1vw
   // blue-ish
-  text-shadow: 4px 0 #294ad8
+  text-shadow: 4px 0 $system-blue
   color: white
   background: $main-background
   overflow: hidden
@@ -111,7 +114,7 @@ body
   position: absolute
   left: 2.4vw
   // green
-  text-shadow: -4px 0 #227131
+  text-shadow: -4px 0 $system-green
   color: white
   background: $main-background
   overflow: hidden
@@ -202,11 +205,11 @@ body
       display: none
 
 .link
-  color: #667EEA
-  transition: 0.2s
+  color: $system-blue
+  transition: 0.1s
   text-decoration: none
   &:hover
-    color: gainsboro
+    color: lighten($system-blue, 10%)
 
 #links > p > a
   transition: 0.3s
