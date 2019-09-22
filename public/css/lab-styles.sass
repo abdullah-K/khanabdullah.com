@@ -82,6 +82,11 @@ noscript
   columns: 2
   @media (max-width: 680px)
     columns: 1
+    margin: 0
+    padding: 20px
+    display: flex
+    flex-direction: column
+    align-items: center
 
 .card
   background: #1b1b1b
@@ -96,6 +101,8 @@ noscript
   transition: 0.1s
   &:hover
     background: lighten(#1b1b1b, 5%)
+  @media (max-width: 680px)
+    width: 100%
 
 li
   break-inside: avoid
@@ -116,23 +123,32 @@ li
   margin: 5px 0px 5px 0px
   transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
   max-width: 55%
+  @media (max-width: 680px)
+    font-size: 22px
+    max-width: 90%
 
 .card-info
   margin-bottom: 15px
   color: darken($text-color, 5%)
   max-width: 80%
+  @media (max-width: 680px)
+    font-size: 13px
+    max-width: 100%
 
 .card-tech
   font-style: italic
   justify-self: flex-end
   color: darken($text-color, 20%)
-  // margin: 0 15px 10px 0
+  @media (max-width: 680px)
+    font-size: 13px
 
 .card-language
   font-style: italic
   margin-bottom: 10px
   color: darken($text-color, 20%)
   max-width: 20%
+  @media (max-width: 680px)
+    font-size: 14px
 
 .img-link
   width: 20%
@@ -144,14 +160,18 @@ li
   @media (max-width: 980px)
     display: none
   @media (max-width: 680px)
-    display: block    
-  @media (max-width: 480px)
+    display: flex
+    width: 30%
+    margin: 15px
+    padding: 0 10px 0 0
+  @media (max-width: 350px)
     display: none
 
 .card-img
   border-radius: 15px
   width: 100%
-
+  @media (max-width: 500px)
+    border-radius: 5px
 
 .javascript
   border-color: #EAD726E3
