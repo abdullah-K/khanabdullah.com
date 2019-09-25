@@ -1,0 +1,27 @@
+extends ../exp-layout
+
+append content
+  .container
+    .project-overview
+      .project-title
+        img(src="../../img/lab/firestore-ios.png")
+        h1 Firestore iOS
+      .project-about
+        p.project-desc Basic iOS application with support for Firebase authentication and Cloud Firestore database storage
+        ul.project-tech
+          - let techList = ["Swift", "Firebase", "Cloud Firestore"]
+          each item in techList
+            li= item
+    img.project-img(src="/img/lab/firestore-ios_demo.png")
+    .project-desc
+      h2 Details
+      p.project-details 
+        | In order to learn how to work with Firebase, especially in iOS, I built this simple application which supports login and sign up using Firebase Authentication and saving some user information using Cloud Firestore. The user interface was built using Storyboard and Auto Layout constraints and uses iOS system colors with support for iOS 13's dark mode.
+        br
+        br
+        | Some of the features I implemented in this app include asynchronous data fetching from Cloud Firestore and storing some user info on-device for faster loading the next time the user opens the app (iOS UserDefaults). I also added form validation and descriptive error messages to improve the user experience in case this app's functionality was to be used in a larger project.
+        br
+        br
+        | Please feel free to check out the source code below!
+    .project-links
+      a.project-link(href="https://github.com/abdullah-k/firestore-ios" target="_blank") Source code
