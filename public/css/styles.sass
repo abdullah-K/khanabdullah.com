@@ -248,3 +248,22 @@ body
 
 .hide
   display: none !important
+
+@keyframes tada
+  0%
+    transform: scale3d(1, 1, 1)
+  10%
+    transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, -4deg)
+  30%
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, 4deg)
+  60%
+    transform: scale3d(1.25, 1.25, 1.25) rotate3d(0, 0, 1, -4deg)
+  100%
+    transform: scale3d(1, 1, 1)
+
+.attention
+  > a
+    color: $system-blue !important
+  animation-name: tada
+  animation-duration: 1s
+  animation-fill-mode: both
