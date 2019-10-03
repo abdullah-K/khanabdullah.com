@@ -1,4 +1,26 @@
 extends ../exp-layout
 
-block content
+append content
+  .container
+    .project-overview
+      .project-title
+        img(src="../../img/favicon.png")
+        h1 khanabdullah.com
+      .project-about
+        p.project-intro A short but comprehensive explanation of this OpenCV application capable of detecting and recognizing faces.
+        ul.project-tech
+          - let techList = ["Python", "OpenCV"]
+          each item in techList
+            li= item
+    img.project-img(src="/img/lab/website.png")
+    .project-desc
+      h2 Details
+      p.project-details 
+        | This web application utilizes the open source computer vision library, OpenCV, and implements the core workings of the Haar Feature-based Cascade Classifiers and the concept of object detection in Python.
+        br
+        br
+        | Once the machine receives a dataset of images of a certain face, OpenCV trains a model from this set of images using the FisherFace algorithm. This process
+    .project-links
+      a.project-link(href="https://github.com/abdullah-K/face-recognition" target="_blank") Source code
+      a.project-link(href="/") Live
   
