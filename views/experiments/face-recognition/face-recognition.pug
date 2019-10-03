@@ -1,7 +1,5 @@
 extends ../exp-layout
 
-block content
-  
 append content
   .container
     .project-overview
@@ -20,6 +18,6 @@ append content
         | This web application utilizes the open source computer vision library, OpenCV, and implements the core workings of the Haar Feature-based Cascade Classifiers and the concept of object detection in Python.
         br
         br
-        | Once the machine receives a dataset of images of a certain face, OpenCV trains a model from this set of images using the FisherFace algorithm, which is divided into two main stages: the preprocessing stage and the processing stage. After the computer has acquired the given images, the RGB picture is converted to grayscale which concludes the first stage. 
+        | Once the machine receives a dataset of images of a certain face, OpenCV trains a model from this set of images using the FisherFace algorithm, after the RGB picture is converted to grayscale as most operations in OpenCV are done in grayscale. The FisherFace method is based on the reduction of face space dimension (breaking the task down into smaller sections) and it is designed to recognize the face image by matching the results from its features extractions. Then it determines whether or not the image is correctly recognized along with a computed percentage to show confidence level. 
     .project-links
       a.project-link(href="https://github.com/abdullah-K/face-recognition" target="_blank") Source code
