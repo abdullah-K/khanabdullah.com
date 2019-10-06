@@ -1,0 +1,25 @@
+extends ../exp-layout
+
+prepend head
+  // override title to get the correct letter casing
+  title socketChat | Abdullah Khan's Lab
+
+append content
+  .container
+    .project-overview
+      .project-title
+        //- img(src="../../img/lab/firestore-ios.png")
+        h1 socketChat
+      .project-about
+        p.project-desc A secure messaging application which users can use to chat together in real time
+        ul.project-tech
+          - let techList = ["Node", "Express", "Socket.io", "Pug", "SASS"]
+          each item in techList
+            li= item
+    //- img.project-img(src="/img/lab/firestore-ios_demo.png")
+    .project-desc
+      h2 Details
+      p.project-details 
+        | Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ut veritatis reprehenderit quam beatae voluptate rerum culpa dolores nobis aliquam quis officia magnam numquam animi, iste id odit similique impedit?
+    .project-links
+      a.project-link(href="https://github.com/abdullah-k/socketChat" target="_blank") Source code

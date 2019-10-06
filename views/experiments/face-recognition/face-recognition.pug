@@ -1,4 +1,31 @@
 extends ../exp-layout
 
-block content
-  
+append content
+  .container
+    .project-overview
+      .project-title
+        h1 Face Recognition
+      .project-about
+        p.project-intro A short explanation of an OpenCV application capable of detecting and recognizing faces
+        ul.project-tech
+          - let techList = ["Python 3", "OpenCV"]
+          each item in techList
+            li= item
+    img.project-img(src="/img/lab/face-recognition_demo.png")
+    .project-desc
+      h2 Details
+      p.project-details 
+        | This Python application uses the #[a.link(href="https://opencv.org/" target="_blank") OpenCV] library and implements Haar feature-based cascade classifiers to detect and recognize faces in real-time. Here's how it works: 
+        br
+        br
+        | First of all, the user creates a dataset of their face using the create_data.py script. This script uses the pretrained Haar cascade model to detect the person's face and continuously take pictures of them. Before the script saves the images, it crops, resizes, and converts the pictures to grayscale. After the script is done, a folder with their name is created in the faces directory containing 100 photos of them, all resized to 130 x 100 pixels.
+        br
+        br
+        | Now for the fun part! The user runs the face_recognize.py script and OpenCV trains a model on the sets of images using the #[a.link(href="https://en.wikipedia.org/wiki/Local_binary_patterns" target="_blank") Local Binary Patterns] (LBP) algorithm. Simply put, LBP is an efficient texture operator which works by labelling the pixels of an image by thresholding the neighbourhood of each pixel and considering the result as a binary number (the #[a.link(href="https://docs.opencv.org/2.4/modules/contrib/doc/facerec/facerec_tutorial.html#local-binary-patterns-histograms" target="_blank") OpenCV docs] have an in-depth explanation). After the model is trained, a webcam window is launched and the Haar cascade method described previously is used to detect faces. Once a face has been detected, it is fed to the model for prediction. If a successful prediction is made, the name of the person is shown below their face along with a computed percentage to show confidence level. C'est tout.
+        br
+        | P.S. This #[a.link(href="https://towardsdatascience.com/face-recognition-how-lbph-works-90ec258c3d6b" target="_blank") article] helped me quite a bit in understanding how the LBP algorithm worked.
+        br
+        br
+        | It's your turn now! Try it out for yourself by cloning the repo below.
+    .project-links
+      a.project-link(href="https://github.com/abdullah-K/face-recognition" target="_blank") Source code
