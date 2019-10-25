@@ -1,6 +1,7 @@
 # [khanabdullah.com](https://khanabdullah.com)
 🌎 This is everything that makes my personal website work. Feel free to check it out!
 
+![Website demo image](demo.png)
 
 ## Run
 If you'd like to run this website locally:
