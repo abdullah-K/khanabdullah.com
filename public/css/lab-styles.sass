@@ -46,6 +46,13 @@ body
   animation-duration: 2s
   animation-fill-mode: both
 
+  display: flex
+  align-content: center
+  justify-content: center
+  padding: 0 100px
+  @media (max-width: 680px)
+    padding: 0 20px
+
 .fadeOut
   animation-name: fadeOut
   animation-duration: 1s
@@ -77,8 +84,6 @@ noscript
 
 #cards
   list-style: none
-  margin-left: calc(3vw - 1em)
-  padding-right: 9vw
   columns: 2
   @media (max-width: 680px)
     columns: 1
@@ -108,6 +113,7 @@ li
   break-inside: avoid
   page-break-inside: avoid
   position: relative
+  height: 29%
 
 .card-link
   text-decoration: none
