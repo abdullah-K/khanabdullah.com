@@ -18,6 +18,10 @@
 
 $text-color: gainsboro
 
+body, html
+  height: 100%
+  width: 100%
+
 @keyframes fadeInDelayed
   0%
     opacity: 0
@@ -37,9 +41,9 @@ $text-color: gainsboro
 noscript
   display: none
 
-body
-  overflow: hidden
-  padding-bottom: 120px
+// body
+//   overflow: hidden
+//   padding-bottom: 120px
 
 .fadeInDelayed
   animation-name: fadeInDelayed
@@ -50,6 +54,8 @@ body
   align-content: center
   justify-content: center
   padding: 0 100px
+  @media (max-width: 1080px)
+    padding: 0 50px
   @media (max-width: 680px)
     padding: 0 20px
 
@@ -74,10 +80,10 @@ body
       margin-top: -60px
 
 .size-limit-title
-  +responsive-font(5vw, 24px, 32px)
+  +responsive-font(5vw, 22px, 28px)
 
 .size-limit-preview
-  +responsive-font(2vw, 15px, 18px)
+  +responsive-font(2vw, 14px, 16px)
 
 noscript
   display: none
@@ -85,12 +91,15 @@ noscript
 #cards
   list-style: none
   columns: 2
+  column-gap: 20px
+  padding: 0 0 100px 0
   @media (max-width: 680px)
     columns: 1
     margin: 0
-    padding: 20px
+    padding: 20px 0
     display: flex
     flex-direction: column
+    padding-bottom: 100px
     align-items: center
 
 .card
@@ -104,16 +113,20 @@ noscript
   border-style: solid
   overflow: hidden
   transition: 0.1s
+  height: 195px
   &:hover
     background: lighten(#1b1b1b, 5%)
+  @media (max-width: 1080px)
+    height: 210px
   @media (max-width: 680px)
     width: 100%
+    height: 165px
 
 li
   break-inside: avoid
   page-break-inside: avoid
   position: relative
-  height: 29%
+  // height: 29%
 
 .card-link
   text-decoration: none
@@ -134,9 +147,9 @@ li
     max-width: 90%
 
 .card-info
-  margin-bottom: 15px
+  margin: 10px 0 0 0
   color: darken($text-color, 5%)
-  max-width: 80%
+  max-width: 90%
   @media (max-width: 680px)
     font-size: 13px
     max-width: 100%
