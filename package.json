@@ -1,8 +1,7 @@
 {
   "name": "khanabdullah.com",
-  "version": "1.0.0",
-  "description": "This is my new and improved home on the internet.",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Abdullah Khan's website",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abdullah-K/khanabdullah.com.git"
@@ -12,16 +11,5 @@
   "bugs": {
     "url": "https://github.com/abdullah-K/khanabdullah.com/issues"
   },
-  "homepage": "http://khanabdullah.com",
-  "dependencies": {
-    "compression": "^1.7.4",
-    "express": "^4.17.1",
-    "pug": "^2.0.3"
-  },
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^5.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1"
-  }
+  "homepage": "https://khanabdullah.com"
 }
