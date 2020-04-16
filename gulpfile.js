@@ -22,7 +22,7 @@ const paths = {
 function html() {
   return src("./src/*.pug")
     .pipe(data((file) => {
-      return JSON.parse(fs.readFileSync(paths.data + path.basename(file.path) + ".json"))
+      return JSON.parse(fs.readFileSync(paths.data + path.basename(file.path, ".pug") + ".json"))
     }))
     .pipe(pug())
     .on("error", (err) => {
