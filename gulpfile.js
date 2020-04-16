@@ -33,7 +33,7 @@ function html() {
 }
 
 function styles() {
-  return src(paths.sass + "styles.sass")
+  return src([paths.sass + "styles.sass", paths.sass + "includes/*"])
     .pipe(sass({
       includePaths: [paths.sass],
       errLogToConsole: true,
@@ -67,7 +67,7 @@ function watchAndServe() {
     port: 8888
   })
 
-  watch(paths.sass + "*.sass", styles)
+  watch(paths.sass + "**/*.sass", styles)
   watch(paths.src + "*.pug", html)
   watch(paths.data + "*.json", html)
   watch(paths.assets + "*", assets)
