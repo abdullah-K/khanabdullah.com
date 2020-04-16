@@ -4,6 +4,9 @@ const { src, dest, watch, series } = require("gulp"),
   browserSync = require("browser-sync").create(),
   prefix = require("gulp-autoprefixer"),
   data = require("gulp-data"),
+  rename = require("gulp-rename"),
+  uglify = require("gulp-uglify"),
+  babel = require("gulp-babel")
   path = require("path"),
   fs = require("fs")
 
@@ -12,6 +15,7 @@ const paths = {
   src: "./src/",
   sass: "./src/sass/",
   assets: "./src/assets/",
+  scripts: "./src/js/",
   data: "./src/_data/"
 }
 
@@ -37,6 +41,7 @@ function styles() {
       onError: browserSync.notify,
     }))
     .pipe(prefix())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(dest(paths.dist + "css/"))
     .pipe(browserSync.stream())
 }
@@ -44,6 +49,16 @@ function styles() {
 function assets() {
   return src(paths.assets + "**/*")
     .pipe(dest(paths.dist + "assets/"))
+}
+
+function scripts() {
+  return src(paths.scripts + "*")
+    .pipe(babel({
+      "presets": ["@babel/env"]
+    }))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest(paths.dist + "js/"))
 }
 
 function watchAndServe() {
@@ -56,10 +71,11 @@ function watchAndServe() {
   watch(paths.src + "*.pug", html)
   watch(paths.data + "*.json", html)
   watch(paths.assets + "*", assets)
+  watch(paths.scripts + "*", scripts)
   watch(paths.dist + "*.html").on("change", browserSync.reload)
 }
 
 exports.html = html
 exports.styles = styles
 exports.watch = watchAndServe
-exports.default = process.argv.includes("--dev") && !process.argv.includes("--prod") ? series(html, styles, assets, watchAndServe) : series(html, styles, assets)
+exports.default = process.argv.includes("--dev") && !process.argv.includes("--prod") ? series(html, styles, scripts, assets, watchAndServe) : series(html, styles, scripts, assets)
