@@ -6,3 +6,7 @@ node_modules/
 
 # macOS Finder file
 .DS_Store
+
+
+# build folder
+dist/
