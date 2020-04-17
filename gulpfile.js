@@ -6,7 +6,9 @@ const { src, dest, watch, series } = require("gulp"),
   data = require("gulp-data"),
   rename = require("gulp-rename"),
   uglify = require("gulp-uglify"),
-  babel = require("gulp-babel")
+  babel = require("gulp-babel"),
+  concat = require("gulp-concat"),
+  streamqueue = require("streamqueue"),
   path = require("path"),
   fs = require("fs")
 
@@ -16,7 +18,7 @@ const paths = {
   sass: "./src/sass/",
   assets: "./src/assets/",
   scripts: "./src/js/",
-  data: "./src/_data/"
+  data: "./src/_data/",
 }
 
 function html() {
@@ -52,26 +54,30 @@ function assets() {
 }
 
 function scripts() {
-  return src(paths.scripts + "*")
-    .pipe(babel({
-      "presets": ["@babel/env"]
-    }))
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
+  let jsStream =
+    src(paths.scripts + "*.js")
+      .pipe(babel({
+        "presets": ["@babel/env"]
+      }))
+      .pipe(uglify())
+
+  return streamqueue({ objectMode: true }, src(paths.scripts + "lib/three.min.js"), src(paths.scripts + "lib/vanta.waves.min.js"), jsStream)
+    .pipe(concat('bundle.min.js'))
     .pipe(dest(paths.dist + "js/"))
 }
 
 function watchAndServe() {
   browserSync.init({
     server: paths.dist,
-    port: 8888
+    port: 8888,
+    index: "index-en.html"
   })
 
   watch(paths.sass + "**/*.sass", styles)
-  watch(paths.src + "*.pug", html)
+  watch(paths.src + "**/*.pug", html)
   watch(paths.data + "*.json", html)
   watch(paths.assets + "*", assets)
-  watch(paths.scripts + "*", scripts)
+  watch(paths.scripts + "**/*.js", scripts)
   watch(paths.dist + "*.html").on("change", browserSync.reload)
 }
 

@@ -3,11 +3,18 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="./assets/lib/normalize.css")
     title= title
+    link(rel="stylesheet", href="./css/styles.min.css")
     block head
 
   body
-    block content
+    #circle-cursor
+    .container
+      .inner-container
+        block landing
+      .waves
+    .container.projects-page
+      block second
 
+    script(src="./js/bundle.min.js" type="text/javascript")
     block scripts
