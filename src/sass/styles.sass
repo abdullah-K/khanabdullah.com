@@ -7,14 +7,38 @@ h1
   height: 100%
   width: 100%
   z-index: 0
+  position: absolute
 
 .container
   height: 100vh
+  height: calc(var(--vh, 1vh) * 100)
   width: 100vw
   position: relative
 
+.skewed
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  height: 100%
+  weight: 100%
+  transform-origin: top left
+  transform: skewY(-4deg)
+  transition: 0.4s
+  @media all and (max-width: $break-xl)
+    transform: skewY(-6deg)
+  @media all and (max-width: $break-lg)
+    transform: skewY(-8deg)
+  @media all and (max-width: $break-md)
+    transform: skewY(-10deg)
+  @media all and (max-width: $break-sm)
+    transform: skewY(-12deg)
+
+
 .projects-page
-  height: 92vh
+  height: 98vh
+  background: linear-gradient(to bottom, $gradient-top, $gradient-bottom)
 
 .inner-container
   z-index: 1

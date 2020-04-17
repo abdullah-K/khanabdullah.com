@@ -29,7 +29,7 @@ window.addEventListener("mousemove", e => {
   mouseY = e.clientY;
 });
 document.addEventListener("DOMContentLoaded", function () {
-setInterval(move, 400 / 60);
+setInterval(move, 500 / 60);
 })
 
 function move() {

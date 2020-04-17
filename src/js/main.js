@@ -13,10 +13,12 @@ const effect = VANTA.WAVES({
   zoom: 1
 })
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
   setTimeout(() => {
     effect.setOptions({
       zoom: 0.7,
-    });
-  }, 1000);
+    })
+  }, 1000)
 })
