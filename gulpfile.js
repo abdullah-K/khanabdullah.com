@@ -22,15 +22,30 @@ const paths = {
 }
 
 function html() {
-  return src("./src/*.pug")
-    .pipe(data((file) => {
-      return JSON.parse(fs.readFileSync(paths.data + path.basename(file.path, ".pug") + ".json"))
-    }))
-    .pipe(pug())
-    .on("error", (err) => {
-      process.stderr.write(err.message + "\n")
-      this.emit("end")
-    })
+  let enStream =
+    src("./src/*.pug")
+      .pipe(data((file) => {
+        return JSON.parse(fs.readFileSync(paths.data + "index-en.json"))
+      }))
+      .pipe(pug())
+      .on("error", (err) => {
+        process.stderr.write(err.message + "\n")
+        this.emit("end")
+      })
+      .pipe(rename("index-en.html"))
+
+  let frStream =
+    src("./src/*.pug")
+      .pipe(data((file) => {
+        return JSON.parse(fs.readFileSync(paths.data + "index-fr.json"))
+      }))
+      .pipe(pug())
+      .on("error", (err) => {
+        process.stderr.write(err.message + "\n")
+        this.emit("end")
+      })
+      .pipe(rename("index-fr.html"))
+  return streamqueue({ objectMode: true }, enStream, frStream)
     .pipe(dest(paths.dist))
 }
 
