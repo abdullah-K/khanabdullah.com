@@ -1,4 +1,9 @@
 {
   "title": "Abdullah F. Khan",
-  "welcome": "Je m'appelle Abdullah"
+  "greeting": "Salut,",
+  "introduction": "Je m'appelle Abdullah",
+  "about": "Développeur full stack,<br/>designer par hobby",
+  "job": "Actuellement, je travaille á Royaltymine",
+  "projectsHeading": "Certain de mes projets",
+  "contact": "Vous avez un projet? Écrivez-moi"
 }

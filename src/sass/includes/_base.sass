@@ -1,14 +1,30 @@
 @import "../lib/normalize.scss"
 @import "./_variables.sass"
 
+@font-face
+  font-family: "Josefin Sans"
+  src: url("../assets/font/JosefinSans-Regular.ttf") format("truetype")
+  font-weight: 400
+
+@font-face
+  font-family: "Josefin Sans"
+  src: url("../assets/font/JosefinSans-SemiBold.ttf") format("truetype")
+  font-weight: 600
+
+@font-face 
+  font-family: "Josefin Sans"
+  src: url("../assets/font/JosefinSans-Bold.ttf") format("truetype")
+  font-weight: 700
+
 /*! CSS for khanabdullah.com */
 body, html
   width: 100vw
   height: 100vh
   background: $background
   color: $text-primary
-  font-family: sans-serif
   overflow-x: hidden
+  font-family: "Josefin Sans", sans-serif
+  font-weight: 400
 
 #circle-cursor
   width: 20px
