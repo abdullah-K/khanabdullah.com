@@ -29,17 +29,25 @@ h1
   @media all and (max-width: $break-xl)
     border-width: 0 0 95px 100vw
 
+.translucent
+  opacity: 0.6
+
 .scroll-indicator
+  width: 56px
+  height: 56px
   position: absolute
   bottom: 0
   right: 0
   z-index: 3
   font-size: 28px
-  margin: 20px 65px
+  padding: 20px 50px
+  transition: 0.4s
   @media all and (max-width: $break-xl)
-    margin: 10px 65px
+    padding: 20px 40px
   @media all and (max-width: $break-md)
-    margin: 10px 40px
+    padding: 15px 30px
+  &:hover
+    opacity: 1
 
 .projects-page
   height: 98vh
@@ -48,3 +56,10 @@ h1
 .inner-container
   z-index: 1
   position: absolute
+  height: 100%
+  width: 100%
+  // padding: 70px
+  display: flex
+
+.about
+  align-self: flex-end

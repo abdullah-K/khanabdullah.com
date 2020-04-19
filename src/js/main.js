@@ -13,9 +13,15 @@ const effect = VANTA.WAVES({
   zoom: 1
 })
 
+function scrollTo() {
+  const links = document.querySelectorAll('.smooth-scroll')
+  links.forEach(each => (each.onclick = scrollAnchors))
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let vh = window.innerHeight * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`)
+  scrollTo()
   setTimeout(() => {
     effect.setOptions({
       zoom: 0.7,
