@@ -1,11 +1,14 @@
 extends _layouts/home
 
 block landing
+  .upper
+    .logo
+      img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
   .about
     h1.translucent= greeting
     h1= introduction
     h3 !{about}
-    h3= job
+    h3 !{job}
     h3= contact
 
 block second
