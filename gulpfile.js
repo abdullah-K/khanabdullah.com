@@ -30,7 +30,6 @@ function html() {
       .pipe(pug())
       .on("error", (err) => {
         process.stderr.write(err.message + "\n")
-        this.emit("end")
       })
       .pipe(rename("index-en.html"))
 
@@ -42,7 +41,6 @@ function html() {
       .pipe(pug())
       .on("error", (err) => {
         process.stderr.write(err.message + "\n")
-        this.emit("end")
       })
       .pipe(rename("index-fr.html"))
   return streamqueue({ objectMode: true }, enStream, frStream)
