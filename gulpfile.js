@@ -57,7 +57,7 @@ function styles() {
       outputStyle: "compressed",
       onError: browserSync.notify,
     }))
-    .pipe(prefix())
+    .pipe(prefix('last 2 versions'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(dest(paths.dist + "css/"))
     .pipe(browserSync.stream())
@@ -70,7 +70,7 @@ function assets() {
 
 function scripts() {
   let jsStream =
-    src(paths.scripts + "*.js")
+    src([paths.scripts + "helpers.js", paths.scripts + "*.js"])
       .pipe(babel({
         "presets": ["@babel/env"]
       }))
