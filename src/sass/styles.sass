@@ -60,42 +60,112 @@ h1
   width: 100%
   display: flex
 
-.about
+.lower
+  display: flex
   align-self: flex-end
+  width: 100%
+  justify-content: space-between
+  @media all and (max-width: $break-lg)
+    flex-direction: column
+
+.about
   margin-left: 70px
   margin-bottom: 100px
+  transition: 0.4s
+  padding-right: 50px
   > h1
-    font-size: 52px
+    transition: 0.4s
+    font-size: 48px
     font-weight: 700
-  > h3
+  > p
+    transition: 0.4s
     font-size: 24px
     font-weight: 600
+  @media all and (max-width: $break-lg)
+    margin-bottom: 0
+    > h1
+      font-size: 38px
+    > p
+      font-size: 20px
+  @media all and (max-width: $break-md)
+    padding-right: 30px
+    margin-left: 40px
+    > h1
+      font-size: 34px
+    > p
+      font-size: 18px
   @media all and (max-width: $break-sm)
     margin-left: 30px
     > h1
-      font-size: 24px
-    > h3
-      font-size: 14px
+      font-size: 32px
+    > p
+      font-size: 16px
+
+.links
+  text-align: right
+  padding-right: 40px
+  justify-self: flex-end
+  @media all and (max-width: $break-lg)
+    margin-bottom: 100px
+    display: flex
+    align-items: center
+    justify-content: space-around
+    text-align: left
 
 .upper
   position: absolute
   top: 0
   left: 0
   width: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.languages
+  margin-right: 70px
+  margin-top: 60px
 
 .logo
   align-self: flex-start
   margin-left: 70px
   margin-top: 60px
+  transition: 0.4s
   > img
-    height: 96px
-    width: 96px
+    transition: all 0.4s ease
+    height: 82px
+    width: 82px
+    &:hover
+      animation: color-switch 0.7s linear forwards infinite
+  @media all and (max-width: $break-lg)
+    > img
+      height: 75px
+      width: 75px
+  @media all and (max-width: $break-md)
+    margin-left: 40px
+    margin-top: 50px
+    > img
+      height: 65px
+      width: 65px
   @media all and (max-width: $break-sm)
     margin-left: 30px
     margin-top: 40px
     > img
       height: 56px
       width: 56px
+
+@keyframes color-switch
+  0%
+    // green
+    filter: invert(18%) sepia(63%) saturate(1065%) hue-rotate(55deg) brightness(101%) contrast(101%)
+  33.33%
+    // orange
+    filter: invert(14%) sepia(47%) saturate(5961%) hue-rotate(218deg) brightness(100%) contrast(102%)
+  66.66%
+    // pink
+    filter: invert(40%) sepia(42%) saturate(1831%) hue-rotate(279deg) brightness(100%) contrast(102%)
+  100%
+    // yellow
+    filter: invert(8%) sepia(27%) saturate(1066%) hue-rotate(332deg) brightness(104%) contrast(103%)
 
 .company
   color: #ff6be6
