@@ -12,7 +12,7 @@ if ("ontouchstart" in document.documentElement) {
   circle.el.style.display = "none";
 } else {
   document.body.style.cursor = "none";
-  document.querySelector(".no-cursor").style.cursor = "none"
+  document.querySelectorAll(".no-cursor").forEach((el) => el.style.cursor = "none")
   circle.el.style.display = "flex";
 }
 
