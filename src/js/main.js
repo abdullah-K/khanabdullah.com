@@ -19,8 +19,10 @@ function scrollTo() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let vh = window.innerHeight * 0.01
-  document.documentElement.style.setProperty('--vh', `${vh}px`)
+   if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  }
   scrollTo()
   setTimeout(() => {
     effect.setOptions({
