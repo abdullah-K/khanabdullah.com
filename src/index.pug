@@ -4,7 +4,7 @@ block landing
   .upper
     .logo
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
-    .languages
+    .languages.blur
       svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox="1 9 46 30" style=' fill:#000000;')
         path(fill='#ECEFF1' d='M2 9H46V39H2z')
         path(fill='#FF3D00' d='M36 9H46V39H36zM2 9H12V39H2zM23 30H25V33H23z')
@@ -22,11 +22,11 @@ block landing
       p !{job}
       p= contact
     .links
-      .link
+      .link.blur
         a(href="/resume.pdf").no-cursor= resumeText
-      .link
+      .link.blur
         a(target="_blank" href="https://github.com/abdullah-K" rel="noopener").no-cursor GitHub
-      .link
+      .link.blur
         a(href="mailto:contact@khanabdullah.com").no-cursor contact@khanabdullah.com
 
 block second
