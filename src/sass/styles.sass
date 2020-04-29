@@ -62,7 +62,7 @@ h1
 
 .blur
   background: rgba(255, 255, 255, 0.25)
-  backdrop-filter: saturate(150%) blur(5px)
+  backdrop-filter: saturate(170%) blur(5px)
   padding: 5px
   width: max-content
   border-radius: 10px
@@ -115,6 +115,8 @@ h1
   display: flex
   flex-direction: column
   align-items: flex-end
+  transition: 0.4s
+  justify-content: center
   @media all and (max-width: $break-lg)
     margin-top: 30px
     display: flex
@@ -124,6 +126,11 @@ h1
     text-align: left
     padding-right: 10px
     padding-left: 70px
+  @media all and (max-width: $break-md)
+    // padding-right: 30px
+    padding-left: 40px
+  @media all and (max-width: $break-sm)
+    padding-left: 30px
 
 .link
   text-align: right
@@ -156,20 +163,36 @@ h1
   display: flex
   align-items: center
   justify-content: center
-  padding: 5px
+  padding: 8px 5px
+  position: relative
   > svg
     margin: 0 10px
     border-radius: 5px
-    width: 40px
+    width: 35px
+    z-index: 4
+  // &:hover
+  //   > .language-selector
+  //     left: 62px
   @media all and (max-width: $break-md)
     margin-right: 40px
   @media all and (max-width: $break-sm)
     margin-right: 30px
 
+.language-selector
+  position: absolute
+  height: 19px
+  width: 40px
+  z-index: 3
+  transition: 0.4s
+  left: 7px
+  border-radius: 7px
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1)
+
 .logo
   align-self: flex-start
   margin-left: 70px
   transition: 0.4s
+  margin-right: 30px
   > img
     transition: all 0.4s ease
     height: 82px
