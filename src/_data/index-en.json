@@ -6,5 +6,6 @@
   "job": "Currently, I'm helping artists get paid at <a target=\"_blank\" href=\"https://royaltymine.com\"rel=\"noopener\" class=\"company no-cursor\">Royaltymine</a>",
   "projectsHeading": "<span class=\"translucent\">Some of</span> my projects",
   "contact": "Got a project in mind? Let’s talk",
-  "resumeText": "Resume"
+  "resumeText": "Resume",
+  "englishSelected": true
 }
