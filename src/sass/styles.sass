@@ -15,6 +15,9 @@ h1
   width: 100vw
   position: relative
 
+.fallback-bg
+  background: linear-gradient(to bottom, $gradient-top, $gradient-bottom)
+
 .skewed
   position: absolute
   bottom: 0
@@ -25,7 +28,7 @@ h1
   border-style: solid
   border-width: 0 0 100px 100vw
   transition: 0.4s
-  border-color: transparent transparent #1B498C transparent
+  border-color: transparent transparent $gradient-top transparent
   @media all and (max-width: $break-xl)
     border-width: 0 0 95px 100vw
 
@@ -63,7 +66,7 @@ h1
 .blur
   background: rgba(255, 255, 255, 0.25)
   backdrop-filter: saturate(170%) blur(5px)
-  padding: 5px
+  // padding: 5px
   width: max-content
   border-radius: 10px
 
@@ -163,16 +166,16 @@ h1
   display: flex
   align-items: center
   justify-content: center
-  padding: 8px 5px
   position: relative
-  > svg
-    margin: 0 10px
-    border-radius: 5px
-    width: 35px
+  > a
     z-index: 4
-  // &:hover
-  //   > .language-selector
-  //     left: 62px
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 8px 13px
+    > svg
+      border-radius: 5px
+      width: 35px
   @media all and (max-width: $break-md)
     margin-right: 40px
   @media all and (max-width: $break-sm)
@@ -182,11 +185,16 @@ h1
   position: absolute
   height: 19px
   width: 40px
+  padding: 5px
   z-index: 3
   transition: 0.4s
-  left: 7px
   border-radius: 7px
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1)
+  &.english
+    left: 6px
+  &.french
+    left: 66px
+
 
 .logo
   align-self: flex-start
@@ -229,8 +237,8 @@ h1
     filter: invert(8%) sepia(27%) saturate(1066%) hue-rotate(332deg) brightness(104%) contrast(103%)
 
 .company
-  color: #ff6be6
+  color: $company-color
   text-decoration: none
   transition: 0.2s
   &:hover
-    color: lighten(#ff6be6, 10%)
+    color: lighten($company-color, 10%)
