@@ -6,15 +6,9 @@ block landing
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
     .languages.blur
       a(href="/").no-cursor
-        svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox="1 9 46 30" style=' fill:#000000;')
-          path(fill='#ECEFF1' d='M2 9H46V39H2z')
-          path(fill='#FF3D00' d='M36 9H46V39H36zM2 9H12V39H2zM23 30H25V33H23z')
-          path(fill='#FF3D00' d='M33,27l-2-1l2-3h-3l-0.041-1.986l-2.311,1.159L28,17l-2,1l-1.993-3L22,18l-2-1l0.352,5.144l-2.312-1.128c0,0-0.045,1.974-0.04,1.984h-3l2,3l-2,1l4,2v2c0,0,4.722-0.259,5-0.259S29,31,29,31v-2L33,27z')
+        include _layouts/icons/canada
       a(href="/index-fr.html").no-cursor
-        svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox="1 9 46 30" style=' fill:#000000;')
-          path(fill='#ECEFF1' d='M16 9H32V39H16z')
-          path(fill='#FF3D00' d='M32 9H46V39H32z')
-          path(fill='#3F51B5' d='M2 9H16V39H2z')
+        include _layouts/icons/france
       if(englishSelected)
         .language-selector.blur.english
       else
@@ -29,11 +23,17 @@ block landing
       p= contact
     .links
       .link.blur
+        include _layouts/icons/resume
         a(href="/resume.pdf").no-cursor= resumeText
       .link.blur
+        include _layouts/icons/github
         a(target="_blank" href="https://github.com/abdullah-K" rel="noopener").no-cursor GitHub
       .link.blur
+        include _layouts/icons/email
         a(href="mailto:contact@khanabdullah.com").no-cursor contact@khanabdullah.com
 
 block second
-  h1 !{projectsHeading}
+  .upper.secondary
+    .logo
+      img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
+    h1 !{projectsHeading}

@@ -27,7 +27,6 @@ h1
   z-index: 2
   border-style: solid
   border-width: 0 0 100px 100vw
-  transition: 0.4s
   border-color: transparent transparent $gradient-top transparent
   @media all and (max-width: $break-xl)
     border-width: 0 0 95px 100vw
@@ -130,15 +129,17 @@ h1
     padding-right: 10px
     padding-left: 70px
   @media all and (max-width: $break-md)
-    // padding-right: 30px
     padding-left: 40px
   @media all and (max-width: $break-sm)
     padding-left: 30px
 
 .link
+  display: flex
+  align-items: center
   text-align: right
-  margin-bottom: 10px
+  margin-bottom: 20px
   transition: 0.4s
+  text-transform: lowercase
   &:hover
     background: rgba(255, 255, 255, 0.4)
   > a
@@ -147,6 +148,7 @@ h1
     color: white
     text-decoration: none
     font-weight: 600
+    font-size: 18px
 
 .upper
   position: absolute
@@ -162,6 +164,22 @@ h1
     padding-top: 50px
   @media all and (max-width: $break-sm)
     padding-top: 40px
+  &.secondary
+    align-items: flex-start
+    > h1
+      font-size: 40px
+      text-align: right
+      margin-right: 70px
+    @media all and (max-width: $break-lg)
+      > h1
+        font-size: 32px
+    @media all and (max-width: $break-md)
+      > h1
+        font-size: 28px
+        margin-right: 60px
+    @media all and (max-width: $break-sm)
+      > h1
+        font-size: 26px
 
 .languages
   transition: 0.4s
@@ -244,4 +262,4 @@ h1
   text-decoration: none
   transition: 0.2s
   &:hover
-    color: lighten($company-color, 10%)
+    color: lighten($company-color, 5%)
