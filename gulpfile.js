@@ -35,7 +35,7 @@ function json() {
   .pipe(dest(paths.data + "merged/"))
 }
 
-function html() {
+function html(cb) {
   let enStream =
     src("./src/*.pug")
       .pipe(data((file) => {
@@ -43,7 +43,8 @@ function html() {
       }))
       .pipe(pug())
       .on("error", (err) => {
-        process.stderr.write(err.message + "\n")
+        console.log(err.message + "\n")
+        cb()
       })
       .pipe(rename("index-en.html"))
 
@@ -54,7 +55,8 @@ function html() {
       }))
       .pipe(pug())
       .on("error", (err) => {
-        process.stderr.write(err.message + "\n")
+        console.log(err.message + "\n")
+        cb()
       })
       .pipe(rename("index-fr.html"))
   return streamqueue({ objectMode: true }, enStream, frStream)
@@ -102,7 +104,7 @@ function watchAndServe() {
 
   watch(paths.sass + "**/*.sass", styles)
   watch(paths.src + "**/*.pug", html)
-  watch(paths.data + "*.json", json)
+  watch(paths.data + "*.json", series(json, html))
   watch(paths.assets + "*", assets)
   watch(paths.scripts + "**/*.js", scripts)
   watch(paths.dist + "*.html").on("change", browserSync.reload)
