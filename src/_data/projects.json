@@ -1,0 +1,19 @@
+{
+  "projects": [
+    {
+      "title": "project 1",
+      "description": "Test description",
+      "description_fr": "Test description FRENCH"
+    },
+    {
+      "title": "project 2",
+      "description": "Test description",
+      "description_fr": "Test description FRENCH"
+    },
+    {
+      "title": "project 3",
+      "description": "Test description",
+      "description_fr": "Test description FRENCH"
+    }
+  ]
+}

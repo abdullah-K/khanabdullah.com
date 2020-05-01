@@ -9,7 +9,7 @@ const { src, dest, watch, series } = require("gulp"),
   babel = require("gulp-babel"),
   concat = require("gulp-concat"),
   streamqueue = require("streamqueue"),
-  path = require("path"),
+  mergeJSON = require("gulp-merge-json"),
   fs = require("fs")
 
 const paths = {
@@ -21,11 +21,25 @@ const paths = {
   data: "./src/_data/",
 }
 
+function json() {
+  let enStream = src([paths.data + '*.json', "!" + paths.data + "index-fr.json"])
+    .pipe(mergeJSON())
+    .pipe(rename("data-en.json"))
+
+  let frStream = src([paths.data + '*.json', "!" + paths.data + "index-en.json"])
+    .pipe(mergeJSON())
+    .pipe(rename("data-fr.json"))
+    
+
+  return streamqueue({ objectMode: true }, enStream, frStream)
+  .pipe(dest(paths.data + "merged/"))
+}
+
 function html() {
   let enStream =
     src("./src/*.pug")
       .pipe(data((file) => {
-        return JSON.parse(fs.readFileSync(paths.data + "index-en.json"))
+        return JSON.parse(fs.readFileSync(paths.data + "merged/data-en.json"))
       }))
       .pipe(pug())
       .on("error", (err) => {
@@ -36,7 +50,7 @@ function html() {
   let frStream =
     src("./src/*.pug")
       .pipe(data((file) => {
-        return JSON.parse(fs.readFileSync(paths.data + "index-fr.json"))
+        return JSON.parse(fs.readFileSync(paths.data + "merged/data-fr.json"))
       }))
       .pipe(pug())
       .on("error", (err) => {
@@ -88,7 +102,7 @@ function watchAndServe() {
 
   watch(paths.sass + "**/*.sass", styles)
   watch(paths.src + "**/*.pug", html)
-  watch(paths.data + "*.json", html)
+  watch(paths.data + "*.json", json)
   watch(paths.assets + "*", assets)
   watch(paths.scripts + "**/*.js", scripts)
   watch(paths.dist + "*.html").on("change", browserSync.reload)
@@ -97,4 +111,4 @@ function watchAndServe() {
 exports.html = html
 exports.styles = styles
 exports.watch = watchAndServe
-exports.default = process.argv.includes("--dev") && !process.argv.includes("--prod") ? series(html, styles, scripts, assets, watchAndServe) : series(html, styles, scripts, assets)
+exports.default = process.argv.includes("--dev") && !process.argv.includes("--prod") ? series(json, html, styles, scripts, assets, watchAndServe) : series(json, html, styles, scripts, assets)
