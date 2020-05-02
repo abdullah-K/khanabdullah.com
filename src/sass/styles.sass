@@ -78,7 +78,9 @@ h1
   transition: 0.4s
   @media all and (max-width: $break-lg)
     flex-direction: column
-    padding-bottom: 150px
+    padding-bottom: 110px
+  @media all and (max-width: $break-md)
+    padding-bottom: 70px
 
 .about
   margin-left: 70px
@@ -119,6 +121,11 @@ h1
   align-items: flex-end
   transition: 0.4s
   justify-content: center
+  width: max-content
+  > .link-group
+    display: flex
+    justify-content: space-between
+    flex-direction: column
   @media all and (max-width: $break-lg)
     margin-top: 30px
     display: flex
@@ -128,7 +135,12 @@ h1
     text-align: left
     padding-right: 10px
     padding-left: 70px
+    > .link-group
+      display: flex
+      flex-direction: row
+      width: 100%
   @media all and (max-width: $break-md)
+    margin-top: 15px
     padding-left: 40px
   @media all and (max-width: $break-sm)
     padding-left: 30px
@@ -137,18 +149,29 @@ h1
   display: flex
   align-items: center
   text-align: right
-  margin-bottom: 20px
+  margin-bottom: 15px
   transition: 0.4s
   text-transform: lowercase
   &:hover
     background: rgba(255, 255, 255, 0.4)
   > a
     display: block
-    padding: 12px 20px 10px 20px
+    padding: 12px 20px 10px 10px
     color: white
     text-decoration: none
     font-weight: 400
-    font-size: 18px
+    font-size: 20px
+    transition: 0.4s
+  > svg
+    width: 25px
+    padding-left: 10px
+  @media all and (max-width: $break-lg)
+    margin-bottom: 10px
+    > a
+      font-size: 16px
+  @media all and (max-width: $break-md)
+    > a
+      font-size: 13px
 
 .upper
   position: absolute
@@ -176,10 +199,11 @@ h1
     @media all and (max-width: $break-md)
       > h1
         font-size: 28px
-        margin-right: 60px
+        margin-right: 40px
     @media all and (max-width: $break-sm)
       > h1
         font-size: 26px
+        margin-right: 30px
 
 .languages
   transition: 0.4s
