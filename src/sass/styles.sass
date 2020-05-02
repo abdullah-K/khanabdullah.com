@@ -30,6 +30,10 @@ h1
   border-color: transparent transparent $gradient-top transparent
   @media all and (max-width: $break-xl)
     border-width: 0 0 95px 100vw
+  @media all and (max-width: $break-lg)
+    border-width: 0 0 80px 100vw
+  @media all and (max-width: $break-md)
+    border-width: 0 0 70px 100vw
 
 .translucent
   opacity: 0.6
@@ -46,8 +50,11 @@ h1
   transition: 0.4s
   @media all and (max-width: $break-xl)
     padding: 20px 40px
+  @media all and (max-width: $break-lg)
+    width: 36px
+    height: 36px
   @media all and (max-width: $break-md)
-    padding: 15px 30px
+    padding: 15px 20px
   &:hover
     opacity: 1
 
@@ -55,17 +62,23 @@ h1
   height: 98vh
   background: linear-gradient(to bottom, $gradient-top, $gradient-bottom)
 
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
 .inner-container
   z-index: 1
   position: absolute
   height: 100%
   width: 100%
   display: flex
+  animation: 3s fadeIn cubic-bezier(0.22, 1, 0.36, 1)
 
 .blur
   background: rgba(255, 255, 255, 0.25)
   backdrop-filter: saturate(170%) blur(5px)
-  // padding: 5px
   width: max-content
   border-radius: 10px
 
@@ -81,6 +94,8 @@ h1
     padding-bottom: 110px
   @media all and (max-width: $break-md)
     padding-bottom: 70px
+  @media all and (max-width: $break-sm)
+    padding-bottom: 60px
 
 .about
   margin-left: 70px
@@ -107,12 +122,13 @@ h1
       font-size: 34px
     > p
       font-size: 18px
+      margin: 10px 0
   @media all and (max-width: $break-sm)
     margin-left: 30px
     > h1
-      font-size: 32px
+      font-size: 24px
     > p
-      font-size: 16px
+      font-size: 14px
 
 .links
   padding-right: 70px
@@ -124,7 +140,8 @@ h1
   width: max-content
   > .link-group
     display: flex
-    justify-content: space-between
+    justify-content: flex-end
+    align-items: flex-end
     flex-direction: column
   @media all and (max-width: $break-lg)
     margin-top: 30px
@@ -137,10 +154,11 @@ h1
     padding-left: 70px
     > .link-group
       display: flex
-      flex-direction: row
+      justify-content: space-between
+      flex-direction: row-reverse
       width: 100%
   @media all and (max-width: $break-md)
-    margin-top: 15px
+    margin-top: 5px
     padding-left: 40px
   @media all and (max-width: $break-sm)
     padding-left: 30px
@@ -225,6 +243,9 @@ h1
     margin-right: 40px
   @media all and (max-width: $break-sm)
     margin-right: 30px
+    > a > svg
+      border-radius: 3px
+      width: 25px
 
 .language-selector
   position: absolute
@@ -239,6 +260,11 @@ h1
     left: 6px
   &.french
     left: 66px
+  @media all and (max-width: $break-sm)
+    width: 33px
+    padding: 3px
+    &.french
+      left: 57px
 
 
 .logo
@@ -264,8 +290,8 @@ h1
   @media all and (max-width: $break-sm)
     margin-left: 30px
     > img
-      height: 56px
-      width: 56px
+      height: 46px
+      width: 46px
 
 @keyframes color-switch
   0%
