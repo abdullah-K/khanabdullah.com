@@ -230,6 +230,7 @@ h1
   align-items: center
   justify-content: center
   position: relative
+  height: 38px
   > a
     z-index: 4
     display: flex
@@ -243,9 +244,12 @@ h1
     margin-right: 40px
   @media all and (max-width: $break-sm)
     margin-right: 30px
-    > a > svg
-      border-radius: 3px
-      width: 25px
+    height: 32px
+    > a
+      padding: 8px 12px
+      > svg
+        border-radius: 3px
+        width: 25px
 
 .language-selector
   position: absolute
@@ -262,6 +266,7 @@ h1
     left: 66px
   @media all and (max-width: $break-sm)
     width: 33px
+    height: 18px
     padding: 3px
     &.french
       left: 57px
@@ -311,6 +316,7 @@ h1
   color: $company-color
   text-decoration: none
   transition: 0.2s
+  font-weight: bold
   &:hover
     color: lighten($company-color, 5%)
 
@@ -322,6 +328,7 @@ h1
   padding-bottom: 0
   animation: 3s fadeIn cubic-bezier(0.22, 1, 0.36, 1)
   @media all and (max-width: $break-md)
+    height: auto !important
     padding-bottom: 50px
 
 @mixin n-columns($min-width, $gutter, $last-equal: false, $max-cols: 5)
@@ -346,7 +353,7 @@ h1
           min-width: calc(#{$column-width} - #{$gutter})
           min-height: $column-width
 
-@include n-columns(300px, 40px, #{true}, 4)
+@include n-columns(250px, 40px, #{true}, 4)
 
 .projects-container
   width: 100%
@@ -358,7 +365,7 @@ h1
       padding: 70px 70px 0 70px
   @media all and (max-width: $break-md)
     > div
-      padding: 30px 40px 0 40px
+      padding: 50px 40px 0 40px
 
 .project
   text-decoration: none
@@ -396,6 +403,8 @@ h1
   @media all and (max-width: $break-md)
     .project-title
       font-size: 20px
+    .project-description
+      font-size: 14px
 
 .project-language
   min-width: 50px
