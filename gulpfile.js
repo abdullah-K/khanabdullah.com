@@ -21,18 +21,25 @@ const paths = {
   data: "./src/_data/",
 }
 
-function json() {
+function json(cb) {
   let enStream = src([paths.data + '*.json', "!" + paths.data + "index-fr.json"])
     .pipe(mergeJSON())
+    .on("error", (err) => {
+      console.log(err.message + "\n")
+      cb()
+    })
     .pipe(rename("data-en.json"))
 
   let frStream = src([paths.data + '*.json', "!" + paths.data + "index-en.json"])
     .pipe(mergeJSON())
+    .on("error", (err) => {
+      console.log(err.message + "\n")
+      cb()
+    })
     .pipe(rename("data-fr.json"))
-    
 
   return streamqueue({ objectMode: true }, enStream, frStream)
-  .pipe(dest(paths.data + "merged/"))
+    .pipe(dest(paths.data + "merged/"))
 }
 
 function html(cb) {
