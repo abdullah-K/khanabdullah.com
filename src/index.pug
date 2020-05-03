@@ -50,3 +50,6 @@ block second
             p.project-description= project.description
           else
             p.project-description= project.description_fr
+          .project-info
+            .project-language(class=project.language)
+              span= project.language

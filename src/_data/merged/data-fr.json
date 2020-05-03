@@ -12,27 +12,32 @@
 		{
 			"title": "project 1",
 			"description": "Test description",
-			"description_fr": "Test description FRENCH"
+			"description_fr": "Test description FRENCH",
+			"language": "javascript"
 		},
 		{
 			"title": "project 2",
 			"description": "Test description",
-			"description_fr": "Test description FRENCH"
+			"description_fr": "Test description FRENCH",
+			"language": "python"
 		},
 		{
 			"title": "project 3",
 			"description": "Test description",
-			"description_fr": "Test description FRENCH"
+			"description_fr": "Test description FRENCH",
+			"language": "swift"
 		},
 		{
 			"title": "project 4",
 			"description": "Test description",
-			"description_fr": "Test description FRENCH"
+			"description_fr": "Test description FRENCH",
+			"language": "javascript"
 		},
 		{
 			"title": "project 5",
 			"description": "Test description",
-			"description_fr": "Test description FRENCH"
+			"description_fr": "Test description FRENCH",
+			"language": "javascript"
 		}
 	]
 }

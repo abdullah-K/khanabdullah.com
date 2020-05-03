@@ -58,13 +58,6 @@ h1
   &:hover
     opacity: 1
 
-.projects-page
-  // height: 98vh
-  background: linear-gradient(to bottom, $gradient-top, $gradient-bottom)
-  display: flex
-  flex-direction: column
-  justify-content: flex-end
-
 @keyframes fadeIn
   0%
     opacity: 0
@@ -213,6 +206,7 @@ h1
     padding-top: 40px
   &.secondary
     align-items: flex-start
+    position: relative
     > h1
       font-size: 40px
       text-align: right
@@ -308,7 +302,7 @@ h1
     filter: invert(14%) sepia(47%) saturate(5961%) hue-rotate(218deg) brightness(100%) contrast(102%)
   66.66%
     // pink
-    filter: invert(40%) sepia(42%) saturate(1831%) hue-rotate(279deg) brightness(100%) contrast(102%)
+    filter: invert(40%) sepia(42%) saturate(1231%) hue-rotate(279deg) brightness(100%) contrast(102%)
   100%
     // yellow
     filter: invert(8%) sepia(27%) saturate(1066%) hue-rotate(332deg) brightness(104%) contrast(103%)
@@ -319,6 +313,16 @@ h1
   transition: 0.2s
   &:hover
     color: lighten($company-color, 5%)
+
+.projects-page
+  background: linear-gradient(to bottom, $gradient-top, $gradient-bottom)
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  padding-bottom: 0
+  animation: 3s fadeIn cubic-bezier(0.22, 1, 0.36, 1)
+  @media all and (max-width: $break-md)
+    padding-bottom: 50px
 
 @mixin n-columns($min-width, $gutter, $last-equal: false, $max-cols: 5)
   .projects-container > div
@@ -342,36 +346,59 @@ h1
           min-width: calc(#{$column-width} - #{$gutter})
           min-height: $column-width
 
-@include n-columns(300px, 20px, #{true}, 4)
+@include n-columns(300px, 40px, #{true}, 4)
 
 .projects-container
-  height: 85%
+  // height: 85%
   width: 100%
-  overflow: hidden
+  // overflow: hidden
   // display: flex
   // justify-content: center
   > div
-    padding: 70px 70px 50px 70px
+    padding: 70px 70px 0 70px
     transition: 0.4s
   @media all and (max-width: $break-lg)
     > div
-      padding: 70px 70px 60px 70px
+      padding: 70px 70px 0 70px
   @media all and (max-width: $break-md)
     > div
-      padding: 70px 40px 60px 40px
+      padding: 30px 40px 0 40px
 
 .project
-  padding: 0 0 0 25px
+  padding: 0 25px 15px 25px
   background: rgba(0, 0, 0, 0.2)
   box-sizing: border-box
   border-radius: 10px
+  transition: 0.4s
+  &:hover
+    background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(255,255,255,0.2))
+    transform: scale(1.05)
   .project-title
-    // margin: 5px 0 0 15px
     font-size: 28px
-    transition: 0.4s
+    transition: 0.4
+  .project-info
+    display: flex
+    justify-content: flex-end
+  .project-language
+    padding: 5px 10px
+    background: black
+    border-radius: 50px
   @media all and (max-width: $break-lg)
     .project-title
       font-size: 24px
   @media all and (max-width: $break-md)
     .project-title
       font-size: 20px
+
+.project-language
+  min-width: 50px
+  text-align: center
+  &.javascript
+    background: linear-gradient(to bottom left, #EBE34A, #D3C224)
+    color: #2A2A2A
+  &.python
+    background: linear-gradient(to bottom left, #6984CB, #384D9B)
+    color: #fff
+  &.swift
+    background: linear-gradient(to bottom left, #FA9576, #F35C41)
+    color: #fff
