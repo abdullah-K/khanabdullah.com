@@ -349,11 +349,7 @@ h1
 @include n-columns(300px, 40px, #{true}, 4)
 
 .projects-container
-  // height: 85%
   width: 100%
-  // overflow: hidden
-  // display: flex
-  // justify-content: center
   > div
     padding: 70px 70px 0 70px
     transition: 0.4s
@@ -368,11 +364,12 @@ h1
   padding: 0 25px 15px 25px
   background: rgba(0, 0, 0, 0.2)
   box-sizing: border-box
-  border-radius: 10px
+  border-radius: 20px
   transition: 0.4s
   &:hover
-    background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(255,255,255,0.2))
+    background: rgba(0, 0, 0, 0.3)
     transform: scale(1.05)
+    box-shadow: 0 20px 40px -20px #0e2951
   .project-title
     font-size: 28px
     transition: 0.4
@@ -381,7 +378,8 @@ h1
     justify-content: flex-end
   .project-language
     padding: 5px 10px
-    background: black
+    background: #202020
+    background: $fallback-bg
     border-radius: 50px
   @media all and (max-width: $break-lg)
     .project-title
@@ -394,11 +392,11 @@ h1
   min-width: 50px
   text-align: center
   &.javascript
-    background: linear-gradient(to bottom left, #EBE34A, #D3C224)
+    background: $javascript-bg
     color: #2A2A2A
   &.python
-    background: linear-gradient(to bottom left, #6984CB, #384D9B)
+    background: $python-bg
     color: #fff
   &.swift
-    background: linear-gradient(to bottom left, #FA9576, #F35C41)
+    background: $swift-bg
     color: #fff
