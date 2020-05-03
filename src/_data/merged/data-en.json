@@ -10,33 +10,38 @@
 	"englishSelected": true,
 	"projects": [
 		{
-			"title": "project 1",
-			"description": "Test description",
-			"description_fr": "Test description FRENCH",
+			"link": "https://github.com/abdullah-K",
+			"title": "socketChat",
+			"description": "A real-time messaging application built using Socket.IO and Express",
+			"description_fr": "Une application de chat construite avec Socket.IO et Express",
 			"language": "javascript"
 		},
 		{
-			"title": "project 2",
-			"description": "Test description",
-			"description_fr": "Test description FRENCH",
+			"link": "https://github.com/abdullah-K/face-recognition",
+			"title": "Face Recognition",
+			"description": "Python script to train a model on your face and then using it to recognize you",
+			"description_fr": "Une application Python pour entraîner un modèle sur votre visage et l'utiliser ensuite pour vous reconnaître",
 			"language": "python"
 		},
 		{
-			"title": "project 3",
-			"description": "Test description",
-			"description_fr": "Test description FRENCH",
+			"link": "https://github.com/abdullah-K/Firestore-iOS",
+			"title": "Firestore iOS",
+			"description": "Simple iOS app with Firebase authentication and Cloud Firestore storage",
+			"description_fr": "Une application iOS simple utilisant l'authentification Firebase et Cloud Firestore",
 			"language": "swift"
 		},
 		{
-			"title": "project 4",
-			"description": "Test description",
-			"description_fr": "Test description FRENCH",
+			"link": "https://codepen.io/abdullah-k/pen/vdvxJY",
+			"title": "Tangency",
+			"description": "Visualize the tangent line on any continuous function based on your mouse position",
+			"description_fr": "Affiche les tangentes pour toutes les fonctions continues en utilisant la position de votre souris",
 			"language": "javascript"
 		},
 		{
-			"title": "project 5",
-			"description": "Test description",
-			"description_fr": "Test description FRENCH",
+			"link": "https://github.com/abdullah-K/CollabCanvas",
+			"title": "CollabCanvas",
+			"description": "An online canvas application built with Socket.IO and p5.js where multiple users can draw together, in real-time",
+			"description_fr": "Une application construite avec Socket.IO et p5.js où plusieurs personnes peuvent dessiner ensemble",
 			"language": "javascript"
 		}
 	]

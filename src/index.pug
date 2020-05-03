@@ -44,12 +44,13 @@ block second
   .projects-container
     div
       for project in projects
-        .project
-          h2.project-title= project.title
-          if(englishSelected)
-            p.project-description= project.description
-          else
-            p.project-description= project.description_fr
+        a.no-cursor.project(href=project.link target="_blank" rel="noopener")
+          div
+            h2.project-title= project.title
+            if(englishSelected)
+              p.project-description= project.description
+            else
+              p.project-description= project.description_fr
           .project-info
             .project-language(class=project.language)
               span= project.language
