@@ -24,17 +24,29 @@ block landing
     .links
       .link-group
         .link.blur
-          include _layouts/icons/resume
-          a(href="/assets/resume.pdf" target="_blank").no-cursor= resumeText
+          a(href="/assets/resume.pdf" target="_blank").no-cursor
+            include _layouts/icons/resume
+            span= resumeText
         .link.blur
-          include _layouts/icons/github
-          a(target="_blank" href="https://github.com/abdullah-K" rel="noopener").no-cursor GitHub
+          a(target="_blank" href="https://github.com/abdullah-K" rel="noopener").no-cursor
+            include _layouts/icons/github
+            span GitHub
       .link.blur
-        include _layouts/icons/email
-        a(href="mailto:contact@khanabdullah.com").no-cursor contact@khanabdullah.com
+        a(href="mailto:contact@khanabdullah.com").no-cursor
+          include _layouts/icons/email
+          span contact@khanabdullah.com
 
 block second
   .upper.secondary
     .logo
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
     h1 !{projectsHeading}
+  .projects-container
+    div
+      for project in projects
+        .project
+          h2.project-title= project.title
+          if(englishSelected)
+            p.project-description= project.description
+          else
+            p.project-description= project.description_fr

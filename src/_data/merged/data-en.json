@@ -23,6 +23,16 @@
 			"title": "project 3",
 			"description": "Test description",
 			"description_fr": "Test description FRENCH"
+		},
+		{
+			"title": "project 4",
+			"description": "Test description",
+			"description_fr": "Test description FRENCH"
+		},
+		{
+			"title": "project 5",
+			"description": "Test description",
+			"description_fr": "Test description FRENCH"
 		}
 	]
 }
