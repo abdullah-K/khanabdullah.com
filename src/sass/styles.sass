@@ -64,13 +64,24 @@ h1
   100%
     opacity: 1
 
+@keyframes fadeOut
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+.fade-in
+  animation: 1s fadeIn cubic-bezier(0.32, 0, 0.67, 0)
+
+.fade-out
+  animation: 1s fadeOut cubic-bezier(0.32, 0, 0.67, 0)
+ 
 .inner-container
   z-index: 1
   position: absolute
   height: 100%
   width: 100%
   display: flex
-  animation: 3s fadeIn cubic-bezier(0.22, 1, 0.36, 1)
 
 .blur
   background: rgba(255, 255, 255, 0.25)
@@ -269,7 +280,7 @@ h1
     height: 18px
     padding: 3px
     &.french
-      left: 57px
+      left: 54px
 
 
 .logo
@@ -326,7 +337,6 @@ h1
   flex-direction: column
   justify-content: flex-start
   padding-bottom: 0
-  animation: 3s fadeIn cubic-bezier(0.22, 1, 0.36, 1)
   @media all and (max-width: $break-md)
     height: auto !important
     padding-bottom: 50px

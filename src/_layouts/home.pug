@@ -8,17 +8,17 @@ html(lang="en")
     link(rel="stylesheet", href="./css/styles.min.css")
     block head
 
-  body
+  body.fade-in
     #circle-cursor
     section.container
       .inner-container.fallback-bg
         block landing
       .skewed
-      a(href="#projects").no-cursor.smooth-scroll
+      a(href="#projects").no-cursor
         .scroll-indicator.translucent
           include icons/scroll-arrow
       .waves
-    section.container.projects-page#projects
+    section.container.projects-page
       block second
 
     script(src="./js/bundle.min.js" type="text/javascript")

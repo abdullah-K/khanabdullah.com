@@ -1,13 +1,13 @@
 extends _layouts/home
 
 block landing
-  .upper
+  .upper#home
     .logo
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
     .languages.blur
-      a(href="/").no-cursor
+      a(href="/").no-cursor.language-link
         include _layouts/icons/canada
-      a(href="/index-fr.html").no-cursor
+      a(href="/index-fr.html").no-cursor.language-link
         include _layouts/icons/france
       if(englishSelected)
         .language-selector.blur.english
@@ -38,9 +38,9 @@ block landing
 
 block second
   .upper.secondary
-    .logo
+    a(href="#home").logo.no-cursor
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
-    h1 !{projectsHeading}
+    h1#projects !{projectsHeading}
   .projects-container
     div
       for project in projects
