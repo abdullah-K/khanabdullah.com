@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
               window.location = "/"
             }
             else {
-              window.location = "/fr.html"
+              window.location = "/fr"
             }
           }
         }, 800);

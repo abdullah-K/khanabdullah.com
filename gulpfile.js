@@ -104,8 +104,15 @@ function scripts() {
 
 function watchAndServe() {
   browserSync.init({
-    server: paths.dist,
-    port: 8888
+    server: {
+      baseDir: paths.dist,
+      serveStaticOptions: {
+        "extensions": [
+          "html"
+        ]
+      }
+    },
+    port: 8888,
   })
 
   watch(paths.sass + "**/*.sass", styles)
