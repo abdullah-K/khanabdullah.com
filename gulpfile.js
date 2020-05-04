@@ -91,7 +91,7 @@ function assets() {
 
 function scripts() {
   let jsStream =
-    src([paths.scripts + "helpers.js", paths.scripts + "*.js"])
+    src(paths.scripts + "*.js")
       .pipe(babel({
         "presets": ["@babel/env"]
       }))
