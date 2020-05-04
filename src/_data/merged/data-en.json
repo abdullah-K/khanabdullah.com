@@ -10,25 +10,27 @@
 	"englishSelected": true,
 	"projects": [
 		{
-			"link": "https://github.com/abdullah-K",
+			"link": "https://khanabdullah.com/socketChat",
 			"title": "socketChat",
 			"description": "A real-time messaging application built using Socket.IO and Express",
 			"description_fr": "Une application de chat construite avec Socket.IO et Express",
-			"language": "javascript"
+			"language": "javascript",
+			"image": "socketChat.png"
 		},
 		{
-			"link": "https://github.com/abdullah-K/face-recognition",
+			"link": "https://github.com/abdullah-K/face-recognition#opencv-face-recognition",
 			"title": "Face Recognition",
 			"description": "Python script to train a model on your face and then using it to recognize you",
 			"description_fr": "Une application Python pour entraîner un modèle sur votre visage et l'utiliser ensuite pour vous reconnaître",
 			"language": "python"
 		},
 		{
-			"link": "https://github.com/abdullah-K/Firestore-iOS",
+			"link": "https://github.com/abdullah-K/Firestore-iOS#firestore-ios",
 			"title": "Firestore iOS",
 			"description": "Simple iOS app with Firebase authentication and Cloud Firestore storage",
 			"description_fr": "Une application iOS simple utilisant l'authentification Firebase et Cloud Firestore",
-			"language": "swift"
+			"language": "swift",
+			"image": "firestore_iOS.png"
 		},
 		{
 			"link": "https://codepen.io/abdullah-k/pen/vdvxJY",
@@ -38,7 +40,7 @@
 			"language": "javascript"
 		},
 		{
-			"link": "https://github.com/abdullah-K/CollabCanvas",
+			"link": "https://github.com/abdullah-K/CollabCanvas#collabcanvas",
 			"title": "CollabCanvas",
 			"description": "An online canvas application built with Socket.IO and p5.js where multiple users can draw together, in real-time",
 			"description_fr": "Une application construite avec Socket.IO et p5.js où plusieurs personnes peuvent dessiner ensemble",

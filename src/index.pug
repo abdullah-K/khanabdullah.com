@@ -54,3 +54,5 @@ block second
           .project-info
             .project-language(class=project.language)
               span= project.language
+            if(project.image)
+              img.project-image(src=`./assets/img/projects/${project.image}` height=70 width=70 loading="lazy")
