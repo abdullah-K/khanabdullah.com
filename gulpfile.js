@@ -53,7 +53,7 @@ function html(cb) {
         console.log(err.message + "\n")
         cb()
       })
-      .pipe(rename("index-en.html"))
+      .pipe(rename("index.html"))
 
   let frStream =
     src("./src/*.pug")
@@ -105,8 +105,7 @@ function scripts() {
 function watchAndServe() {
   browserSync.init({
     server: paths.dist,
-    port: 8888,
-    index: "index-en.html"
+    port: 8888
   })
 
   watch(paths.sass + "**/*.sass", styles)
