@@ -1,11 +1,11 @@
 [[redirects]]
 from = "/fr.html"
-to = “/fr”
+to = "/fr"
 status = 200
 
 [[redirects]]
 from = "/"
-to = “/fr”
+to = "/fr"
 status = 302
 force = true
-conditions = {Language = [“fr”]}
+conditions = {Language = ["fr"]}
