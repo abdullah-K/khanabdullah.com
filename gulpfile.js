@@ -65,7 +65,7 @@ function html(cb) {
         console.log(err.message + "\n")
         cb()
       })
-      .pipe(rename("index-fr.html"))
+      .pipe(rename("fr.html"))
   return streamqueue({ objectMode: true }, enStream, frStream)
     .pipe(dest(paths.dist))
 }

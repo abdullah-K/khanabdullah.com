@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
               window.location = "/"
             }
             else {
-              window.location = "/index-fr.html"
+              window.location = "/fr.html"
             }
           }
         }, 800);
