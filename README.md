@@ -3,7 +3,7 @@
 
 ![khanabdullah.com preview](./design/preview.png)
 
-🌎 v2.0 of my personal website. Built with [Pug](https://pugjs.org/api/getting-started.html), [SASS](https://sass-lang.com/), and [Gulp](https://gulpjs.com/). Deployed on [Netlify](https://www.netlify.com/).
+🌎 v2.0 of my personal website. Built with [Pug](https://github.com/pugjs/pug#pug), [SASS](https://sass-lang.com/), and [Gulp](https://gulpjs.com/). Deployed on [Netlify](https://www.netlify.com/).
 
 ## Installation
 To run the site locally:
