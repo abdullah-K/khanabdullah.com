@@ -12,6 +12,10 @@
     "url": "https://github.com/abdullah-K/khanabdullah.com/issues"
   },
   "homepage": "https://khanabdullah.com",
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp --dev",
+    "prod": "./node_modules/.bin/gulp --prod"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
