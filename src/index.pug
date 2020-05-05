@@ -1,0 +1,58 @@
+extends _layouts/home
+
+block landing
+  .upper#home
+    .logo
+      img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
+    .languages.blur
+      a(href="/").no-cursor.language-link
+        include _layouts/icons/canada
+      a(href="/fr").no-cursor.language-link
+        include _layouts/icons/france
+      if(englishSelected)
+        .language-selector.blur.english
+      else
+        .language-selector.blur.french
+
+  .lower
+    .about
+      h1.translucent= greeting
+      h1= introduction
+      p !{about}
+      p !{job}
+      p= contact
+    .links
+      .link-group
+        .link.blur
+          a(href="/assets/resume.pdf" target="_blank").no-cursor
+            include _layouts/icons/resume
+            span= resumeText
+        .link.blur
+          a(target="_blank" href="https://github.com/abdullah-K" rel="noopener").no-cursor
+            include _layouts/icons/github
+            span GitHub
+      .link.blur
+        a(href="mailto:contact@khanabdullah.com").no-cursor
+          include _layouts/icons/email
+          span contact@khanabdullah.com
+
+block second
+  .upper.secondary
+    a(href="#home").logo.no-cursor
+      img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
+    h1#projects !{projectsHeading}
+  .projects-container
+    div
+      for project in projects
+        a.no-cursor.project(href=project.link target="_blank" rel="noopener")
+          div
+            h2.project-title= project.title
+            if(englishSelected)
+              p.project-description= project.description
+            else
+              p.project-description= project.description_fr
+          .project-info
+            .project-language(class=project.language)
+              span= project.language
+            if(project.image)
+              img.project-image(src=`./assets/img/projects/${project.image}` height=70 width=70 loading="lazy")

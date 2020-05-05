@@ -1,0 +1,11 @@
+{
+  "title": "Abdullah F. Khan",
+  "greeting": "Salut,",
+  "introduction": "Je m'appelle Abdullah",
+  "about": "Développeur full stack,<br/>designer par hobby",
+  "job": "Je travaille actuellement chez <a target=\"_blank\" href=\"https://royaltymine.com\"rel=\"noopener\" class=\"company no-cursor\">Royaltymine</a>",
+  "projectsHeading": "<span class=\"translucent\">Certain de</span> mes projets",
+  "contact": "Vous avez un projet? Écrivez-moi",
+  "resumeText": "CV",
+  "englishSelected": false
+}

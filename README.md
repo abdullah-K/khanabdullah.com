@@ -1,12 +1,23 @@
 # [khanabdullah.com](https://khanabdullah.com)
-🌎 This is everything that makes my personal website work. Feel free to check it out!
+[![Netlify Status](https://api.netlify.com/api/v1/badges/baa7cb77-fae5-4285-9055-dc0f157430bc/deploy-status)](https://app.netlify.com/sites/khanabdullah/deploys)
 
-![Website demo image](demo.png)
+![khanabdullah.com preview](./design/preview.png)
 
-## Run
-If you'd like to run this website locally:
-- `git clone https://github.com/abdullah-K/khanabdullah.com` to somewhere on your local machine.
-- run `npm install` and let it do its thing.
-- run `gulp`.
-- run `NODE_ENV=production node index.js` and visit [localhost:8080](http://localhost:8080).
-- marvel at the sight you behold.
+🌎 v2.0 of my personal website. Built with [Pug](https://github.com/pugjs/pug#pug), [SASS](https://sass-lang.com/), and [Gulp](https://gulpjs.com/). Deployed on [Netlify](https://www.netlify.com/).
+
+## Installation
+To run the site locally:
+- `git clone https://github.com/abdullah-K/khanabdullah.com`
+- `yarn install`
+- `yarn dev`
+
+To produce the dist/ folder without watching files, run:
+- `yarn prod`
+
+## Version 1
+[khanabdullah.com v1.0](https://github.com/abdullah-K/khanabdullah.com/tree/v1)
+
+## Thanks
+[Icons8](https://icons8.com)
+
+[Vanta.js](https://www.vantajs.com/)
