@@ -44,7 +44,7 @@ function json(cb) {
 
 function html(cb) {
   let enStream =
-    src("./src/*.pug")
+    src(paths.src + "*.pug")
       .pipe(data((file) => {
         return JSON.parse(fs.readFileSync(paths.data + "merged/data-en.json"))
       }))
@@ -56,7 +56,7 @@ function html(cb) {
       .pipe(rename("index.html"))
 
   let frStream =
-    src("./src/*.pug")
+    src(paths.src + "*.pug")
       .pipe(data((file) => {
         return JSON.parse(fs.readFileSync(paths.data + "merged/data-fr.json"))
       }))
@@ -66,7 +66,17 @@ function html(cb) {
         cb()
       })
       .pipe(rename("fr.html"))
-  return streamqueue({ objectMode: true }, enStream, frStream)
+
+  let errorStream =
+    src(paths.src + "_layouts/errors/*.pug")
+      .pipe(pug())
+      .on("error", (err) => {
+        console.log(err.message + "\n")
+        cb()
+      })
+      .pipe(rename("404.html"))
+
+  return streamqueue({ objectMode: true }, enStream, frStream, errorStream)
     .pipe(dest(paths.dist))
 }
 
@@ -113,6 +123,16 @@ function watchAndServe() {
       }
     },
     port: 8888,
+    callbacks: {
+      ready: (err, bs) => {
+        bs.addMiddleware("*", (req, res) => {
+          res.writeHead(302, {
+            location: "404"
+          })
+          res.end("Redirecting")
+        })
+      }
+    }
   })
 
   watch(paths.sass + "**/*.sass", styles)
