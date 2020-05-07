@@ -127,7 +127,7 @@ function watchAndServe() {
       ready: (err, bs) => {
         bs.addMiddleware("*", (req, res) => {
           res.writeHead(302, {
-            location: "404"
+            location: "/404"
           })
           res.end("Redirecting")
         })
