@@ -10,7 +10,7 @@
 	"englishSelected": true,
 	"projects": [
 		{
-			"link": "https://khanabdullah.com/socketChat",
+			"link": "https://socketchat0.herokuapp.com/",
 			"title": "socketChat",
 			"description": "A real-time messaging application built using Socket.IO and Express",
 			"description_fr": "Une application de chat construite avec Socket.IO et Express",
