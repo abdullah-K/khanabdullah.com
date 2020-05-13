@@ -21,3 +21,9 @@ from = "/socketchat"
 to = "https://socketchat0.herokuapp.com/"
 status = 301
 force = true
+
+[[redirects]]
+from = "/zipper"
+to = "https://uofczipper.netlify.app/"
+status = 200
+force = true
