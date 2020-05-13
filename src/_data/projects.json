@@ -36,6 +36,13 @@
       "description": "An online canvas application built with Socket.IO and p5.js where multiple users can draw together, in real-time",
       "description_fr": "Une application construite avec Socket.IO et p5.js où plusieurs personnes peuvent dessiner ensemble",
       "language": "javascript"
+    },
+    {
+      "link": "https://khanabdullah.com/zipper",
+      "title": "Zipper",
+      "description": "A virtual version of the iconic zipper at the University of Calgary",
+      "description_fr": "Une version virtuelle d'une sculpture iconique de l'Université de Calgary",
+      "language": "javascript"
     }
   ]
 }
