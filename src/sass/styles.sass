@@ -118,6 +118,8 @@ h1
   justify-content: space-between
   padding-bottom: 100px
   transition: 0.4s
+  @media all and (max-height: 595px) and (orientation: landscape)
+    padding-bottom: 80px
   @media all and (max-width: $break-lg)
     flex-direction: column
     padding-bottom: 110px
@@ -158,6 +160,13 @@ h1
       font-size: 24px
     > p
       font-size: 14px
+  @media all and (max-height: 595px) and (orientation: landscape)
+    padding-right: 30px
+    > h1
+      font-size: 34px
+    > p
+      font-size: 18px
+      margin: 10px 0
 
 .links
   padding-right: 70px
@@ -233,6 +242,8 @@ h1
   align-items: center
   padding-top: 60px
   transition: 0.4s
+  @media all and (max-height: 595px) and (orientation: landscape)
+    padding-top: 30px
   @media all and (max-width: $break-md)
     padding-top: 50px
   @media all and (max-width: $break-sm)
@@ -304,7 +315,6 @@ h1
     &.french
       left: 54px
 
-
 .logo
   align-self: flex-start
   margin-left: 70px
@@ -316,6 +326,10 @@ h1
     width: 82px
     &:hover
       animation: color-switch 0.7s linear forwards infinite
+  @media all and (max-height: 595px) and (orientation: landscape)
+    > img
+      height: 70px
+      width: 70px
   @media all and (max-width: $break-lg)
     > img
       height: 75px
@@ -392,6 +406,7 @@ h1
   > div
     padding: 70px 70px 0 70px
     transition: 0.4s
+    margin-bottom: 30px
   @media all and (max-width: $break-lg)
     > div
       padding: 70px 70px 0 70px
