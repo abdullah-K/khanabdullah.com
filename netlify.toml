@@ -9,3 +9,21 @@ to = "/fr"
 status = 302
 force = true
 conditions = {Language = ["fr"]}
+
+[[redirects]]
+from = "/socketChat"
+to = "https://socketchat0.herokuapp.com/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/socketchat"
+to = "https://socketchat0.herokuapp.com/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/zipper"
+to = "https://uofczipper.netlify.app/"
+status = 200
+force = true

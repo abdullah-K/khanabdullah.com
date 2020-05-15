@@ -31,7 +31,7 @@ window.addEventListener("mousemove", (e) => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-  setInterval(move, 500 / 60)
+  setInterval(move, 350 / 60)
 })
 
 function move() {
