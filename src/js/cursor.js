@@ -1,4 +1,4 @@
-const LERP_DISABLED = true
+const LERP_ENABLED = false
 
 let mouseX = window.innerWidth / 2,
   mouseY = window.innerHeight / 2
@@ -33,7 +33,7 @@ window.addEventListener("mousemove", (e) => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-  setInterval(move, LERP_DISABLED ? (350 / 60) : 0)
+  setInterval(move, LERP_ENABLED ? (350 / 60) : 0)
 })
 
 function move() {
