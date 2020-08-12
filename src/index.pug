@@ -5,9 +5,9 @@ block landing
     .logo
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
     .languages.blur
-      a(href="/").no-cursor.language-link
+      a(href="/" ondragstart="return false;").language-link
         include _layouts/icons/canada
-      a(href="/fr").no-cursor.language-link
+      a(href="/fr" ondragstart="return false;").language-link
         include _layouts/icons/france
       if(englishSelected)
         .language-selector.blur.english
@@ -24,27 +24,27 @@ block landing
     .links
       .link-group
         .link.blur
-          a(href="/assets/resume.pdf" target="_blank").no-cursor
+          a(href="/assets/resume.pdf" target="_blank")
             include _layouts/icons/resume
             span= resumeText
         .link.blur
-          a(target="_blank" href="https://github.com/abdullah-K" rel="noopener").no-cursor
+          a(target="_blank" href="https://github.com/abdullah-K" rel="noopener")
             include _layouts/icons/github
             span GitHub
       .link.blur
-        a(href="mailto:contact@khanabdullah.com").no-cursor
+        a(href="mailto:contact@khanabdullah.com")
           include _layouts/icons/email
           span contact@khanabdullah.com
 
 block second
   .upper.secondary
-    a(href="#home").logo.no-cursor
+    a(href="#home").logo
       img(alt="Abdullah's logo" src="./assets/img/logo.png" height="96" width="96")
     h1#projects !{projectsHeading}
   .projects-container
     div
       for project in projects
-        a.no-cursor.project(href=project.link target="_blank" rel="noopener")
+        a.project(href=project.link target="_blank" rel="noopener")
           div
             h2.project-title= project.title
             if(englishSelected)
