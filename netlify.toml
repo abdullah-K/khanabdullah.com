@@ -4,13 +4,6 @@ to = "/fr"
 status = 200
 
 [[redirects]]
-from = "/"
-to = "/fr"
-status = 302
-force = true
-conditions = {Language = ["fr"]}
-
-[[redirects]]
 from = "/socketChat"
 to = "https://socketchat0.herokuapp.com/"
 status = 301
@@ -25,5 +18,11 @@ force = true
 [[redirects]]
 from = "/zipper"
 to = "https://uofczipper.netlify.app/"
+status = 200
+force = true
+
+[[redirects]]
+from = "/resume"
+to = "https://khanabdullah.com/assets/resume.pdf"
 status = 200
 force = true
