@@ -10,3 +10,5 @@ node_modules/
 
 # build folder
 dist/
+
+src/_data/merged/
