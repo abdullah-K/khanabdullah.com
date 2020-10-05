@@ -3,7 +3,7 @@
 	"greeting": "Hello,",
 	"introduction": "I'm Abdullah",
 	"about": "I am a full-stack developer by profession,<br/>UX/UI designer by hobby",
-	"job": "Currently, I'm helping artists at <a target=\"_blank\" href=\"https://royaltymine.com\"rel=\"noopener\" class=\"company no-cursor\">Royaltymine</a>",
+	"job": "",
 	"projectsHeading": "<span class=\"translucent\">Some of</span> my projects",
 	"contact": "Got a project in mind? Let’s talk",
 	"resumeText": "Resume",
