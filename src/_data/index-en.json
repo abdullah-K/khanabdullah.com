@@ -3,9 +3,9 @@
 	"greeting": "Hello,",
 	"introduction": "I'm Abdullah",
 	"about": "I am a full-stack developer by profession,<br/>UX/UI designer by hobby",
-	"job": "",
+	"job": "Currently I'm working at <a href=\"https://vidday.com\" rel=\"noopener\" target=\"_blank\" class=\"company\">VidDay</a>, where our<br/>mission is to make a billion people smile!",
 	"projectsHeading": "<span class=\"translucent\">Some of</span> my projects",
-	"contact": "Got a project in mind? Let’s talk",
+	"contact": "Feel free to email me and get in touch :)",
 	"resumeText": "Resume",
 	"englishSelected": true
 }
