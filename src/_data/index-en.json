@@ -1,8 +1,9 @@
 {
 	"title": "Abdullah F. Khan",
-	"greeting": "Hello,",
+	"greeting": "Hey,",
 	"introduction": "I'm Abdullah",
 	"about": "I am a full-stack developer by profession,<br/>UX/UI designer by hobby",
+	"company": "I co-founded <a href=\"https://applyd.io\" rel=\"noopener\" target=\"_blank\" class=\"applyd\">Applyd</a> to make applying<br/>for jobs online easier.",
 	"job": "Currently I'm working at <a href=\"https://vidday.com\" rel=\"noopener\" target=\"_blank\" class=\"company\">VidDay</a>, where our<br/>mission is to make a billion people smile!",
 	"projectsHeading": "<span class=\"translucent\">Some of</span> my projects",
 	"contact": "Feel free to email me and get in touch :)",
